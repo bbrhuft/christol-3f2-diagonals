@@ -1,0 +1,305 @@
+\begin{thebibliography}{46}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abdelaziz et~al.(2020)Abdelaziz, Koutschan, and
+  Maillard]{AbdelazizKoutschanMaillard2020}
+Youssef Abdelaziz, Christoph Koutschan, and Jean-Marie Maillard.
+\newblock On {C}hristol's conjecture.
+\newblock \emph{Journal of Physics A: Mathematical and Theoretical},
+  53\penalty0 (20):\penalty0 205201, 2020.
+\newblock arXiv:1912.10259.
+
+\bibitem[Andr{\'e}(1989)]{Andre1989}
+Yves Andr{\'e}.
+\newblock \emph{{$G$}-functions and Geometry}, volume E13 of \emph{Aspects of
+  Mathematics}.
+\newblock Friedr. Vieweg \& Sohn, Braunschweig, 1989.
+
+\bibitem[Archinard(2003)]{Archinard2003}
+Nat{\'a}lia Archinard.
+\newblock Hypergeometric abelian varieties.
+\newblock \emph{Canadian Journal of Mathematics}, 55\penalty0 (5):\penalty0
+  897--932, 2003.
+
+\bibitem[Artin(1969)]{Artin1969}
+Michael Artin.
+\newblock Algebraic approximation of structures over complete local rings.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 36:\penalty0
+  23--58, 1969.
+
+\bibitem[Beukers and Heckman(1989)]{BeukersHeckman1989}
+Frits Beukers and Gert Heckman.
+\newblock Monodromy for the hypergeometric function {${}_nF_{n-1}$}.
+\newblock \emph{Inventiones Mathematicae}, 95\penalty0 (2):\penalty0 325--354,
+  1989.
+
+\bibitem[Bostan and Yurkevich(2022)]{BostanYurkevich2022}
+Alin Bostan and Sergey Yurkevich.
+\newblock On a class of hypergeometric diagonals.
+\newblock \emph{Proceedings of the American Mathematical Society}, 150\penalty0
+  (3):\penalty0 1071--1087, 2022.
+\newblock arXiv:2008.12809.
+
+\bibitem[Bostan et~al.(2013)Bostan, Boukraa, Christol, Hassani, and
+  Maillard]{BostanEtAl2013}
+Alin Bostan, Salah Boukraa, Gilles Christol, Saoud Hassani, and Jean-Marie
+  Maillard.
+\newblock Ising $n$-fold integrals as diagonals of rational functions and
+  integrality of series expansions.
+\newblock \emph{Journal of Physics A: Mathematical and Theoretical},
+  46\penalty0 (18):\penalty0 185202, 2013.
+\newblock \doi{10.1088/1751-8113/46/18/185202}.
+\newblock Unabridged version: arXiv:1211.6031.
+
+\bibitem[Caruso and F{\"u}rnsinn(2026{\natexlab{a}})]{CarusoFurnsinn2026a}
+Xavier Caruso and Florian F{\"u}rnsinn.
+\newblock Algorithms for algebraic and arithmetic attributes of hypergeometric
+  functions, 2026{\natexlab{a}}.
+\newblock arXiv:2601.16105; ISSAC '26.
+
+\bibitem[Caruso and F{\"u}rnsinn(2026{\natexlab{b}})]{CarusoFurnsinn2026b}
+Xavier Caruso and Florian F{\"u}rnsinn.
+\newblock Algebraic and arithmetic attributes of hypergeometric functions in
+  {SageMath}, 2026{\natexlab{b}}.
+\newblock arXiv:2602.04531.
+
+\bibitem[Christol(1984/85)]{Christol1985}
+Gilles Christol.
+\newblock Diagonales de fractions rationnelles et {\'e}quations de
+  {P}icard--{F}uchs.
+\newblock \emph{Groupe de travail d'analyse ultram{\'e}trique}, 12, 1984/85.
+\newblock Expos{\'e} no.~13, 12~pp.
+
+\bibitem[Christol(1986/87)]{Christol1987}
+Gilles Christol.
+\newblock Fonctions hyperg{\'e}om{\'e}triques born{\'e}es.
+\newblock \emph{Groupe de travail d'analyse ultram{\'e}trique}, 14, 1986/87.
+\newblock Expos{\'e} no.~8, 16~pp.
+
+\bibitem[Christol(1990)]{Christol1990}
+Gilles Christol.
+\newblock Globally bounded solutions of differential equations.
+\newblock In \emph{Analytic Number Theory (Tokyo, 1988)}, volume 1434 of
+  \emph{Lecture Notes in Mathematics}, pages 45--64. Springer, Berlin, 1990.
+
+\bibitem[Christol(2015)]{Christol2015}
+Gilles Christol.
+\newblock Diagonals of rational fractions.
+\newblock \emph{European Mathematical Society Newsletter}, 97:\penalty0 37--43,
+  2015.
+
+\bibitem[Clemens(1977)]{Clemens1977}
+C.~Herbert Clemens.
+\newblock Degeneration of {K}{\"a}hler manifolds.
+\newblock \emph{Duke Mathematical Journal}, 44\penalty0 (2):\penalty0 215--290,
+  1977.
+
+\bibitem[Deligne(1970)]{Deligne1970}
+Pierre Deligne.
+\newblock \emph{{\'E}quations diff{\'e}rentielles {\`a} points singuliers
+  r{\'e}guliers}, volume 163 of \emph{Lecture Notes in Mathematics}.
+\newblock Springer, Berlin, 1970.
+
+\bibitem[Deligne(1971)]{Deligne1971}
+Pierre Deligne.
+\newblock Th{\'e}orie de {H}odge. {II}.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 40:\penalty0
+  5--57, 1971.
+
+\bibitem[Deligne(1984)]{Deligne1984}
+Pierre Deligne.
+\newblock Int{\'e}gration sur un cycle {\'e}vanescent.
+\newblock \emph{Inventiones Mathematicae}, 76\penalty0 (1):\penalty0 129--143,
+  1984.
+
+\bibitem[Deligne(1987)]{Deligne1987}
+Pierre Deligne.
+\newblock Un th{\'e}or{\`e}me de finitude pour la monodromie.
+\newblock In \emph{Discrete Groups in Geometry and Analysis (New Haven, 1984)},
+  volume~67 of \emph{Progress in Mathematics}, pages 1--19. Birkh{\"a}user,
+  Boston, 1987.
+
+\bibitem[Deligne and Katz(1973)]{DeligneKatz1973}
+Pierre Deligne and Nicholas~M. Katz.
+\newblock \emph{Groupes de monodromie en g{\'e}om{\'e}trie alg{\'e}brique
+  ({SGA}~7 {II})}, volume 340 of \emph{Lecture Notes in Mathematics}.
+\newblock Springer, Berlin, 1973.
+
+\bibitem[Deligne and Mumford(1969)]{DeligneMumford1969}
+Pierre Deligne and David Mumford.
+\newblock The irreducibility of the space of curves of given genus.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 36:\penalty0
+  75--109, 1969.
+
+\bibitem[Denef and Lipshitz(1987)]{DenefLipshitz1987}
+Jan Denef and Leonard Lipshitz.
+\newblock Algebraic power series and diagonals.
+\newblock \emph{Journal of Number Theory}, 26\penalty0 (1):\penalty0 46--67,
+  1987.
+
+\bibitem[Dettweiler and Sabbah(2013)]{DettweilerSabbah2013}
+Michael Dettweiler and Claude Sabbah.
+\newblock Hodge theory of the middle convolution.
+\newblock \emph{Publications of the Research Institute for Mathematical
+  Sciences}, 49\penalty0 (4):\penalty0 761--800, 2013.
+
+\bibitem[Ehresmann(1951)]{Ehresmann1950}
+Charles Ehresmann.
+\newblock Les connexions infinit{\'e}simales dans un espace fibr{\'e}
+  diff{\'e}rentiable.
+\newblock In \emph{Colloque de topologie (espaces fibr{\'e}s), Bruxelles,
+  1950}, pages 29--55. Georges Thone, Li{\`e}ge; Masson, Paris, 1951.
+
+\bibitem[Fedorov(2018)]{Fedorov2018}
+Roman Fedorov.
+\newblock Variations of {H}odge structures for hypergeometric differential
+  operators and parabolic {H}iggs bundles.
+\newblock \emph{International Mathematics Research Notices}, 2018\penalty0
+  (18):\penalty0 5583--5608, 2018.
+\newblock arXiv:1505.01704.
+
+\bibitem[F{\"u}rnsinn and Yurkevich(2024)]{FurnsinnYurkevich2024}
+Florian F{\"u}rnsinn and Sergey Yurkevich.
+\newblock Algebraicity of hypergeometric functions with arbitrary parameters.
+\newblock \emph{Bulletin of the London Mathematical Society}, 2024.
+\newblock arXiv:2308.12855.
+
+\bibitem[Furstenberg(1967)]{Furstenberg1967}
+Harry Furstenberg.
+\newblock Algebraic functions over finite fields.
+\newblock \emph{Journal of Algebra}, 7\penalty0 (2):\penalty0 271--277, 1967.
+
+\bibitem[Graham et~al.(1994)Graham, Knuth, and
+  Patashnik]{GrahamKnuthPatashnik1994}
+Ronald~L. Graham, Donald~E. Knuth, and Oren Patashnik.
+\newblock \emph{Concrete Mathematics}.
+\newblock Addison-Wesley, Reading, MA, second edition, 1994.
+
+\bibitem[Grothendieck(1966{\natexlab{a}})]{EGAIV3}
+Alexander Grothendieck.
+\newblock {\'E}l{\'e}ments de g{\'e}om{\'e}trie alg{\'e}brique {IV}.
+  {{\'E}tude} locale des sch{\'e}mas et des morphismes de sch{\'e}mas,
+  troisi{\`e}me partie.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 28,
+  1966{\natexlab{a}}.
+\newblock R{\'e}dig{\'e}s avec la collaboration de J. Dieudonn{\'e}.
+
+\bibitem[Grothendieck(1966{\natexlab{b}})]{Grothendieck1966}
+Alexander Grothendieck.
+\newblock On the de {R}ham cohomology of algebraic varieties.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 29:\penalty0
+  95--103, 1966{\natexlab{b}}.
+
+\bibitem[Grothendieck(1967)]{EGAIV4}
+Alexander Grothendieck.
+\newblock {\'E}l{\'e}ments de g{\'e}om{\'e}trie alg{\'e}brique {IV}.
+  {{\'E}tude} locale des sch{\'e}mas et des morphismes de sch{\'e}mas,
+  quatri{\`e}me partie.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 32, 1967.
+\newblock R{\'e}dig{\'e}s avec la collaboration de J. Dieudonn{\'e}.
+
+\bibitem[Grothendieck(1972)]{SGA7I}
+Alexander Grothendieck.
+\newblock Mod{\`e}les de {N}{\'e}ron et monodromie.
+\newblock In \emph{Groupes de monodromie en g{\'e}om{\'e}trie alg{\'e}brique
+  ({SGA}~7 {I})}, volume 288 of \emph{Lecture Notes in Mathematics}. Springer,
+  Berlin, 1972.
+\newblock Expos{\'e} {IX}.
+
+\bibitem[Harder and Kramer-Miller(2026)]{HarderKramerMiller2026}
+Andrew Harder and Joe Kramer-Miller.
+\newblock The diagonal and {H}adamard grade of hypergeometric functions.
+\newblock \emph{International Mathematics Research Notices}, 2026.
+\newblock arXiv:2504.10354.
+
+\bibitem[Hassani et~al.(2025)Hassani, Maillard, and
+  Zenine]{HassaniMaillardZenine2025}
+Saoud Hassani, Jean-Marie Maillard, and Nadjah Zenine.
+\newblock On the diagonals of rational functions: the minimal number of
+  variables, 2025.
+\newblock arXiv:2502.05543.
+
+\bibitem[Jouanolou(1983)]{Jouanolou1983}
+Jean-Pierre Jouanolou.
+\newblock \emph{Th{\'e}or{\`e}mes de {B}ertini et applications}, volume~42 of
+  \emph{Progress in Mathematics}.
+\newblock Birkh{\"a}user, Boston, 1983.
+
+\bibitem[Katz(1970)]{Katz1970}
+Nicholas~M. Katz.
+\newblock Nilpotent connections and the monodromy theorem: applications of a
+  result of {T}urrittin.
+\newblock \emph{Publications Math{\'e}matiques de l'IH{\'E}S}, 39:\penalty0
+  175--232, 1970.
+
+\bibitem[Katz(1996)]{Katz1996}
+Nicholas~M. Katz.
+\newblock \emph{Rigid Local Systems}, volume 139 of \emph{Annals of Mathematics
+  Studies}.
+\newblock Princeton University Press, Princeton, NJ, 1996.
+
+\bibitem[Kelly and Voight(2024)]{KellyVoight2024}
+Tyler~L. Kelly and John Voight.
+\newblock Hypergeometric motives from {E}uler integral representations, 2024.
+\newblock arXiv:2412.03257.
+
+\bibitem[Lazarsfeld(2004)]{Lazarsfeld2004}
+Robert Lazarsfeld.
+\newblock \emph{Positivity in Algebraic Geometry {I}}, volume~48 of
+  \emph{Ergebnisse der Mathematik und ihrer Grenzgebiete. 3. Folge}.
+\newblock Springer, Berlin, 2004.
+
+\bibitem[Lipshitz(1988)]{Lipshitz1988}
+Leonard Lipshitz.
+\newblock The diagonal of a {D}-finite power series is {D}-finite.
+\newblock \emph{Journal of Algebra}, 113\penalty0 (2):\penalty0 373--378, 1988.
+
+\bibitem[Liu(2002)]{Liu2002}
+Qing Liu.
+\newblock \emph{Algebraic Geometry and Arithmetic Curves}, volume~6 of
+  \emph{Oxford Graduate Texts in Mathematics}.
+\newblock Oxford University Press, Oxford, 2002.
+
+\bibitem[Milne(2013)]{Milne2013}
+James~S. Milne.
+\newblock Shimura varieties and moduli.
+\newblock In \emph{Handbook of Moduli. {V}ol. {II}}, volume~25 of
+  \emph{Advanced Lectures in Mathematics}, pages 467--548. International Press,
+  Somerville, MA, 2013.
+\newblock Theorem numbers cited here refer to arXiv:1105.0887v1 (2011).
+
+\bibitem[P{\'o}lya(1922)]{Polya1922}
+George P{\'o}lya.
+\newblock Sur les s{\'e}ries enti{\`e}res, dont la somme est une fonction
+  alg{\'e}brique.
+\newblock \emph{L'Enseignement Math{\'e}matique}, 22:\penalty0 38--47, 1922.
+
+\bibitem[Simpson(1988)]{Simpson1988}
+Carlos~T. Simpson.
+\newblock Constructing variations of {H}odge structure using {Y}ang--{M}ills
+  theory and applications to uniformization.
+\newblock \emph{Journal of the American Mathematical Society}, 1\penalty0
+  (4):\penalty0 867--918, 1988.
+
+\bibitem[Simpson(1990)]{Simpson1990}
+Carlos~T. Simpson.
+\newblock Harmonic bundles on noncompact curves.
+\newblock \emph{Journal of the American Mathematical Society}, 3\penalty0
+  (3):\penalty0 713--770, 1990.
+
+\bibitem[van Geemen(2001)]{vanGeemen2001}
+Bert van Geemen.
+\newblock Half twists of {H}odge structures of {CM}-type.
+\newblock \emph{Journal of the Mathematical Society of Japan}, 53\penalty0
+  (4):\penalty0 813--833, 2001.
+
+\bibitem[van Geemen and Izadi(2002)]{vanGeemenIzadi2002}
+Bert van Geemen and Elham Izadi.
+\newblock Half twists and the cohomology of hypersurfaces.
+\newblock \emph{Mathematische Zeitschrift}, 242:\penalty0 279--301, 2002.
+
+\end{thebibliography}

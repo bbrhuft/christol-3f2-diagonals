@@ -1,0 +1,243 @@
+{
+ "A": [
+  [
+   "0",
+   "0",
+   "z"
+  ],
+  [
+   "1",
+   "0",
+   "z^3 - z^5"
+  ],
+  [
+   "0",
+   "1",
+   "z + z^4 + z^5"
+  ]
+ ],
+ "B": [
+  [
+   "0",
+   "0",
+   "z^3"
+  ],
+  [
+   "1",
+   "0",
+   "-1 - 2*z^3"
+  ],
+  [
+   "0",
+   "1",
+   "2 + z^3"
+  ]
+ ],
+ "entries_of_A_B_and_inverses_in_Z[zeta]": true,
+ "product_relation_Minf*M1*M0_is_identity": true,
+ "M0_minimal_poly_is_(t-1)^2(t-e(-1/3))": true,
+ "rank(M0-1)": 2,
+ "M0^3_unipotent_(M0^3-1)^2=0": true,
+ "rank(M0^3-1)": 1,
+ "rank(M1-1)": 1,
+ "det(M1)": "z^2",
+ "det(M1)_equals_e(2/9)": true,
+ "M1^9_is_identity": true,
+ "Minf^9_is_identity": true,
+ "no_common_eigenvalue_of_A_and_B": true,
+ "dim_K_of_invariant_sesquilinear_forms": 1,
+ "h": [
+  [
+   "1",
+   "2*z + z^2 - z^3 + 2*z^5",
+   "-1 + 3*z + 2*z^2 - 3*z^3 + 3*z^5"
+  ],
+  [
+   "1 - z - 2*z^2 + z^3 + z^4 - 2*z^5",
+   "1",
+   "2*z + z^2 - z^3 + 2*z^5"
+  ],
+  [
+   "2 - 2*z - 3*z^2 + 3*z^3 + z^4 - 3*z^5",
+   "1 - z - 2*z^2 + z^3 + z^4 - 2*z^5",
+   "1"
+  ]
+ ],
+ "h_is_hermitian": true,
+ "h_invariant_under_A_and_B": true,
+ "det(h)": "15 + 12*z - 12*z^2 + 18*z^4 + 6*z^5",
+ "det(h)_nonzero": true,
+ "det(h)_real": true,
+ "signatures": {
+  "1": {
+   "minor_signs": [
+    1,
+    1,
+    -1
+   ],
+   "signature_(pos,neg)": [
+    2,
+    1
+   ],
+   "minors_approx": [
+    1.0,
+    0.37463750138475377,
+    -0.443867713437229
+   ]
+  },
+  "2": {
+   "minor_signs": [
+    1,
+    -1,
+    1
+   ],
+   "signature_(pos,neg)": [
+    1,
+    2
+   ],
+   "minors_approx": [
+    1.0,
+    -20.99319286657295,
+    46.74515621628954
+   ]
+  },
+  "4": {
+   "minor_signs": [
+    1,
+    -1,
+    -1
+   ],
+   "signature_(pos,neg)": [
+    2,
+    1
+   ],
+   "minors_approx": [
+    1.0,
+    -0.38144463481180174,
+    -1.3012885028523087
+   ]
+  },
+  "5": {
+   "minor_signs": [
+    1,
+    -1,
+    -1
+   ],
+   "signature_(pos,neg)": [
+    2,
+    1
+   ],
+   "minors_approx": [
+    1.0,
+    -0.38144463481180174,
+    -1.3012885028523087
+   ]
+  },
+  "7": {
+   "minor_signs": [
+    1,
+    -1,
+    1
+   ],
+   "signature_(pos,neg)": [
+    1,
+    2
+   ],
+   "minors_approx": [
+    1.0,
+    -20.99319286657295,
+    46.74515621628954
+   ]
+  },
+  "8": {
+   "minor_signs": [
+    1,
+    1,
+    -1
+   ],
+   "signature_(pos,neg)": [
+    2,
+    1
+   ],
+   "minors_approx": [
+    1.0,
+    0.37463750138475377,
+    -0.443867713437229
+   ]
+  }
+ },
+ "all_places_indefinite_with_|p-q|=1": true,
+ "generator_v_of_Im(M0^3-1)": [
+  "1 - z^3",
+  "1 + 2*z^3",
+  "-2 - z^3"
+ ],
+ "h(v,v)": "0",
+ "Im(M0^3-1)_isotropic": true,
+ "Im(M0^3-1)_fixed_by_M0": true,
+ "sign_patterns_eta=(a,b,c)": {
+  "+++": [
+   -1,
+   2,
+   3
+  ],
+  "++-": [
+   -1,
+   3,
+   0
+  ],
+  "+-+": [
+   -3,
+   -2,
+   3
+  ],
+  "+--": [
+   -3,
+   1,
+   1
+  ],
+  "-++": [
+   1,
+   -3,
+   1
+  ],
+  "-+-": [
+   0,
+   1,
+   -2
+  ],
+  "--+": [
+   -3,
+   -3,
+   0
+  ],
+  "---": [
+   -3,
+   -3,
+   -3
+  ]
+ },
+ "all_8_sign_patterns_realised": true,
+ "xi0_anti-invariant": true,
+ "psi_integral_on_Z[zeta]^3": true,
+ "psi_alternating": true,
+ "det_Gram(psi)": "150094635296999121",
+ "psi_nondegenerate": true,
+ "psi_invariant_under_A_and_B": true,
+ "eta_sign_pattern_if_top_rank_1_at_k=1,4,7": "---",
+ "eta_sign_pattern_if_top_rank_2_at_k=1,4,7": "+++",
+ "explicit_eta_for_each_convention": [
+  [
+   -3,
+   -3,
+   -3
+  ],
+  [
+   -1,
+   2,
+   3
+  ]
+ ],
+ "required_signs_uniform_so_plus_or_minus_psi0_is_a_polarization": true,
+ "all_checks_pass": true
+}

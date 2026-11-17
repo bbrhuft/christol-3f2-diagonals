@@ -1,0 +1,44 @@
+{
+ "legendre_node_diagonal_equals_2F1(1/2,1/2;1;x)_n<=60": true,
+ "legendre_contour_illustration_float": {
+  "x": 0.3,
+  "contour_value": 1.0910959103627829,
+  "2F1": 1.0910959103627813,
+  "abs_difference": 1.554313650973331e-15
+ },
+ "AKM_series_as_two_variable_algebraic_diagonals": {
+  "r=1/3": {
+   "three_variable_diagonal_equals_3F2(27x)": true,
+   "two_variable_diagonal_equals_3F2(27x)": true,
+   "phi_equals_B^(-r)/sqrt(1-4s)": true,
+   "polynomial_equation": "Z^2 + (2s-1) Z + s^2 = 0 with Z = phi^6 (1-4s)^3",
+   "polynomial_equation_holds_to_order_60": true,
+   "first_coefficients_of_phi": [
+    "1",
+    "5/3",
+    "44/9",
+    "1309/81",
+    "13685/243"
+   ]
+  },
+  "r=2/3": {
+   "three_variable_diagonal_equals_3F2(27x)": true,
+   "two_variable_diagonal_equals_3F2(27x)": true,
+   "phi_equals_B^(-r)/sqrt(1-4s)": true,
+   "polynomial_equation": "Z (1-2s)^2 - (Z + s^2)^2 = 0 with Z = phi^6 (1-4s)^3",
+   "polynomial_equation_holds_to_order_60": true,
+   "first_coefficients_of_phi": [
+    "1",
+    "4/3",
+    "35/9",
+    "1040/81",
+    "10868/243"
+   ]
+  }
+ },
+ "closed_form_of_Fedorov_rho_for_3F2(a;b,1)": {
+  "parameter_sets": 54264,
+  "failures": 0
+ },
+ "all_checks_pass": true
+}
