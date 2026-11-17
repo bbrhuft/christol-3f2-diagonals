@@ -4,10 +4,18 @@
 A2: (1-L1)^al (1-L2)^be,            L = a x + b y + c z, a, b, c in {0,1,2,3}, |alpha| <= 3
 A3: (1-L1)^al (1-L2)^be (1-L3)^ga,  a, b, c in {0,1,2},                     |alpha| <= 2
 A4: four factors (1-L),             a, b, c in {0,1},                       |alpha| <= 1
-B2: F1^al F2^be,       F = 1 + a u + b v + c uv + d u^2 + e v^2 (small coefficients), |alpha| <= 2
-B3: F1^al F2^be F3^ga, F from a short list of natural quadratics,                 |alpha| <= 1
-Exponents: nonzero multiples of 1/9.  (Docstring corrected in version 1.4 to match the code
-below and Table 4 of the paper; the code itself is unchanged.)
+    Families A: distinct linear forms, taken up to a SIMULTANEOUS permutation of x, y, z
+    (canon3), which is a genuine symmetry reduction because Diag is symmetric.
+B2: F1^al F2^be with F1 != F2 in the RESTRICTED POOL b2_pool() (854 polynomials),  |alpha| <= 2
+B3: F1^al F2^be F3^ga, distinct F_i in the RESTRICTED POOL b3_pool() (77 polynomials), |alpha| <= 1
+    The pools were formed by replacing EACH factor separately by the lexicographically
+    smaller of itself and its image under u <-> v (representative2).  That restricts the
+    search; it is not a symmetry reduction of the products.  B2 and B3 are therefore NOT the
+    complete families "products of quadratics of the stated shape, up to u <-> v".  See the
+    comments before swap2() below, test_symmetry.py, and Appendix C of the paper (v1.5).
+Exponents: nonzero multiples of 1/9.  (Docstring corrected in versions 1.4 and 1.5 to match
+the code; the enumeration itself is unchanged since the original run, so the stored counts
+and results describe exactly the candidates listed here.)
 
 A candidate matches target T if its diagonal d satisfies d_n = c^n t_n for n <= N,
 tested through the scale-free invariants d_j/d_1^j (j = 2..N) mod p.  Survivors are
@@ -124,6 +132,66 @@ def quad2(a, b, c, d, e):
     return F
 
 
+# ---------------------------------------------------------------------------
+# Symmetry reductions versus restricted factor pools (clarified in version 1.5).
+#
+# Two operations must not be confused.
+#  * Simultaneous canonicalization of a whole factor collection under a permutation of
+#    the variables: canon3 (families A) and canon_collection2 (two variables).  Diag is
+#    invariant when the SAME permutation is applied to every factor, so this is a genuine
+#    symmetry reduction.
+#  * Choosing a representative of each factor separately: representative2.  This is NOT
+#    a symmetry reduction of a product.  Example: 1/((1-u)(1-2v)) has diagonal 1/(1-2x),
+#    but replacing each factor by its representative gives 1/((1-u)(1-2u)), whose diagonal
+#    is 1.  Applied to every factor it only restricts the pool of factors.
+#
+# Families B2 and B3 as run in November 2026 applied representative2 to every factor, so
+# they enumerate products of distinct elements of b2_pool() and b3_pool().  The functions
+# below reproduce those pools exactly (checked in test_symmetry.py against the original
+# inline expressions); the enumeration has not been changed.
+
+def swap2(q):
+    """Coefficient vector (a, b, c, d, e) of 1+au+bv+cuv+du^2+ev^2 after exchanging u and v."""
+    return (q[1], q[0], q[2], q[4], q[3])
+
+
+def representative2(q):
+    """Representative of a SINGLE factor (lexicographic minimum of q and swap2(q)).
+    Using it on each factor separately restricts the pool; it is not a symmetry reduction."""
+    return min(q, swap2(q))
+
+
+def canon_collection2(qs):
+    """Canonical form of a whole COLLECTION of factors under the simultaneous exchange u <-> v.
+    This is a genuine symmetry reduction (not used by the November 2026 run)."""
+    a = tuple(sorted(qs))
+    b = tuple(sorted(swap2(q) for q in qs))
+    return min(a, b)
+
+
+def b2_advertised():
+    """The 1,619 nonconstant polynomials described for B2: a, b in {0,1,-1,-2,-3,-4},
+    c in {-2,...,2}, d, e in {0,1,-1}."""
+    return [q for q in itertools.product([0, 1, -1, -2, -3, -4], [0, 1, -1, -2, -3, -4], [-2, -1, 0, 1, 2], [0, 1, -1], [0, 1, -1]) if any(q)]
+
+
+def b3_advertised():
+    """The 95 nonconstant polynomials described for B3: a, b in {0,-1,-2,-4}, c in {0,-1,1},
+    d in {0,1}, e = 0."""
+    return [q for q in itertools.product([0, -1, -2, -4], [0, -1, -2, -4], [0, -1, 1], [0, 1], [0]) if any(q)]
+
+
+def b2_pool():
+    """The pool actually used for B2 (854 polynomials, a subset of b2_advertised())."""
+    return sorted({representative2(q) for q in b2_advertised()})
+
+
+def b3_pool():
+    """The pool actually used for B3 (77 polynomials; 30 of them have a v^2 term and are not
+    in b3_advertised())."""
+    return sorted({representative2(q) for q in b3_advertised()})
+
+
 if __name__ == "__main__":
     log = open("family_ab.log", "a")
     log.write(f"targets: {len(TARGETS)} ({', '.join(TNAMES)})\n"); log.flush()
@@ -139,12 +207,12 @@ if __name__ == "__main__":
     go("A2", 3, [[lin3(L) for L in c] for c in pairs], 3)
     quads = sorted({canon3(c) for c in itertools.combinations(forms2, 4)})
     go("A4", 3, [[lin3(L) for L in c] for c in quads], 1)
-    # B3: triples of natural quadratics in two variables
-    shortB = sorted({min(q, (q[1], q[0], q[2], q[4], q[3])) for q in itertools.product([0, -1, -2, -4], [0, -1, -2, -4], [0, -1, 1], [0, 1], [0]) if any(q)})
+    # B3: triples of distinct elements of the restricted pool b3_pool() (see above)
+    shortB = b3_pool()
     go("B3", 2, [[quad2(*q) for q in c] for c in itertools.combinations(shortB, 3)], 1)
-    # B2: pairs of quadratics with small coefficients, up to swapping u and v
-    qs = [q for q in itertools.product([0, 1, -1, -2, -3, -4], [0, 1, -1, -2, -3, -4], [-2, -1, 0, 1, 2], [0, 1, -1], [0, 1, -1]) if any(q)]
-    qs = sorted({min(q, (q[1], q[0], q[2], q[4], q[3])) for q in qs})
+    # B2: pairs of distinct elements of the restricted pool b2_pool() (see above).
+    # This is NOT the full family of pairs of quadratics up to swapping u and v.
+    qs = b2_pool()
     go("B2", 2, [[quad2(*x), quad2(*y)] for x, y in itertools.combinations(qs, 2)], 2)
     triples = sorted({canon3(c) for c in itertools.combinations(forms3, 3)})
     go("A3", 3, [[lin3(L) for L in c] for c in triples], 2)

@@ -11,9 +11,13 @@ top and bottom parameters; n! counts as a bottom parameter 1) is classified as:
                         polynomial in n preserves algebraicity.  Rigorous.
   'not algebraic (BH)'  irreducible, interlacing fails: infinite monodromy, so
                         transcendental (Beukers–Heckman).  Rigorous.
-  'not algebraic (Eis)' reducible case, but primes outside the parameter
-                        denominators keep appearing in the coefficient denominators
-                        up to n = NMAX (Eisenstein's theorem).  Strong evidence only.
+  'not algebraic (Eis)' reducible case in which at least three distinct primes that
+                        divide no parameter denominator occur among the denominators of
+                        the first NMAX coefficients.  This is evidence only, and the case
+                        is UNRESOLVED: by Eisenstein's theorem an algebraic series has only
+                        finitely many distinct denominator primes, but it may have several
+                        (see ../scripts/eisenstein_counterexample.py).  [Docstring revised in
+                        version 1.5; the code is unchanged.]
   'unresolved'          anything else; listed for manual inspection.
 """
 from fractions import Fraction as Fr
