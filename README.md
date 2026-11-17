@@ -2,7 +2,7 @@
 
 David Jordan, Maynooth University Social Sciences Institute (MUSSI), Maynooth University.
 
-**Paper:** [`paper/christol_w1.pdf`](paper/christol_w1.pdf) (version 1.2, 17 November 2026)
+**Paper:** [`paper/christol_w1.pdf`](paper/christol_w1.pdf) (version 1.3, 17 November 2026)
 
 ## Summary
 
@@ -10,7 +10,9 @@ Christol conjectured that every globally bounded, D-finite power series with rat
 
   ₃F₂(a₁, a₂, a₃; b, 1; x)
 
-with rational parameters such that aᵢ, b and aᵢ − b are not integers. If such a series is globally bounded, it is the diagonal of an algebraic power series in two variables, and hence of a rational function in three variables, which is the least possible number. This includes Christol's 1987 example ₃F₂(1/9, 4/9, 5/9; 1/3, 1; x).
+with rational parameters such that aᵢ, b and aᵢ − b are not integers. If such a series is globally bounded, it is the diagonal of an algebraic power series in two variables, and hence of a rational function in three variables, which is the least possible number. This includes Christol's 1987 example ₃F₂(1/9, 4/9, 5/9; 1/3, 1; x), and the series ₃F₂(1/7, 2/7, 4/7; 1/2, 1; x), which Christol suggested as a possible counterexample to his conjecture.
+
+By a result of Rivoal and Roques (2014), assuming the Rohrlich–Lang conjecture, the 1/7 series is not a Hadamard product of finitely many algebraic series. The paper therefore gives, conditionally on that conjecture alone, a diagonal of a rational function with infinite Hadamard grade (Corollary E).
 
 The proof is Hodge-theoretic and not constructive. Global boundedness is shown to be equivalent to every Galois conjugate of the hypergeometric local system having two adjacent Hodge levels. That condition gives a polarized integral variation of Hodge structure of weight one, hence (by Deligne) an abelian scheme and a family of curves of which the series is a period. Expanding the period over vanishing cycles at the nodes of a regular semistable model gives the diagonal.
 
@@ -24,7 +26,7 @@ The paper also observes (Proposition D) that some neighbouring series once liste
 |---|---|
 | `paper/christol_w1.tex` | LaTeX source (amsart, natbib) |
 | `paper/christol_w1.bib`, `paper/christol_w1.bbl` | Bibliography database and compiled bibliography |
-| `paper/christol_w1.pdf` | Compiled paper, 28 pages |
+| `paper/christol_w1.pdf` | Compiled paper, 29 pages |
 | `supplementary/scripts/` | Exact-arithmetic Python scripts for the computations in §8.1 and Appendices A–B |
 | `supplementary/results/` | Stored outputs of those scripts |
 | `supplementary/scripts/hadamard_identities.py` | Exact check of the Hadamard factorization in Proposition D(a) |
