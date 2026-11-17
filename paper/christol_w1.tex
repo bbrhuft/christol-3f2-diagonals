@@ -3,9 +3,10 @@
 \usepackage{lmodern}
 \usepackage[margin=1.15in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage[authoryear,round]{natbib}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
@@ -64,7 +65,7 @@
 
 \begin{document}
 
-\title[Globally bounded ${}_3F_2$ series are diagonals]{Globally bounded ${}_3F_2$ series with one integral lower parameter are diagonals of rational functions}
+\title[Christol's conjecture for non-resonant ${}_3F_2(a;b,1)$]{Christol's conjecture for non-resonant globally bounded ${}_3F_2(a_1,a_2,a_3;b,1)$ series}
 
 \author{David Jordan}
 \address{Maynooth University Social Sciences Institute (MUSSI), Maynooth University, Maynooth, County Kildare, Ireland}
@@ -72,25 +73,23 @@
 
 \subjclass[2020]{Primary 33C20, 14D07; Secondary 13F25, 14K10, 32G20, 05A15}
 \keywords{Christol's conjecture, diagonals of rational functions, globally bounded power series, hypergeometric functions, variations of Hodge structure, abelian schemes, vanishing cycles}
-\date{17 November 2026 (version 1.3)}
+\date{17 November 2026 (version 1.4)}
 
 \begin{abstract}
-Christol conjectured that every globally bounded, D-finite power series with rational coefficients is the diagonal of a rational function. We prove this for the hypergeometric series ${}_3F_2(a_1,a_2,a_3;b,1;x)$ with rational parameters such that $a_i$, $b$ and $a_i-b$ are not integers: if such a series is globally bounded, then it is the diagonal of an algebraic power series in two variables, and hence of a rational function in three variables, which is the least possible number. This includes Christol's example ${}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$ from 1987, and the series ${}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$, which Christol suggested as a possible counterexample to his conjecture. By a result of Rivoal and Roques, under the Rohrlich--Lang conjecture the latter is a diagonal that is not a Hadamard product of algebraic power series. The proof is Hodge-theoretic and not constructive. Using Fedorov's formula for the Hodge numbers of hypergeometric local systems, we show that the series is globally bounded exactly when every Galois conjugate of its local system carries a complex variation of Hodge structure with two adjacent Hodge levels. The restriction of scalars of the local system then underlies a polarized integral variation of Hodge structure of weight one. By a theorem of Deligne the series is therefore a period of an abelian scheme, and hence of a family of curves, where it is an integral over vanishing cycles of a semistable degeneration. Expanding this integral at the nodes of a regular model gives the diagonal representation.
+Christol conjectured that every globally bounded, D-finite power series with rational coefficients is the diagonal of a rational function. We prove this for the hypergeometric series ${}_3F_2(a_1,a_2,a_3;b,1;x)$ with rational parameters such that $a_i$, $b$ and $a_i-b$ are not integers: if such a series is globally bounded, then it is the diagonal of an algebraic power series in two variables, and hence of a rational function in three variables; three is the least possible number of variables. This includes Christol's example ${}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$ from 1987, and the series ${}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$, which Christol suggested as a possible counterexample to his conjecture. By a result of Rivoal and Roques, under the Rohrlich--Lang conjecture the latter is a diagonal that is not a Hadamard product of algebraic power series. The proof is Hodge-theoretic and not constructive: it shows that such diagonal representations exist, but does not produce them. Using Fedorov's formula for the Hodge numbers of hypergeometric local systems, we show that the series is globally bounded exactly when every Galois conjugate of its local system carries a complex variation of Hodge structure with two adjacent Hodge levels. The restriction of scalars of the local system then underlies a polarized integral variation of Hodge structure of weight one. By a theorem of Deligne the series is therefore a period of an abelian scheme, and hence of a family of curves, where it is an integral over vanishing cycles of a semistable degeneration. Expanding this integral at the nodes of a regular model gives the diagonal representation.
 \end{abstract}
 
 \maketitle
 
 \section*{Plain-language summary}
 
-\emph{Diagonals.} Take a rational function of several variables, that is, one polynomial divided by another, and expand it as a power series. Its coefficients fill a grid with one axis for each variable. Reading off only the entries on the main diagonal of that grid, where all the exponents are equal, gives a power series in a single variable, called the \emph{diagonal}. Diagonals turn up throughout combinatorics, number theory and mathematical physics. They have two easily recognized features: they satisfy a linear differential equation, and after a simple rescaling their coefficients are all integers (they are \emph{globally bounded}).
+Expand a rational function of several variables (a ratio of polynomials) as a power series, keep only the terms in which all variables occur to the same power, and set all variables equal to one variable $x$. The result is a power series in $x$, called the \emph{diagonal}. Diagonals satisfy linear differential equations and, after rescaling, have integer coefficients (they are \emph{globally bounded}). In the late 1980s Gilles Christol conjectured the converse: every power series with these two properties is a diagonal. The conjecture is open in general.
 
-\emph{Christol's conjecture.} In the late 1980s Gilles Christol conjectured the converse: every power series with both features is a diagonal. The conjecture is open in general. Hypergeometric series are the standard test case, because global boundedness can be read off from their parameters. Christol himself gave the first test case that the known methods could not settle, ${}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$. It has been cited as unresolved ever since, most recently in 2026.
+Hypergeometric series are the standard test case. We prove the conjecture for the series ${}_3F_2(a_1,a_2,a_3;b,1;x)$ under the non-resonance condition stated in Section~1. This family includes Christol's own 1987 test case ${}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$, and the series ${}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$, which he suggested might be a counterexample. Each globally bounded series in the family is the diagonal of a rational function in three variables, and three is the least possible number. Assuming the Rohrlich--Lang conjecture on values of the Gamma function, earlier work of Rivoal and Roques shows that the second series is not a Hadamard product of algebraic series, the usual elementary way of producing diagonals.
 
-\emph{What this paper shows.} We prove that this series, and every series in the same family that has integer coefficients after rescaling, is a diagonal. More precisely, it is the diagonal of a rational function in three variables, and three is the smallest number possible. Combined with known results, this settles Christol's conjecture for a natural class of ${}_3F_2$ series. The same result covers a second series, ${}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$, which Christol himself suggested might be a counterexample to his conjecture. Earlier work shows, assuming a standard but unproved conjecture about values of the Gamma function, that this series cannot be built from algebraic functions by multiplying their coefficients term by term (Hadamard products), the usual way of making new diagonals from old ones. So it is a diagonal that the simpler methods provably cannot reach. Along the way we observe that some neighbouring series, long listed alongside Christol's as hard cases, are diagonals for an elementary reason. Christol's series is not of that kind, and a large computer search found no simple formula for it.
+The proof translates the integrality of the coefficients into a condition from Hodge theory. That condition allows the series to be realized as an integral over loops on a family of curves. Christol's principle then applies: an integral over a loop that shrinks to a point is a diagonal, provided the number of logarithms in the solutions of the differential equation matches the dimension of the family. For the curves constructed here this matching condition holds; for the surfaces of the classical integral formula it fails.
 
-\emph{How the two areas meet.} Many interesting functions are \emph{periods}: integrals taken around loops drawn on geometric shapes that vary with a parameter. Christol showed that periods around the loop that shrinks to a point when the shape pinches are diagonals, provided the shape has the right dimension. The classical integral formula for these series uses two-dimensional shapes (surfaces). For a series of this kind the dimension is right only for curves, which are one-dimensional. The key observation of the paper is that the arithmetic condition on the coefficients (global boundedness) is equivalent to a geometric condition from Hodge theory: every algebraic conjugate of the underlying symmetry data has only two layers in its Hodge decomposition. That condition is exactly what allows the series to be realized as a period of a family of curves, sitting inside a family of abelian varieties. Christol's principle then applies. The result connects the combinatorics of power series with the geometry of how algebraic varieties degenerate.
-
-\emph{Limitations.} The proof shows that a suitable rational function exists but does not write one down. It does not prove Christol's conjecture in general. The statement about the second series relies on the unproved conjecture just mentioned. At the time of writing, the argument has not been reviewed by independent experts.
+The proof shows that a suitable rational function exists but does not write one down. It does not prove Christol's conjecture in general, and the statement about Hadamard products depends on the Rohrlich--Lang conjecture. The argument has not yet been reviewed by independent experts.
 
 \setcounter{tocdepth}{1}
 \tableofcontents
@@ -131,7 +130,7 @@ are diagonals, and gave two heuristic arguments that $H$ is one as well. In 2026
 \begin{equation}\label{eq:S7}
 S_7(x)={}_3F_2\Big(\tfrac17,\tfrac27,\tfrac47;\tfrac12,1;x\Big)
 \end{equation}
-as a potential counterexample to his conjecture, and in 2026 it was not known whether it is a diagonal \citep[Remark~4.2]{HarderKramerMiller2026}. Assuming the Rohrlich--Lang conjecture on algebraic relations between values of the Gamma function, \citet[Proposition~1]{RivoalRoques2014} proved that $S_7$ is not a Hadamard product of finitely many algebraic power series with algebraic coefficients. As we observe in Proposition~\ref{prop:D}(a) below, the two series of Abdelaziz, Koutschan and Maillard are in fact Hadamard products of two algebraic power series, by an elementary identity that covers infinitely many further series. The identity does not apply to $H$, and a computer search for explicit representations of several simple shapes found none for $H$ (Appendix~\ref{app:search}).
+as a potential counterexample to his conjecture, and in 2026 it was not known whether it is a diagonal \citep[Remark~4.2]{HarderKramerMiller2026}. Assuming the Rohrlich--Lang conjecture on algebraic relations between values of the Gamma function, \citet[Proposition~1]{RivoalRoques2014} proved that $S_7$ is not a Hadamard product of finitely many algebraic power series with algebraic coefficients. As we observe in Proposition~\ref{prop:D}(a) below, the two series of Abdelaziz, Koutschan and Maillard are in fact Hadamard products of two algebraic power series, by an elementary identity that covers infinitely many further series. The identity does not apply to $H$, and a computer search over several finite families of simple candidates found no representation of $H$ in those families (Appendix~\ref{app:search}); it says nothing about representations outside the families tested.
 
 \subsection{Main results}
 We call the pair $(a,b)$ \emph{non-resonant} if
@@ -152,7 +151,9 @@ Christol's series $H(x)={}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$ is the dia
 Let $a_1,a_2,a_3\in\Q\setminus\Z$ and $b_1,b_2\in(\Q\setminus\Z)\cup\{1\}$ with $a_i-b_j\notin\Z$ for all $i,j$. Then ${}_3F_2(a_1,a_2,a_3;b_1,b_2;x)$ is globally bounded if and only if it is the diagonal of a rational function over $\Q$ that is regular at the origin.
 \end{maincor}
 
-Corollary~\ref{cor:C} combines Theorem~\ref{thm:A} with the two extreme cases recalled above; it is proved in \S\ref{subsec:proofC}. The proof of Theorem~\ref{thm:A} is not constructive and does not produce the series $g$. For some neighbours of $H$, however, the conclusion of Theorem~\ref{thm:A} can be made explicit, and in part elementary. We write $f\star g$ for the Hadamard product of power series, defined in the notation below.
+Corollary~\ref{cor:C} combines Theorem~\ref{thm:A} with the two extreme cases recalled above; it is proved in \S\ref{subsec:proofC}. The proof of Theorem~\ref{thm:A} is not constructive: it proves that $g$, and hence a rational function in three variables, exists, but produces neither. Theorem~\ref{thm:A} is the principal contribution of this paper. For some neighbours of $H$, however, the conclusion of Theorem~\ref{thm:A} can be made explicit, and in part elementary. We write $f\star g$ for the Hadamard product of power series, defined in the notation below.
+
+Proposition~\ref{prop:D} below is elementary. We include it because it explains the explicit examples known so far and shows that they are of a different nature from $H$.
 
 \begin{mainprop}\label{prop:D}
 For $s\in\Q\setminus\Z$ let
@@ -203,10 +204,10 @@ The proof has five steps, shown in Figure~\ref{fig:strategy}.
 \item \emph{Arithmetic and Hodge theory.} Christol's criterion for global boundedness holds if and only if every Galois conjugate of the hypergeometric local system carries a complex variation of Hodge structure with exactly two nonzero Hodge numbers, in adjacent degrees (Proposition~\ref{prop:twolevel}). The proof uses Fedorov's formula for the Hodge numbers.
 \item \emph{Weight one.} The restriction of scalars of the local system to $\Z$ then carries a polarized variation of Hodge structure of weight one (Theorem~\ref{thm:wt1}). Over a single point this construction is a half twist in the sense of \citet{vanGeemen2001}.
 \item \emph{An abelian scheme.} By Deligne's equivalence between such variations and abelian schemes, there is an abelian scheme over $\PP^1\setminus\{0,1,\infty\}$, defined over a number field, of which $\Fab$ is a period (Propositions~\ref{prop:abelian} and~\ref{prop:period}).
-\item \emph{Curves and vanishing cycles.} Hyperplane sections give a family of curves with the same period. After a base change $x=w^m$ the family has a regular semistable model, and $\Fab(w^m)$ is a linear combination of integrals over the vanishing cycles at its nodes (Corollary~\ref{cor:vanishing}).
-\item \emph{Expansion at a node.} At a node with local equation $uv=w$, such an integral is a power of $w$ times the diagonal of an algebraic power series in $u$ and $v$ (Proposition~\ref{prop:node}). Elementary closure properties of two-variable algebraic diagonals finish the proof (\S\ref{subsec:proofA}).
+\item \emph{Curves and vanishing cycles.} Hyperplane sections give a family of curves with the same period. After a base change $x=w^m$ the family has a regular semistable model, and $\Fab(w^m)$ is a linear combination of integrals over the vanishing cycles at its nodes (Proposition~\ref{prop:model}, Lemma~\ref{lem:eta} and Proposition~\ref{prop:mechanism}(a)).
+\item \emph{Expansion at a node.} At a node with local equation $uv=w$, such an integral is a power of $w$ times the diagonal of an algebraic power series in $u$ and $v$ (Proposition~\ref{prop:node}). Elementary closure properties of two-variable algebraic diagonals finish the proof (Proposition~\ref{prop:mechanism}(b) and \S\ref{subsec:proofA}).
 \end{enumerate}
-The abelian scheme in step~(3) is obtained from Riemann's theorem in families and is not explicit. This is the source of the non-constructive nature of the proof.
+Proposition~\ref{prop:mechanism} isolates the passage from step~(4) to step~(5). The abelian scheme in step~(3) is obtained from Riemann's theorem in families and is not explicit. This is the source of the non-constructive nature of the proof. We therefore distinguish four kinds of information: the existence of diagonal representations, algebraic in two variables and rational in three (Theorem~\ref{thm:A}); a proof that three rational variables are necessary (also Theorem~\ref{thm:A}); explicit algebraic representations in two variables (Proposition~\ref{prop:D}, for some neighbours of $H$); and explicit rational representations, which are known, in six variables, for the two series of \citet{AbdelazizKoutschanMaillard2020}. For $H$ and $S_7$ only the first two are available.
 
 \begin{figure}[ht]
 \centering
@@ -216,8 +217,8 @@ The abelian scheme in step~(3) is obtained from Riemann's theorem in families an
 \node[box, below=of gb] (two) {every Galois conjugate of the local system has two adjacent Hodge levels\\ (Proposition~\ref{prop:twolevel})};
 \node[box, below=of two] (wt) {polarized integral variation of Hodge structure of weight one (Theorem~\ref{thm:wt1})};
 \node[box, below=of wt] (ab) {$\Fab$ is a period of an abelian scheme over $\PP^1\setminus\{0,1,\infty\}$\\ (Propositions~\ref{prop:abelian} and~\ref{prop:period})};
-\node[box, below=of ab] (cu) {$\Fab(w^m)$ is a combination of vanishing-cycle integrals on a regular semistable family of curves (Corollary~\ref{cor:vanishing})};
-\node[box, below=of cu] (di) {$\Fab$ is the diagonal of an algebraic power series in two variables\\ (Proposition~\ref{prop:node}, Lemma~\ref{lem:closure})};
+\node[box, below=of ab] (cu) {$\Fab(w^m)$ is a combination of vanishing-cycle integrals on a regular semistable family of curves (Proposition~\ref{prop:model}, Lemma~\ref{lem:eta})};
+\node[box, below=of cu] (di) {$\Fab$ is the diagonal of an algebraic power series in two variables\\ (Propositions~\ref{prop:node} and~\ref{prop:mechanism})};
 \draw[<->, thick] (gb) -- (two);
 \draw[->, thick] (two) -- (wt);
 \draw[->, thick] (wt) -- (ab);
@@ -228,22 +229,22 @@ The abelian scheme in step~(3) is obtained from Riemann's theorem in families an
 \end{figure}
 
 \subsection{Related work}
-\emph{Diagonals and periods.} \citet{Christol1985} and \citet{Deligne1984} connected diagonals of rational functions with integrals over vanishing cycles, and \citet[Theorem~12]{Christol1990} turned this into the sufficient condition recalled above. \citet[\S4.2]{Christol2015} explains the role of the duality between the monodromy weight filtration and the pole-order filtration. \citet{BostanEtAl2013} used these ideas to show that many integrals from the Ising model and many solutions of Calabi--Yau equations are diagonals, and discussed $H$ as a test case of intermediate weight. \citet{HarderKramerMiller2026} relate the minimal number of variables in a diagonal representation to the nilpotence of the local monodromy. Their Lemma~3.2 identifies diagonals of algebraic series in $n+1$ variables with diagonals of rational functions in $n+2$ variables; we use it to pass from two algebraic to three rational variables. \citet{HassaniMaillardZenine2025} formulate conjectures on the minimal number of variables in terms of the powers of the logarithm in the formal solutions.
+\emph{Diagonals and periods.} \citet{Christol1985} and \citet{Deligne1984} connected diagonals of rational functions with integrals over vanishing cycles, and \citet[Theorem~12]{Christol1990} turned this into the sufficient condition recalled above. \citet[\S4.2]{Christol2015} explains the role of the duality between the monodromy weight filtration and the pole-order filtration. \citet{BostanEtAl2013} used these ideas to show that many integrals from the Ising model and many solutions of Calabi--Yau equations are diagonals, and discussed $H$ as a test case of intermediate weight. \citet{HarderKramerMiller2026} relate the minimal number of variables in a diagonal representation to the nilpotence of the local monodromy. Their Lemma~3.2, stated for D-finite series over a number field, identifies diagonals of algebraic series in $n+1$ variables with diagonals of rational functions in $n+2$ variables; we use it to pass from two algebraic to three rational variables. \citet{HassaniMaillardZenine2025} formulate conjectures on the minimal number of variables in terms of the powers of the logarithm in the formal solutions.
 
 \emph{Global boundedness and algebraicity.} \citet{Christol1987} characterized the globally bounded hypergeometric series with rational parameters by an interlacing condition over all Galois conjugates of the parameters. \citet{BeukersHeckman1989} gave the analogous criterion for finite monodromy, hence for algebraicity, and determined the monodromy groups. \citet{FurnsinnYurkevich2024} extended the algebraicity criterion to arbitrary parameters, and \citet{CarusoFurnsinn2026a,CarusoFurnsinn2026b} implemented these criteria and related arithmetic invariants.
 
 \emph{Hypergeometric diagonals.} \citet{AbdelazizKoutschanMaillard2020} represented their two series, and the one-parameter family of Proposition~\ref{prop:D}(b), as diagonals of algebraic functions in three variables. Using the algorithm of \citet{DenefLipshitz1987}, they also wrote down rational functions in six variables with these diagonals, and they settled further ${}_3F_2$ and ${}_4F_3$ examples. \citet{BostanYurkevich2022} determined the hypergeometric series that arise as diagonals of products of powers of $1-x_1-\dots-x_n$. Proposition~\ref{prop:D}(a) shows that the two series of Abdelaziz, Koutschan and Maillard are Hadamard products of two algebraic series, and Proposition~\ref{prop:D}(b) represents their one-parameter family with two algebraic variables.
 
-\emph{Hodge theory of hypergeometric local systems.} Hypergeometric local systems are rigid, and \citet{Katz1996} showed that rigid local systems with quasi-unipotent local monodromy are of geometric origin. \citet[Proposition~2.6]{Fedorov2018} shows that a hypergeometric connection with real parameters underlies a polarizable complex variation of Hodge structure, unique up to a shift of the grading; for existence he uses \citet[Corollary~8.1]{Simpson1990} and \citet[Theorem~2.4.1]{DettweilerSabbah2013}, and for uniqueness \citet[Proposition~1.13(i)]{Deligne1987}. He also computes the Hodge numbers \citep[Theorem~1]{Fedorov2018}. This formula is the main input of Proposition~\ref{prop:twolevel}. Restriction of scalars and diagonals are not considered there.
+\emph{Hodge theory of hypergeometric local systems.} Hypergeometric local systems are rigid, and \citet{Katz1996} showed that rigid local systems with quasi-unipotent local monodromy are of geometric origin. \citet[Proposition~2.6]{Fedorov2018} shows that a hypergeometric connection with real parameters underlies a polarizable complex variation of Hodge structure, unique up to a shift of the grading; for existence he cites \citet[Corollary~8.1]{Simpson1990} and \citet[Theorem~2.4.1]{DettweilerSabbah2013}, and for uniqueness \citet[Proposition~1.13(i)]{Deligne1987}. He also computes the Hodge numbers \citep[Theorem~1]{Fedorov2018}. This formula is the main input of Proposition~\ref{prop:twolevel}. Restriction of scalars and diagonals are not considered there.
 
 \emph{Hadamard and diagonal grades.} \citet{AlloucheMendesFrance2011} introduced the Hadamard grade of a power series. \citet{RivoalRoques2014} bounded the Hadamard grades of hypergeometric series by comparing the asymptotic expansions of their coefficients with those of algebraic series. Several of their results, including their Proposition~1 on $S_7$, assume the Rohrlich--Lang conjecture. \citet{HarderKramerMiller2026} bound the diagonal and Hadamard grades from below by the nilpotence index of the local monodromy (their Corollary~2.7). For hypergeometric series this gives both grades at least the height (their Theorem~3.7), and they show that both grades of ${}_nF_{n-1}(\frac12,\dots,\frac12;1,\dots,1;x)$ equal $n$. Lemma~\ref{lem:HKM} below is their Lemma~3.2.
 
 \emph{Geometric realizations.} The Euler integral realizes ${}_nF_{n-1}$ as a period of a family of varieties of relative dimension $n-1$; see \citet[\S4.3]{Christol2015} for ${}_3F_2$ and \citet{KellyVoight2024} for the resulting hypergeometric motives. For ${}_2F_1$ the realization is by curves, and \citet{Archinard2003} constructed the corresponding abelian varieties explicitly. Our weight-one realization of ${}_3F_2$ comes instead from the equivalence of \citet[4.4.3]{Deligne1971} between abelian schemes and polarizable variations of Hodge structure of weight one, proved in detail by \citet[Theorem~7.13]{Milne2013}. Over a point, the passage from the weight-two Hodge structure of the Euler realization to weight one is a half twist \citep{vanGeemen2001,vanGeemenIzadi2002}. Periods of degenerating abelian varieties over locally invariant cycles were studied by \citet{Andre1989} in connection with $G$-functions.
 
-To our knowledge, no proof that $H$ or $S_7$ is a diagonal has appeared; for $S_7$ this is stated by \citet[Remark~4.2]{HarderKramerMiller2026}. In the examples of series $\Fab$ with $b\notin\Z$ that we know to be diagonals, including those of Proposition~\ref{prop:D}, the representation is explicit. For $H$ none is known, and the search of Appendix~\ref{app:search} found none of the simplest kinds. Each ingredient of our proof is classical. What appears to be new is the equivalence of Proposition~\ref{prop:twolevel} and its use, through a realization of weight one, to bring Christol's minimum-weight principle to bear.
+To our knowledge, no proof that $H$ or $S_7$ is a diagonal has appeared; for $S_7$ this is stated by \citet[Remark~4.2]{HarderKramerMiller2026}. In the examples of series $\Fab$ with $b\notin\Z$ that we know to be diagonals, including those of Proposition~\ref{prop:D}, the representation is explicit. For $H$ none is known, and the search of Appendix~\ref{app:search} found none in the finite families it tested. Each ingredient of our proof is classical. To our knowledge, what is new is the equivalence of Proposition~\ref{prop:twolevel} and its use, through a realization of weight one, to bring Christol's minimum-weight principle to bear. Proposition~\ref{prop:D} consists of elementary identities, which may well be known to specialists, although we have not found them in print.
 
 \subsection{Organization}
-Section~\ref{sec:prelim} collects the facts we need on algebraic power series, hypergeometric local systems, global boundedness and variations of Hodge structure. Sections~\ref{sec:twolevel}--\ref{sec:node} carry out steps (1)--(5), and Theorem~\ref{thm:A} is proved in \S\ref{subsec:proofA}. Section~\ref{sec:examples} treats the examples and proves Corollaries~\ref{cor:B}, \ref{cor:C} and~\ref{cor:E} and Proposition~\ref{prop:D}. Section~\ref{sec:remarks} contains concluding remarks. Appendix~\ref{app:euler} gives an independent computational check of the Hodge numbers, Appendix~\ref{app:certificates} describes the accompanying computations, and Appendix~\ref{app:search} reports a search for explicit representations of $H$.
+Section~\ref{sec:prelim} collects the facts we need on algebraic power series, hypergeometric local systems, global boundedness and variations of Hodge structure. Sections~\ref{sec:twolevel}--\ref{sec:node} carry out steps (1)--(5); Proposition~\ref{prop:mechanism} collects the passage from periods to diagonals, and Theorem~\ref{thm:A} is proved in \S\ref{subsec:proofA}. Section~\ref{sec:examples} treats the examples and proves Corollaries~\ref{cor:B}, \ref{cor:C} and~\ref{cor:E} and Proposition~\ref{prop:D}. Section~\ref{sec:remarks} contains concluding remarks. Appendix~\ref{app:euler} gives an independent computational check of the Hodge numbers, Appendix~\ref{app:certificates} describes the accompanying computations, how to reproduce them, and the results from the literature on which the proof depends, and Appendix~\ref{app:search} reports a search for explicit representations of $H$.
 
 \subsection*{Notation and conventions}
 We write $\e(t)=e^{2\pi it}$ and $U=\PP^1\setminus\{0,1,\infty\}$, a scheme over $\Q$; base change to a field $F$ is denoted by $U_F$, and $U(\C)$ carries its analytic topology. We put $\theta=x\,\frac{d}{dx}$. Local systems are on $U(\C)$ unless stated otherwise. The local monodromy around $0$ of any local system on $U(\C)$ is denoted by $T_0$; on solutions of a differential equation it acts by analytic continuation. For $t\in\R$, $\{t\}\in[0,1)$ is the fractional part. The letter $k$ always denotes an element of $(\Z/N\Z)^\times$, where $N$ is a common denominator of the parameters. Complex conjugation is denoted by a bar, and $X^*=\overline X^{\,T}$ for a complex matrix $X$. For a field $F$ and variables $u_1,\dots,u_n$, $\alg F{u_1,\dots,u_n}$ is the ring of power series in $F[[u_1,\dots,u_n]]$ that are algebraic over $F(u_1,\dots,u_n)$. The Hadamard product of $f=\sum a_nx^n$ and $g=\sum b_nx^n$ is $f\star g=\sum a_nb_nx^n$; it equals $\Diag\big(f(u)g(v)\big)$. Following \citet{AlloucheMendesFrance2011} and \citet{HarderKramerMiller2026}, the \emph{Hadamard grade} $\hg(f)$ of a power series $f$ with algebraic coefficients is $0$ if $f$ is rational, and otherwise the least $k$ such that $f$ is a Hadamard product of $k$ power series that are algebraic over $\Qb(x)$, or $\infty$ if there is no such $k$. The \emph{diagonal grade} $\dg(f)$ is the least $n$ such that $f$ is the diagonal of a rational function in $n+1$ variables over a number field.
@@ -253,7 +254,25 @@ We write $\e(t)=e^{2\pi it}$ and $U=\PP^1\setminus\{0,1,\infty\}$, a scheme over
 %======================================================================
 
 \subsection{Algebraic power series and diagonals}\label{subsec:alg}
-Let $F$ be a field of characteristic $0$. The ring $\alg F{u_1,\dots,u_n}$ is the henselization of the local ring of $\A^n_F$ at the origin. More generally, let $\cO$ be the local ring of a smooth $F$-variety of dimension $n$ at an $F$-rational point, and let $u_1,\dots,u_n$ be a regular system of parameters of its henselization $\cO^h$. Then $\cO^h=\alg F{u_1,\dots,u_n}$ inside the completion $\widehat\cO=F[[u_1,\dots,u_n]]$; see \citet[\S\S1 and~5]{Artin1969} and \citet[\S18]{EGAIV4}. The ring $\alg F{u_1,\dots,u_n}$ is closed under partial derivatives and under the specializations $u_i=0$. If $F\subset\C$, its elements converge in a neighbourhood of the origin.
+Let $F$ be a field of characteristic $0$. The ring $\alg F{u_1,\dots,u_n}$ is closed under partial derivatives and under the specializations $u_i=0$. The following lemma identifies it with a henselization. It is well known; we include a proof because the identification, and its analytic counterpart (ii), are used at the nodes in Section~\ref{sec:node}.
+
+\begin{lemma}\label{lem:hens}
+Let $\cO$ be the local ring of a smooth $F$-variety $Y$ of dimension $n$ at an $F$-rational point $P$, let $\cO^h$ be its henselization, with maximal ideal $\mathfrak m^h$, and let $u_1,\dots,u_n$ be a regular system of parameters of $\cO^h$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item The homomorphism $F[[t_1,\dots,t_n]]\to\widehat\cO$, $t_i\mapsto u_i$, is an isomorphism, and it maps $\alg F{t_1,\dots,t_n}$ onto $\cO^h$. Thus $\cO^h=\alg F{u_1,\dots,u_n}$ inside $\widehat\cO=F[[u_1,\dots,u_n]]$.
+\item If $F\subset\C$, then every element of $\cO^h$ is the germ at $P$ of a holomorphic function on $Y(\C)$ whose Taylor series in the local coordinates $u_1,\dots,u_n$ is its image in $F[[u_1,\dots,u_n]]$. In particular, the elements of $\alg F{u_1,\dots,u_n}$ converge near the origin.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The rings $\cO$ and $\cO^h$ are regular local rings of dimension $n$ with residue field $F$ and the same completion $\widehat\cO$, whose maximal ideal is generated by $u_1,\dots,u_n$. The homomorphism is surjective, because its image is complete and contains $F$ and generators of the maximal ideal; it is injective, because both sides are complete regular local rings of dimension $n$, so that its kernel is a prime ideal of height $0$.
+
+Let $y\in\cO^h$. The ring $\cO^h$ is a filtered colimit of local rings of étale $\cO$-algebras, so $y$ is algebraic over the function field $F(Y)$, and so are $u_1,\dots,u_n$. Since the $u_i$ are algebraically independent over $F$ and $F(Y)$ has transcendence degree $n$, the field $F(Y)(u_1,\dots,u_n)$ is algebraic over $F(u_1,\dots,u_n)$. Hence $y$ is algebraic over $F(u_1,\dots,u_n)$, that is, $\cO^h\subseteq\alg F{u_1,\dots,u_n}$.
+
+Conversely, let $g\in F[[u_1,\dots,u_n]]$ be algebraic over $F(u_1,\dots,u_n)$, and let $\Phi\in F[u_1,\dots,u_n][Y]$ be an irreducible polynomial with $\Phi(g)=0$. As $F$ has characteristic $0$, $\Phi'(g)\ne0$, where $\Phi'=\partial\Phi/\partial Y$; let $e$ be the order of $\Phi'(g)$ with respect to the maximal ideal of $\widehat\cO$. By Artin's approximation theorem \citep[Theorem~1.10]{Artin1969}, which applies to the henselization of a local ring of a scheme of finite type over a field, the equation $\Phi(y)=0$, which has the solution $g$ in $\widehat\cO$, has a solution $y\in\cO^h$ with $y\equiv g$ modulo $(\mathfrak m^h)^{e+1}\widehat\cO$. Write $\Phi(y)-\Phi(g)=(y-g)\big(\Phi'(g)+(y-g)\,r\big)$ with $r\in\widehat\cO$. If $y\ne g$, the second factor has order exactly $e$, because $(y-g)r$ has order at least $e+1$, and it is therefore nonzero; as $\widehat\cO$ is a domain, $\Phi(y)\ne\Phi(g)$, a contradiction. Hence $g=y\in\cO^h$.
+
+(ii) An étale morphism of smooth complex varieties is a local biholomorphism. Hence the local ring at $P$ of an étale neighbourhood of $(Y,P)$ embeds into the ring of germs of holomorphic functions at $P$, compatibly with the maps to $\widehat\cO\otimes_F\C=\C[[u_1,\dots,u_n]]$. Passing to the colimit embeds $\cO^h$ into the ring of holomorphic germs at $P$, compatibly with $\cO^h\subset\widehat\cO$. The $u_i$ are holomorphic coordinates at $P$, as their differentials are linearly independent there, and the Taylor series of a holomorphic germ in these coordinates converges to it.
+\end{proof}
 
 For $g=\sum_{j,l\ge0}g_{j,l}u^jv^l\in F[[u,v]]$ we put $\Diag(g)(w)=\sum_{n\ge0}g_{n,n}w^n$. The following closure properties are elementary; we include proofs because we need them for two-variable algebraic series and over number fields.
 
@@ -285,13 +304,13 @@ g'(u^m,v^m)=\frac1{m^2}\sum_{j,l=0}^{m-1}g\big(\e(j/m)u,\e(l/m)v\big)
 is algebraic over $\Q(\e(1/m))(u,v)$, hence over $\Q(u,v)$, hence over the subfield $\Q(u^m,v^m)$, over which $\Q(u,v)$ is finite. Renaming $u^m,v^m$ as $u,v$ shows that $g'$ is algebraic.
 \end{proof}
 
-\begin{lemma}[{\citealp[Lemma~3.2]{HarderKramerMiller2026}}]\label{lem:HKM}
-Let $F$ be a field of characteristic $0$, let $n\ge0$ and let $f\in F[[x]]$. Then $f$ is the diagonal of an algebraic power series in $n+1$ variables over $F$ if and only if it is the diagonal of a rational function in $n+2$ variables over $F$ that is regular at the origin.
+\begin{lemma}[{\citet[Lemma~3.2]{HarderKramerMiller2026}}]\label{lem:HKM}
+Let $K$ be a number field, let $n\ge0$ and let $f\in K[[x]]$ be D-finite. Then $f$ is the diagonal of an algebraic power series in $n+1$ variables over $K$ if and only if it is the diagonal of a rational function in $n+2$ variables over $K$ that is regular at the origin.
 \end{lemma}
 
-The proof of Lemma~\ref{lem:HKM} rests on \citet[Theorem~6.2 and Remark~6.4]{DenefLipshitz1987}. Applied directly, the theorem of Denef and Lipshitz gives $2(n+1)$ rational variables.
+The proof of Lemma~\ref{lem:HKM} rests on \citet[Theorem~6.2 and Remark~6.4]{DenefLipshitz1987}: the map that sends $\sum a_{i_0\dots i_{n+1}}x_0^{i_0}\cdots x_{n+1}^{i_{n+1}}$ to the sum of the terms with $i_0+\dots+i_n=i_{n+1}$, with $x_{n+1}$ omitted, maps the rational functions in $n+2$ variables that are regular at the origin onto the algebraic power series in $n+1$ variables; for $n=0$ this is the theorem of \citet{Furstenberg1967}. Applied directly, the theorem of Denef and Lipshitz gives $2(n+1)$ rational variables. We use Lemma~\ref{lem:HKM} only with $K=\Q$: with $n=1$ in \S\ref{subsec:proofA}, where $f=\Fab$ is D-finite because $L_{a,b}\Fab=0$, and in Remark~\ref{rem:propD}(4); and with $n=2$ in Case~1 of \S\ref{subsec:proofC}. For $n=1$ it produces three rational variables. That three variables are also necessary under \eqref{eq:NR} is a separate statement, which follows from Theorem~\ref{thm:furst} and the transcendence of $\Fab$.
 
-\begin{theorem}[{\citealp{Polya1922,Furstenberg1967}}]\label{thm:furst}
+\begin{theorem}[{P\'olya and Furstenberg \citep{Polya1922,Furstenberg1967}}]\label{thm:furst}
 Let $F$ be a field of characteristic $0$. The diagonal of a rational function in two variables over $F$ that is regular at the origin is algebraic over $F(x)$. Conversely, every power series in $F[[x]]$ that is algebraic over $F(x)$ is such a diagonal.
 \end{theorem}
 
@@ -306,7 +325,7 @@ P_a(t)=\prod_{j=1}^3\big(t-\e(a_j)\big),\qquad P_b(t)=(t-1)^2\big(t-\e(b)\big),
 \]
 and let $A$ and $B$ be the companion matrices of $P_a$ and $P_b$.
 
-\begin{lemma}[{Levelt; see \citealp[Proposition~3.3 and Theorem~3.5]{BeukersHeckman1989}}]\label{lem:levelt}
+\begin{lemma}[{Levelt; see \citet[Proposition~3.3 and Theorem~3.5]{BeukersHeckman1989}}]\label{lem:levelt}
 Assume \eqref{eq:NR}. Then $\Sab$ is irreducible. For a suitable basis of a fibre, and suitable loops around $0$, $1$ and $\infty$ whose product is trivial, the local monodromy matrices are
 \[
 T_0=B^{-1},\qquad T_1=A^{-1}B,\qquad T_\infty=A,\qquad T_\infty T_1T_0=1 ,
@@ -333,7 +352,7 @@ Assume \eqref{eq:NR}, and let $d$ be the denominator of $b$.
 \subsection{Global boundedness}
 For $t\in\R$ let $\langle t\rangle\in(0,1]$ denote the representative of $t$ modulo $\Z$ in $(0,1]$.
 
-\begin{lemma}[{\citealp[Propositions~1 and~1bis]{Christol1987}; see also \citealp{FurnsinnYurkevich2024}}]\label{lem:christol}
+\begin{lemma}[{\citet[Propositions~1 and~1bis]{Christol1987}; see also \citet{FurnsinnYurkevich2024}}]\label{lem:christol}
 Let $a_1,a_2,a_3\in\Q\setminus\Z$ and $b_1,b_2\in(\Q\setminus\Z)\cup\{1\}$ with $a_i-b_j\notin\Z$ for all $i,j$. Let $N$ be a common denominator of the parameters, and put $b_3=1$. Then ${}_3F_2(a_1,a_2,a_3;b_1,b_2;x)$ is globally bounded if and only if, for every $k\in(\Z/N\Z)^\times$ and every $t\in(0,1)$,
 \[
 \#\{i:\langle ka_i\rangle\le t\}\ \ge\ \#\{j:\langle kb_j\rangle\le t\}.
@@ -353,14 +372,14 @@ The \emph{Hodge numbers} are $h^p=\rank\cS^p$. The variation is \emph{polarized}
 
 By \eqref{eq:griffiths}, the bundle $\bigoplus_{q\ge p}\cS^q$ is a holomorphic subbundle of $\cS\otimes\cO_M$ for every $p$. In particular, if only two degrees $p$ and $p-1$ occur, then $\cS^p$ is a holomorphic subbundle, and $\cS^{p-1}$ is stable under the $(1,0)$-part of $\nabla$. In this case we call $\cS^p$ the \emph{top piece} and $\cS^{p-1}$ the \emph{bottom piece}, and we say that the variation has \emph{two adjacent Hodge levels}.
 
-\begin{theorem}[{\citealp[Proposition~2.6 and Theorem~1]{Fedorov2018}}]\label{thm:fedorov}
+\begin{theorem}[{\citet[Proposition~2.6 and Theorem~1]{Fedorov2018}}]\label{thm:fedorov}
 Let $0\le\alpha_1\le\alpha_2\le\alpha_3<1$ and $0\le\beta_1\le\beta_2\le\beta_3<1$ be real numbers with $\alpha_i\ne\beta_j$ for all $i,j$. The connection on $U$ defined by the operator $\prod_j(\theta-\alpha_j)-x\prod_j(\theta-\beta_j)$ underlies a polarizable complex variation of Hodge structure, which is unique up to a shift of the grading. Up to such a shift, its Hodge numbers are
 \[
 h^p=\#\{l:\rho(l)=p\},\qquad\text{where }\rho(l)=\#\{j:\alpha_j<\beta_l\}-l\quad(l=1,2,3).
 \]
 \end{theorem}
 
-For the existence statement Fedorov refers to \citet[Corollary~8.1]{Simpson1990} and \citet[Theorem~2.4.1]{DettweilerSabbah2013}, and for uniqueness to \citet[Proposition~1.13(i)]{Deligne1987}. His theorem holds in every rank; we need it only in rank three.
+The sequences $\alpha$ and $\beta$ may have repeated entries; Fedorov assumes only that they are weakly increasing in $[0,1)$ and that $\alpha_i\ne\beta_j$ for all $i,j$ \citep[\S1]{Fedorov2018}. We apply the theorem with $\alpha=(0,0,1-\bk)$, which has a repeated entry, and we impose no further distinctness condition. For the existence statement Fedorov cites \citet[Corollary~8.1]{Simpson1990} and \citet[Theorem~2.4.1]{DettweilerSabbah2013}, and he sketches a second argument by induction on the rank using \citet[Proposition~3.1.1]{DettweilerSabbah2013}; for uniqueness he cites \citet[Proposition~1.13(i)]{Deligne1987}. His theorem holds in every rank; we need it only in rank three.
 
 \begin{remark}\label{rem:dual}
 The dual of a polarized complex variation of Hodge structure is again one, with the Hodge numbers in reverse order. The local system of solutions of a differential operator is dual to the local system of horizontal sections of the corresponding connection. Hence it does not matter, for the property of having two adjacent Hodge levels, whether Theorem~\ref{thm:fedorov} is read on the connection or on its solutions.
@@ -383,13 +402,13 @@ which is \eqref{eq:griffiths} for the decomposition $\overline{\cS}^{\,q}=\overl
 Let $M$ be a complex manifold. A \emph{polarized variation of Hodge structure of type $\{(1,0),(0,1)\}$} on $M$ consists of a local system $V_\Z$ of free $\Z$-modules of finite rank, a holomorphic subbundle $F^1\subset V_\C\otimes\cO_M$ such that $V_\C\otimes\cE^0_M=F^1\oplus\overline{F^1}$, and a flat alternating form $\psi:V_\Z\times V_\Z\to\Z$ such that $\psi(F^1,F^1)=0$ and $i\,\psi(v,\bar v)>0$ for all nonzero $v\in F^1$. Here $V_\C=V_\Z\otimes\C$, and $\psi$ is extended bilinearly.
 \end{definition}
 
-Griffiths transversality is automatic for this type. The Tate twist $V_\Z(1)$ has type $\{(-1,0),(0,-1)\}$ and the same underlying local system.
+Griffiths transversality is automatic for this type, since the Hodge filtration has only the two steps $F^1\subset V_\C\otimes\cO_M$. The Tate twist $V_\Z(1)=V_\Z\otimes\Z(1)$, where $\Z(1)=2\pi i\,\Z$ has type $(-1,-1)$, is a polarizable variation of type $\{(-1,0),(0,-1)\}$. Its underlying local system $V_\Z\otimes2\pi i\,\Z$ is isomorphic to $V_\Z$, by multiplication by $(2\pi i)^{-1}$; see Remark~\ref{rem:halftwist}(2) for the difference between a Tate twist and a shift of the grading of a single complex variation.
 
-\begin{theorem}[{\citealp[4.4.3]{Deligne1971}; \citealp[Theorem~7.13]{Milne2013}}]\label{thm:deligne}
+\begin{theorem}[{\citet[4.4.3]{Deligne1971}; \citet[Theorem~7.13]{Milne2013}}]\label{thm:deligne}
 Let $S$ be a smooth scheme of finite type over $\C$. The functor $(f:\cA\to S)\mapsto R_1f_*\Z$ is an equivalence between the category of abelian schemes over $S$ and the category of polarizable variations of Hodge structure of type $\{(-1,0),(0,-1)\}$ on $S(\C)$ whose underlying local system is torsion-free.
 \end{theorem}
 
-In the literature the statement is phrased either in terms of the homology $R_1f_*\Z$, as here, or in terms of the cohomology $R^1f_*\Z$ and the type $\{(1,0),(0,1)\}$. With either convention, a polarization identifies $V_\Q$ with its dual. Hence the abelian scheme $f:\cA\to S$ attached to $V_\Z(1)$ satisfies $R_1f_*\Q\cong V_\Q$, which is all we use.
+Both references state the equivalence for the homology $R_1f_*\Z$ and the type $\{(-1,0),(0,-1)\}$, as above, and Deligne attributes the essential surjectivity to Borel. We use it only through the following consequence: if $V_\Z$ is a polarized variation of type $\{(1,0),(0,1)\}$ on $S(\C)$, then the abelian scheme $f:\cA\to S$ with $R_1f_*\Z\cong V_\Z(1)$ satisfies $R_1f_*\Q\cong V_\Q$ as local systems. Throughout, $R_1f_*$ denotes the homology and $R^1f_*=(R_1f_*)^\vee$ the cohomology of the fibres, and periods are obtained by pairing $R_1f_*$ with the de~Rham cohomology $H^1_{\mathrm{dR}}$.
 
 %======================================================================
 \section{Two Hodge levels and global boundedness}\label{sec:twolevel}
@@ -429,7 +448,7 @@ For the last statement we apply Lemma~\ref{lem:christol} with $(b_1,b_2,b_3)=(b,
 \end{proof}
 
 \begin{remark}
-Below we use only whether a conjugate has two adjacent Hodge levels. Which of the patterns $(1,2)$ and $(2,1)$ belongs to $\cS_{ka,kb}$ and which to its dual depends on the convention discussed in Remark~\ref{rem:dual}, and plays no role. Appendix~\ref{app:euler} contains an independent check of the Hodge numbers of Proposition~\ref{prop:twolevel}, obtained by counting square-integrable holomorphic $2$-forms on the surfaces of the Euler integral.
+Below we use only whether a conjugate has two adjacent Hodge levels. Which of the patterns $(1,2)$ and $(2,1)$ belongs to $\cS_{ka,kb}$ and which to its dual depends on the convention discussed in Remark~\ref{rem:dual}, and plays no role. The criterion is also insensitive to the way $L_{ka,kb}$ is matched with Fedorov's normal form. Exchanging the roles of $\alpha$ and $\beta$ in the proof, which corresponds to the substitution $x\mapsto1/x$, gives $\rho=\big(-1,\,-2,\,\#\{i:\ak i>\bk\}-3\big)$, and these values occupy two adjacent integers exactly when $1\le\#\{i:\ak i>\bk\}\le2$, that is, when $\ak1<\bk<\ak3$. Appendix~\ref{app:euler} contains an independent check of the Hodge numbers of Proposition~\ref{prop:twolevel}, obtained by counting square-integrable holomorphic $2$-forms on the surfaces of the Euler integral.
 \end{remark}
 
 %======================================================================
@@ -448,16 +467,24 @@ If $N\le2$, then the non-integers $a_1,a_2,a_3,b$ all lie in $\frac12+\Z$, so th
 
 We fix a nonzero element $\xi_0\in K$ with $\overline{\xi_0}=-\xi_0$, for instance $\xi_0=\zeta_N-\zeta_N^{-1}$. Every $\xi\in K$ with $\bar\xi=-\xi$ is of the form $\lambda\xi_0$ with $\lambda\in K^+$.
 
-\subsection{The cyclotomic lattice}
-The coefficients of $P_a$ and $P_b$ are symmetric functions of $N$-th roots of unity, so $A$ and $B$ have entries in $\cO_K$. Their determinants $\e(a_1+a_2+a_3)$ and $\e(b)$ are roots of unity, so $A,B\in\mathrm{GL}_3(\cO_K)$. Let $\Lambda$ be the local system on $U(\C)$ with fibre $\cO_K^3$ and with the monodromy matrices $T_0=B^{-1}$, $T_1=A^{-1}B$, $T_\infty=A$ of Lemma~\ref{lem:levelt}. Let $V_\Z$ be $\Lambda$ viewed as a local system of free $\Z$-modules of rank $3\varphi(N)$, and put $V_\Q=V_\Z\otimes\Q$ and $V_\C=V_\Z\otimes\C$. The fibre of $V_\Q$ is $K^3$, and the isomorphism $K\otimes_\Q\C\cong\C^{\varphi(N)}$, $x\otimes1\mapsto(\sigma_k(x))_k$, gives a decomposition
+\subsection{The cyclotomic lattice}\label{subsec:lattice}
+The coefficients of $P_a$ and $P_b$ are symmetric functions of $N$-th roots of unity, so $A$ and $B$ have entries in $\cO_K$. Their determinants $\e(a_1+a_2+a_3)$ and $\e(b)$ are roots of unity, so $A,B\in\mathrm{GL}_3(\cO_K)$. Let $\Lambda$ be the local system on $U(\C)$ with fibre $\cO_K^3$ and with the monodromy matrices $T_0=B^{-1}$, $T_1=A^{-1}B$, $T_\infty=A$ of Lemma~\ref{lem:levelt}. Let $V_\Z$ be $\Lambda$ viewed as a local system of free $\Z$-modules of rank $3\varphi(N)$, and put $V_\Q=V_\Z\otimes\Q$, $V_\R=V_\Z\otimes\R$ and $V_\C=V_\Z\otimes\C$. The fibre of $V_\Q$ is $K^3$, on which the monodromy acts $K$-linearly through matrices in $\mathrm{GL}_3(\cO_K)$.
+
+For $k\in(\Z/N\Z)^\times$ let $\cS_k$ be the local system with fibre $\C^3$ and monodromy matrices $\sigma_k(T_0)$, $\sigma_k(T_1)$, $\sigma_k(T_\infty)$. The $\C$-linear isomorphism
+\begin{equation}\label{eq:splitmap}
+K^3\otimes_\Q\C\longrightarrow\bigoplus_{k\in(\Z/N\Z)^\times}\C^3,\qquad x\otimes z\longmapsto\big(\sigma_k(x)\,z\big)_k ,
+\end{equation}
+where $\sigma_k$ is applied to the coordinates of $x$, intertwines $T\otimes1$ with $(\sigma_k(T))_k$ for every $T\in\mathrm{GL}_3(K)$. It therefore defines an isomorphism of local systems
 \begin{equation}\label{eq:split}
-V_\C=\bigoplus_{k\in(\Z/N\Z)^\times}\cS_k .
+V_\C\cong\bigoplus_{k\in(\Z/N\Z)^\times}\cS_k .
 \end{equation}
-Here $\cS_k$ has fibre $\C^3$ and monodromy matrices $\sigma_k(B)^{-1}$, $\sigma_k(A)^{-1}\sigma_k(B)$, $\sigma_k(A)$. Since $\sigma_k(A)$ and $\sigma_k(B)$ are the companion matrices of $P_{ka}$ and $P_{kb}$, Lemma~\ref{lem:levelt} gives $\cS_k\cong\cS_{ka,kb}$; in particular $\cS_1\cong\Sab$. We write elements of $V_\C$ as $X=(X_k)_k$ with $X_k\in\cS_k$. Complex conjugation on $V_\C$ with respect to $V_\Q$ is then given by
+Since $\sigma_k(A)$ and $\sigma_k(B)$ are the companion matrices of $P_{ka}$ and $P_{kb}$, Lemma~\ref{lem:levelt} gives $\cS_k\cong\cS_{ka,kb}$; in particular $\cS_1\cong\Sab$. We write elements of $V_\C$ as $X=(X_k)_k$ with $X_k\in\cS_k$.
+
+Let $X\mapsto\overline X$ be complex conjugation on $V_\C=V_\R\otimes_\R\C$, that is, $x\otimes z\mapsto x\otimes\bar z$ for $x\in V_\Q$. Since complex conjugation on $K$ is $\sigma_{-1}$ and commutes with every $\sigma_k$, we have $\sigma_k(x)\,\bar z=\overline{\sigma_{-k}(x)\,z}$. Hence \eqref{eq:splitmap} transforms complex conjugation into
 \begin{equation}\label{eq:conj}
-(\overline X)_k=\overline{X_{-k}} .
+(\overline X)_k=\overline{X_{-k}} ,
 \end{equation}
-It maps $\cS_k$ antilinearly onto $\cS_{-k}$, compatibly with the flat structures, and so identifies $\cS_{-k}$ with the complex conjugate local system $\overline{\cS_k}$.
+where on the right the bar denotes complex conjugation of the coordinates in $\C^3$. Thus complex conjugation maps $\cS_{-k}$ antilinearly onto $\cS_k$. It carries flat sections to flat sections, because $\overline{\sigma_{-k}(T)}=\sigma_k(T)$, and so identifies $\cS_k$, as a local system, with the complex conjugate local system $\overline{\cS_{-k}}$. Under this identification the holomorphic structures of $\cS_k\otimes\cO$ and $\overline{\cS_{-k}}\otimes\cO$ agree, since both are determined by the flat sections. For $Z\in\cS_{-k}$ we write $\overline Z\in\cS_k$ for its image.
 
 \subsection{Invariant hermitian forms}
 \begin{lemma}\label{lem:herm}
@@ -474,7 +501,7 @@ The equations $A^*XA=X$ and $B^*XB=X$ form a system of linear equations over $K$
 
 \subsection{The variation of weight one}
 \begin{theorem}\label{thm:wt1}
-Assume \eqref{eq:NR} and that $\Fab$ is globally bounded. Then there are a holomorphic subbundle $F^1\subset V_\C\otimes\cO_{U(\C)}$ of rank $\frac32\varphi(N)$ and an element $\lambda\in(K^+)^\times$ such that $V_\Z$, $F^1$ and the form
+Assume \eqref{eq:NR} and that $\Fab$ is globally bounded. Then there are a holomorphic subbundle $F^1\subset V_\C\otimes\cO_{U(\C)}$ of rank $\frac32\varphi(N)$ and an element $\lambda\in(K^+)^\times$ such that the local system $V_\Z$ of \S\ref{subsec:lattice}, $F^1$ and the form
 \[
 \psi(x,y)=\Tr_{K/\Q}\big(\lambda\,\xi_0\,x^*hy\big)\qquad(x,y\in K^3)
 \]
@@ -482,41 +509,78 @@ constitute a polarized variation of Hodge structure of type $\{(1,0),(0,1)\}$ on
 \end{theorem}
 
 \begin{proof}
-\emph{Step 1: the Hodge decomposition.} Let $\Phi\subset(\Z/N\Z)^\times$ be a set of representatives modulo $\pm1$; by Lemma~\ref{lem:CM} it has $\frac12\varphi(N)$ elements. For $k\in\Phi$ we choose on $\cS_k\cong\cS_{ka,kb}$ a polarized complex variation of Hodge structure, as in Proposition~\ref{prop:twolevel}. Since $\Fab$ is globally bounded, it has two adjacent Hodge levels; let $\cS_k^{\tp}$ and $\cS_k^{\bt}$ be its top and bottom pieces. For $k\in-\Phi$ we have $\cS_k=\overline{\cS_{-k}}$, and we give $\cS_k$ the conjugate variation of Lemma~\ref{lem:conj}. Its top and bottom pieces are
-\[
-\cS_k^{\tp}=\overline{\cS_{-k}^{\bt}}\qquad\text{and}\qquad\cS_k^{\bt}=\overline{\cS_{-k}^{\tp}} .
-\]
-For every $k$, the subbundle $\cS_k^{\tp}$ of $\cS_k\otimes\cO$ is holomorphic, by the remark following Definition~\ref{def:cvhs} and by Lemma~\ref{lem:conj}. We put
-\[
-F^1=\bigoplus_k\cS_k^{\tp} .
-\]
-By construction and by \eqref{eq:conj}, complex conjugation maps $\cS_k^{\tp}$ onto $\cS_{-k}^{\bt}$ for every $k$. Hence $\overline{F^1}=\bigoplus_k\cS_k^{\bt}$ and $V_\C\otimes\cE^0=F^1\oplus\overline{F^1}$. The rank of $F^1$ is $\sum_{k\in\Phi}(\rank\cS_k^{\tp}+\rank\cS_k^{\bt})=\frac32\varphi(N)$.
+We verify the conditions of Definition~\ref{def:zvhs} in eight steps.
 
-\emph{Step 2: orthogonality and signs.} Let $Q_k$ be the polarization of the variation chosen on $\cS_k$. By Lemma~\ref{lem:herm}, $\langle\cdot,\cdot\rangle_k=c_kQ_k$ for some $c_k\in\R^\times$. Hence $\cS_k^{\tp}$ and $\cS_k^{\bt}$ are orthogonal for $\langle\cdot,\cdot\rangle_k$, and this form is definite on each of them, with opposite signs. Let $\varepsilon_k\in\{\pm1\}$ be its sign on $\cS_k^{\tp}$. Since $\sigma_{-k}(h)=\overline{\sigma_k(h)}$, we have $\langle\overline Z,\overline Z\rangle_{-k}=\langle Z,Z\rangle_k$ for $Z\in\cS_k$. Applying this to $Z\in\cS_k^{\bt}$, so that $\overline Z\in\cS_{-k}^{\tp}$, gives
+\emph{Step 1: the integral local system and its complex decomposition.} By construction, $V_\Z$ is a local system of free $\Z$-modules of rank $3\varphi(N)$ with $V_\Z\otimes\Q=V_\Q$, and \eqref{eq:split} decomposes $V_\C$ into the local systems $\cS_k\cong\cS_{ka,kb}$. Each of them has rank three and is irreducible by Lemma~\ref{lem:levelt}, since $(ka,kb)$ satisfies \eqref{eq:NR}.
+
+\emph{Step 2: complex variations on the conjugates, compatible with conjugation.} Let $\Phi\subset(\Z/N\Z)^\times$ be a set of representatives modulo $\pm1$. By Lemma~\ref{lem:CM}, $\Phi$ has $\frac12\varphi(N)$ elements and $(\Z/N\Z)^\times$ is the disjoint union of $\Phi$ and $-\Phi$. For $k\in\Phi$ we choose on $\cS_k\cong\cS_{ka,kb}$ a polarized complex variation of Hodge structure, as in Proposition~\ref{prop:twolevel}. Since $\Fab$ is globally bounded, it has two adjacent Hodge levels; let $\cS_k^{\tp}$ and $\cS_k^{\bt}$ be its top and bottom pieces and $Q_k$ a polarization. For $k\in-\Phi$ we transport the conjugate variation of Lemma~\ref{lem:conj} along the identification $\cS_k=\overline{\cS_{-k}}$ of \eqref{eq:conj}:
+\[
+\cS_k^{\tp}=\overline{\cS_{-k}^{\bt}},\qquad\cS_k^{\bt}=\overline{\cS_{-k}^{\tp}},\qquad Q_k(\overline Z,\overline{Z'})=\overline{Q_{-k}(Z,Z')}\qquad(k\in-\Phi,\ Z,Z'\in\cS_{-k}).
+\]
+Since \eqref{eq:conj} is an involution, the relations
+\begin{equation}\label{eq:conjpieces}
+\overline{\cS_k^{\tp}}=\cS_{-k}^{\bt}\qquad\text{and}\qquad\overline{\cS_k^{\bt}}=\cS_{-k}^{\tp}
+\end{equation}
+then hold for every $k$. These relations are the only constraint imposed between the gradings of $\cS_k$ and $\cS_{-k}$. In particular, no Tate twist is involved at this stage; see Remark~\ref{rem:halftwist}.
+
+\emph{Step 3: holomorphicity of $F^1$.} Put
+\[
+F^1=\bigoplus_k\cS_k^{\tp}\ \subset\ V_\C\otimes\cO_{U(\C)} .
+\]
+For $k\in\Phi$, the top piece $\cS_k^{\tp}$ is a holomorphic subbundle of $\cS_k\otimes\cO$ by the remark following Definition~\ref{def:cvhs}. For $k\in-\Phi$ it is one by Lemma~\ref{lem:conj}, because the holomorphic structure of $\cS_k\otimes\cO$ is that of $\overline{\cS_{-k}}\otimes\cO$. Hence $F^1$ is a holomorphic subbundle. By \eqref{eq:conjpieces} its rank is
+\[
+\sum_{k\in\Phi}\big(\rank\cS_k^{\tp}+\rank\cS_{-k}^{\tp}\big)=\sum_{k\in\Phi}\big(\rank\cS_k^{\tp}+\rank\cS_k^{\bt}\big)=\tfrac32\varphi(N).
+\]
+
+\emph{Step 4: the Hodge decomposition.} By \eqref{eq:conj} and \eqref{eq:conjpieces}, complex conjugation maps $\cS_k^{\tp}$ onto $\cS_{-k}^{\bt}$ for every $k$. Hence $\overline{F^1}=\bigoplus_k\cS_k^{\bt}$, and
+\[
+V_\C\otimes\cE^0=\bigoplus_k\big(\cS_k^{\tp}\oplus\cS_k^{\bt}\big)=F^1\oplus\overline{F^1}.
+\]
+
+\emph{Step 5: the trace form.} For $\xi\in K^\times$ with $\bar\xi=-\xi$ put
+\[
+\psi_\xi(x,y)=\Tr_{K/\Q}\big(\xi\,x^*hy\big)\qquad(x,y\in K^3).
+\]
+This is a $\Q$-bilinear form on the fibre of $V_\Q$. It is invariant under the monodromy, because the monodromy group is generated by $A$ and $B$, and $T^*hT=h$ for $T\in\{A,B\}$ by Lemma~\ref{lem:herm}. It is alternating: since $\overline{x^*hy}=y^*hx$ and the trace is invariant under complex conjugation, $\psi_\xi(y,x)=\Tr_{K/\Q}(\bar\xi\,x^*hy)=-\psi_\xi(x,y)$; moreover $\psi_\xi(x,x)=\Tr_{K^+/\Q}\big(x^*hx\cdot\Tr_{K/K^+}(\xi)\big)=0$, because $x^*hx\in K^+$ and $\Tr_{K/K^+}(\xi)=\xi+\bar\xi=0$. It is nondegenerate: if $\psi_\xi(x,y)=0$ for all $y$, then the $K$-linear form $y\mapsto\xi\,x^*hy$ on $K^3$ has trace zero everywhere; as the trace form of $K$ is nondegenerate, it vanishes, so $x^*h=0$ and $x=0$.
+
+To compute the complex bilinear extension, note that $\Tr_{K/\Q}(c)=\sum_k\sigma_k(c)$ and $\sigma_k(\bar x)=\sigma_{-k}(x)$. For $x,y\in K^3$ with images $X=(\sigma_k(x))_k$ and $Y=(\sigma_k(y))_k$ under \eqref{eq:splitmap},
+\[
+\psi_\xi(x,y)=\sum_k\sigma_k(\xi)\,\sigma_{-k}(x)^T\sigma_k(h)\,\sigma_k(y)=\sum_k\sigma_k(\xi)\,X_{-k}^T\,\sigma_k(h)\,Y_k .
+\]
+The right-hand side is $\C$-bilinear in $(X,Y)$, so the complex bilinear extension of $\psi_\xi$ is
+\begin{equation}\label{eq:psiC}
+\psi_{\xi,\C}(X,X')=\sum_k\sigma_k(\xi)\,X_{-k}^{T}\,\sigma_k(h)\,X'_k .
+\end{equation}
+
+\emph{Step 6: isotropy of $F^1$.} For every $k$, $Q_k$ is a flat hermitian form on $\cS_k$ (for $k\in-\Phi$ by Lemma~\ref{lem:conj}), so Lemma~\ref{lem:herm} gives $\langle\cdot,\cdot\rangle_k=c_kQ_k$ with $c_k\in\R^\times$. Hence $\cS_k^{\tp}$ and $\cS_k^{\bt}$ are orthogonal for $\langle\cdot,\cdot\rangle_k$. Let $X,X'\in F^1$, and put $Z=\overline{X_{-k}}\in\cS_k$. By \eqref{eq:conj} and Step~4, $Z=(\overline X)_k$ lies in $\cS_k^{\bt}$, and $X_{-k}^T=Z^*$. The $k$-th summand of \eqref{eq:psiC} is therefore $\sigma_k(\xi)\langle Z,X'_k\rangle_k=0$. Hence $\psi_{\xi,\C}(F^1,F^1)=0$.
+
+\emph{Step 7: positivity.} Since $Q_k$ polarizes a variation with two adjacent levels, $\langle\cdot,\cdot\rangle_k$ is definite on $\cS_k^{\tp}$ and on $\cS_k^{\bt}$, with opposite signs. Let $\varepsilon_k\in\{\pm1\}$ be its sign on $\cS_k^{\tp}$. Since $\sigma_{-k}(h)=\overline{\sigma_k(h)}$, we have $\langle\overline Z,\overline Z\rangle_{-k}=\overline{\langle Z,Z\rangle_k}=\langle Z,Z\rangle_k$ for $Z\in\cS_k$, where $\overline Z\in\cS_{-k}$. Taking $Z\in\cS_k^{\bt}$, so that $\overline Z\in\cS_{-k}^{\tp}$ by \eqref{eq:conjpieces}, gives
 \begin{equation}\label{eq:epsminus}
 \varepsilon_{-k}=-\varepsilon_k\qquad\text{for all }k .
 \end{equation}
-
-\emph{Step 3: the alternating form.} Let $\xi\in K^\times$ with $\bar\xi=-\xi$, and put $\psi_\xi(x,y)=\Tr_{K/\Q}(\xi\,x^*hy)$ for $x,y\in K^3$. This form takes values in $\Q$ and is invariant under the monodromy. It is alternating: since $\overline{x^*hy}=y^*hx$ and the trace is invariant under complex conjugation, $\psi_\xi(y,x)=\Tr_{K/\Q}(\bar\xi\,x^*hy)=-\psi_\xi(x,y)$, and $\psi_\xi(x,x)=0$ because $x^*hx\in K^+$ and $\Tr_{K/K^+}(\xi)=0$. It is nondegenerate, because $h$ and the trace form of $K$ are nondegenerate. In terms of the decomposition \eqref{eq:split}, the complex bilinear extension of $\psi_\xi$ is
+Now let $X\in F^1$. By \eqref{eq:psiC} and \eqref{eq:conj},
 \[
-\psi_{\xi,\C}(X,X')=\sum_k\sigma_k(\xi)\,X_{-k}^{T}\,\sigma_k(h)\,X'_k .
+\psi_{\xi,\C}(X,\overline X)=\sum_k\sigma_k(\xi)\,X_{-k}^{T}\sigma_k(h)\overline{X_{-k}}=\sum_k\sigma_k(\xi)\,\langle X_{-k},X_{-k}\rangle_{-k} ,
 \]
-Let $X,X'\in F^1$. Then $Z=\overline{X_{-k}}$ lies in $\cS_k^{\bt}$ and $X'_k$ lies in $\cS_k^{\tp}$, and the $k$-th summand equals $\sigma_k(\xi)\langle Z,X'_k\rangle_k=0$. Hence $\psi_{\xi,\C}(F^1,F^1)=0$. Next let $X\in F^1$. By \eqref{eq:conj} and because $\sigma_k(h)^T=\sigma_{-k}(h)$,
-\[
-\psi_{\xi,\C}(X,\overline X)=\sum_k\sigma_k(\xi)\,X_{-k}^{T}\sigma_k(h)\overline{X_{-k}}=\sum_k\sigma_k(\xi)\,\langle X_{-k},X_{-k}\rangle_{-k} .
-\]
-Replacing $k$ by $-k$ and using $\sigma_{-k}(\xi)=-\sigma_k(\xi)$, we obtain
+where the second equality transposes the scalar $X_{-k}^{T}\sigma_k(h)\overline{X_{-k}}$ and uses $\sigma_k(h)^T=\overline{\sigma_k(h)}=\sigma_{-k}(h)$. Replacing $k$ by $-k$ and using $\sigma_{-k}(\xi)=\overline{\sigma_k(\xi)}=-\sigma_k(\xi)$, we obtain
 \begin{equation}\label{eq:positivity}
 i\,\psi_{\xi,\C}(X,\overline X)=-\sum_ki\,\sigma_k(\xi)\,\langle X_k,X_k\rangle_k\qquad\text{with }X_k\in\cS_k^{\tp}.
 \end{equation}
+The numbers $i\sigma_k(\xi)$ are real and nonzero. As the components $X_k$ of $X\in F^1$ range independently over the nonzero bundles $\cS_k^{\tp}$, the form $X\mapsto i\,\psi_{\xi,\C}(X,\overline X)$ is positive on $F^1\setminus\{0\}$ if and only if
+\begin{equation}\label{eq:signcond}
+-i\,\sigma_k(\xi)\,\varepsilon_k>0\qquad\text{for all }k .
+\end{equation}
+By \eqref{eq:epsminus} and $\sigma_{-k}(\xi)=-\sigma_k(\xi)$, the conditions for $k$ and for $-k$ coincide, so it suffices to impose \eqref{eq:signcond} for $k\in\Phi$. Write $\xi=\lambda\xi_0$ with $\lambda\in K^+$. Since $i\sigma_k(\xi_0)$ is a nonzero real number, the condition for $k\in\Phi$ prescribes the sign of $\sigma_k(\lambda)$, that is, the sign of $\lambda$ at the real place of $K^+$ given by $\sigma_k|_{K^+}$. The map $k\mapsto\sigma_k|_{K^+}$ is a bijection from $\Phi$ onto the set of real places of $K^+$, because $\sigma_k$ and $\sigma_{-k}$ have the same restriction to $K^+$ and $[K^+:\Q]=\frac12\varphi(N)$. By weak approximation, that is, because $K^+$ is dense in $K^+\otimes_\Q\R\cong\R^{\varphi(N)/2}$, there is $\lambda\in K^+$ with the prescribed signs at all real places.
 
-\emph{Step 4: the choice of $\xi$.} The numbers $i\sigma_k(\xi)$ are real. By \eqref{eq:positivity}, the form $i\,\psi_{\xi,\C}(X,\overline X)$ is positive on $F^1\setminus\{0\}$ if and only if $-i\,\sigma_k(\xi)\,\varepsilon_k>0$ for all $k$. By \eqref{eq:epsminus} and since $\sigma_{-k}(\xi)=-\sigma_k(\xi)$, the conditions for $k$ and for $-k$ coincide, so it suffices to consider $k\in\Phi$. Write $\xi=\lambda\xi_0$ with $\lambda\in K^+$. Since $i\sigma_k(\xi_0)$ is a nonzero real number, the condition for $k\in\Phi$ prescribes the sign of $\sigma_k(\lambda)$, that is, the sign of $\lambda$ at one real place of $K^+$, and distinct elements of $\Phi$ correspond to distinct real places. Because $K^+$ is dense in $K^+\otimes_\Q\R$, there is $\lambda\in K^+$ with the prescribed signs at all real places.
-
-\emph{Step 5: integrality.} The form $\psi_{\lambda\xi_0}$ takes rational values on the finitely generated $\Z$-module $\cO_K^3$. After multiplying $\lambda$ by a suitable positive integer, which does not affect the sign conditions, it takes integral values there. Then $\psi=\psi_{\lambda\xi_0}$ is a polarization in the sense of Definition~\ref{def:zvhs}.
+\emph{Step 8: integrality.} The fibre $\cO_K^3$ of $V_\Z$ is a free $\Z$-module of finite rank, and $\psi_{\lambda\xi_0}$ takes rational values on it. Multiplying $\lambda$ by a common denominator of its values on pairs of elements of a $\Z$-basis, a positive integer, preserves the sign conditions of Step~7 and makes $\psi=\psi_{\lambda\xi_0}$ integral on $V_\Z$; it remains invariant, as the monodromy preserves $\cO_K^3$. By Steps 5--7, $\psi$ is a flat, alternating, nondegenerate form $V_\Z\times V_\Z\to\Z$ with $\psi(F^1,F^1)=0$ and $i\,\psi(X,\overline X)>0$ for $0\ne X\in F^1$. Together with Steps 3 and~4 this is Definition~\ref{def:zvhs}.
 \end{proof}
 
-\begin{remark}[half twists]\label{rem:halftwist}
-The Euler integral realizes the local systems $\cS_k$ in the second cohomology of a family of surfaces, with a variation of Hodge structure of weight two; for Christol's series the Hodge numbers of the six conjugates add up to $(3,12,3)$ (Appendix~\ref{app:euler}). The variation of Theorem~\ref{thm:wt1} is obtained from it by shifting the gradings of the conjugates indexed by $\Phi$ and by $-\Phi$ relative to each other by one. Over a point this is the weight-lowering half twist of \citet{vanGeemen2001}; see also \citet{vanGeemenIzadi2002}. The construction is possible only if every conjugate has two adjacent Hodge levels, and by Proposition~\ref{prop:twolevel} this is equivalent to global boundedness. This is the only place in the proof of Theorem~\ref{thm:A} where global boundedness is used.
+\begin{remark}[Grading shifts and Tate twists]\label{rem:halftwist}
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item A complex variation of Hodge structure on an irreducible local system is determined only up to a shift of the grading (Theorem~\ref{thm:fedorov}). Shifting the grading of a polarized complex variation by one replaces a polarization $Q$ by $-Q$, because the sign of $Q$ on $\cS^p$ is $(-1)^p$. In the proof of Theorem~\ref{thm:wt1} the only constraint between gradings is \eqref{eq:conjpieces}, which puts every top piece in degree $1$ and every bottom piece in degree $0$ of the real variation; the resulting signs are recorded by the $\varepsilon_k$ and absorbed by the choice of $\lambda$ in Step~7.
+\item Such a choice of gradings, made separately for each pair $\{k,-k\}$, is not a Tate twist. For an integral variation $V$, the Tate twist $V(1)=V\otimes\Z(1)$, where $\Z(1)=2\pi i\,\Z$ has type $(-1,-1)$, shifts the types of all conjugates simultaneously by $(-1,-1)$; its underlying local system $V\otimes2\pi i\,\Z$ is isomorphic to that of $V$ by multiplication by $(2\pi i)^{-1}$. We use a Tate twist only in Section~\ref{sec:abelian}, to pass from type $\{(1,0),(0,1)\}$ to the type $\{(-1,0),(0,-1)\}$ of Theorem~\ref{thm:deligne}.
+\item The Euler integral realizes the local systems $\cS_k$ in the second cohomology of a family of surfaces, with a variation of Hodge structure of weight two; for Christol's series the Hodge numbers of the six conjugates add up to $(3,12,3)$ (Appendix~\ref{app:euler}). Relative to that realization, the variation of Theorem~\ref{thm:wt1} is obtained by shifting the gradings of the conjugates indexed by $\Phi$ and by $-\Phi$ relative to each other by one. Over a point this is the weight-lowering half twist of \citet{vanGeemen2001}; see also \citet{vanGeemenIzadi2002}. It is possible only if every conjugate has two adjacent Hodge levels, and by Proposition~\ref{prop:twolevel} this is equivalent to global boundedness. This is the only place in the proof of Theorem~\ref{thm:A} where global boundedness is used.
+\end{enumerate}
 \end{remark}
 
 %======================================================================
@@ -530,29 +594,49 @@ There are a number field $K_0\subset\C$ and an abelian scheme $f:\cA\to U_{K_0}$
 \end{proposition}
 
 \begin{proof}
-By Theorem~\ref{thm:wt1} and by Theorem~\ref{thm:deligne}, applied to $V_\Z(1)$ on the smooth curve $U_\C$, there is an abelian scheme $f':\cA'\to U_\C$ with $R_1f'_*\Q\cong V_\Q$. The field $\C$ is the union of its finitely generated $\Qb$-subalgebras. By the limit theorems of \citet[\S8]{EGAIV3} and \citet[\S17]{EGAIV4}, $\cA'$ is therefore the base change of an abelian scheme $\cA_R\to U\times_\Q\Spec R$ for some finitely generated $\Qb$-algebra $R\subset\C$. Replacing $R$ by $R[1/r]$ for a suitable nonzero $r\in R$, which is again a subring of $\C$, we may assume that $T=\Spec R$ is smooth over $\Qb$. Since $\Qb$ is algebraically closed and $R$ is an integral domain, $T$ is geometrically integral, so the complex manifold $T(\C)$ is connected. The inclusion $R\subset\C$ defines a point $\tau_0\in T(\C)$, and $T(\Qb)$ is nonempty by Hilbert's Nullstellensatz.
+By Theorem~\ref{thm:wt1}, the Tate twist $V_\Z(1)$ is a polarizable variation of type $\{(-1,0),(0,-1)\}$ whose underlying local system is isomorphic to $V_\Z$ (Remark~\ref{rem:halftwist}(2)). By Theorem~\ref{thm:deligne}, applied on the smooth curve $U_\C$, there is an abelian scheme $f':\cA'\to U_\C$ with $R_1f'_*\Z\cong V_\Z(1)$, so that $R_1f'_*\Q\cong V_\Q$. The field $\C$ is the union of its finitely generated $\Qb$-subalgebras. By the limit theorems of \citet[\S8]{EGAIV3} and \citet[\S17]{EGAIV4}, $\cA'$ is therefore the base change of an abelian scheme $\cA_R\to U\times_\Q\Spec R$ for some finitely generated $\Qb$-algebra $R\subset\C$. Replacing $R$ by $R[1/r]$ for a suitable nonzero $r\in R$, which is again a subring of $\C$, we may assume that $T=\Spec R$ is smooth over $\Qb$. Since $\Qb$ is algebraically closed and $R$ is an integral domain, $T$ is geometrically integral, so the complex manifold $T(\C)$ is connected. The inclusion $R\subset\C$ defines a point $\tau_0\in T(\C)$, and $T(\Qb)$ is nonempty by Hilbert's Nullstellensatz.
 
 The map $\cA_R(\C)\to U(\C)\times T(\C)$ is a proper holomorphic submersion. By Ehresmann's theorem \citep{Ehresmann1950}, the first homology groups of its fibres form a local system on $U(\C)\times T(\C)$. The restrictions of this local system to the slices $U(\C)\times\{\tau\}$, $\tau\in T(\C)$, are all isomorphic, as one sees by pulling it back to $U(\C)\times[0,1]$ along a path in $T(\C)$. For $\tau=\tau_0$ the restriction is $R_1f'_*\Z$. We choose $\tau\in T(\Qb)$ and let $\cA$ be the fibre of $\cA_R$ over $\tau$. It is an abelian scheme over $U_{\Qb}$ with $R_1f_*\Q\cong R_1f'_*\Q\cong V_\Q$, and, being of finite presentation, it is defined over a number field $K_0$.
 \end{proof}
 
+The specialization from $\tau_0$ to $\tau$ preserves the local system, but it need not preserve the Hodge filtration: we make no claim that the Hodge filtration of $R_1f_*\C$ corresponds to $F^1$ under the isomorphism with $V_\C$. Only the local system $R_1f_*\Q$ of $\cA$ is used below.
+
 \begin{remark}\label{rem:mult}
-The field $K$ acts on $V_\Q$, and this action preserves $F^1$, because $x\in K$ acts on $\cS_k$ as the scalar $\sigma_k(x)$. By Theorem~\ref{thm:deligne}, $K$ therefore embeds into $\End(\cA')\otimes\Q$. Finitely many generators of an order of $K$ spread out together with $\cA'$ and specialize, so $\cA$ can be chosen with multiplication by an order of $K$. We do not use this. Below, only the local system $R_1f_*\Q$ of $\cA$ matters.
+The field $K$ acts on $V_\Q$, and this action preserves $F^1$, because $x\in K$ acts on $\cS_k$ as the scalar $\sigma_k(x)$. By Theorem~\ref{thm:deligne}, $K$ therefore embeds into $\End(\cA')\otimes\Q$. Finitely many generators of an order of $K$ spread out together with $\cA'$ and specialize, so $\cA$ can be chosen with multiplication by an order of $K$. We do not use this.
 \end{remark}
 
-\begin{proposition}\label{prop:period}
-In the situation of Proposition~\ref{prop:abelian} there is a nonzero global section $\omega$ of the de~Rham bundle $H^1_{\mathrm{dR}}(\cA/U_{K_0})$ such that $L_{a,b}\,\omega=0$ for the Gauss--Manin connection. For every flat section $\gamma$ of $R_1f_*\C$ over an open subset of $U(\C)$, the function $\Pi(\gamma)=\int_\gamma\omega$ is a solution of $L_{a,b}$, and the resulting map $\Pi:R_1f_*\C\to\Sab$ of local systems is surjective.
-\end{proposition}
+We use the following standard consequences of the theory of regular singular connections.
+
+\begin{lemma}\label{lem:descent}
+Let $K_0\subset\C$ be a number field, and let $M$ and $E$ be algebraic vector bundles with flat connections on $U_{K_0}$ that have regular singularities at $0$, $1$ and $\infty$. Let $\Hom_{\cD}(M,E)$ be the $K_0$-vector space of $\cO$-linear maps $M\to E$ that commute with the connections.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item $\Hom_{\cD}(M,E)$ is finite-dimensional, and the natural map $\Hom_{\cD}(M,E)\otimes_{K_0}\C\to\Hom_{\cD}(M_\C,E_\C)$ is an isomorphism, where $M_\C$ and $E_\C$ are the base changes to $U_\C$.
+\item Sending $\phi\in\Hom_{\cD}(M_\C,E_\C)$ to the induced map $M^\nabla\to E^\nabla$ between the local systems of horizontal sections of the analytifications gives an isomorphism $\Hom_{\cD}(M_\C,E_\C)\cong\Hom(M^\nabla,E^\nabla)$.
+\end{enumerate}
+\end{lemma}
 
 \begin{proof}
-Let $E=H^1_{\mathrm{dR}}(\cA/U_{K_0})$ with its Gauss--Manin connection, which has regular singularities \citep{Katz1970}; see also \citet[II.7.9]{Deligne1970}. The leading coefficient of $L_{a,b}$, as a polynomial in $\theta$, is $1-x$, which is invertible on $U$. Hence $M_L=\cD_U/\cD_UL_{a,b}$ is a vector bundle of rank three on $U_{K_0}$ with a connection with regular singularities. Its local system of horizontal sections is the dual $\Sab^\vee$ of the local system of solutions, and that of $E$ is $R^1f_*\C=(R_1f_*\C)^\vee$. The $K_0$-vector space
+(a) The connections on $M$ and $E$ induce a flat connection on the vector bundle $\mathcal H=\mathcal Hom_\cO(M,E)$, and $\Hom_\cD(M,E)$ is the kernel of the $K_0$-linear map $\nabla:\Gamma(U_{K_0},\mathcal H)\to\Gamma(U_{K_0},\mathcal H\otimes\Omega^1)$. Since $U$ is affine, taking global sections commutes with the flat base change $K_0\to\C$, and so does taking kernels; this gives the isomorphism. Over $\C$, a horizontal section of $\mathcal H$ is determined by its value at one point of the connected manifold $U(\C)$, so $\dim_\C\Hom_\cD(M_\C,E_\C)\le\rank\mathcal H$, and hence $\dim_{K_0}\Hom_\cD(M,E)\le\rank\mathcal H$.
+
+(b) This is the full faithfulness part of the Riemann--Hilbert correspondence of \citet[Th\'eor\`eme~II.5.9]{Deligne1970}: analytification followed by horizontal sections is an equivalence between algebraic vector bundles with flat connections on $U_\C$ that have regular singularities and local systems on $U(\C)$.
+\end{proof}
+
+\begin{proposition}\label{prop:period}
+In the situation of Proposition~\ref{prop:abelian}, let $E=H^1_{\mathrm{dR}}(\cA/U_{K_0})$ be the relative algebraic de~Rham cohomology, with its Gauss--Manin connection. There is a nonzero global section $\omega\in\Gamma(U_{K_0},E)$ with $L_{a,b}\,\omega=0$, where $\theta$ acts on $E$ through the Gauss--Manin connection. For every flat section $\gamma$ of $R_1f_*\C$ over an open subset of $U(\C)$, the function $\Pi(\gamma)=\int_\gamma\omega$ is a solution of $L_{a,b}$, and the resulting map $\Pi:R_1f_*\C\to\Sab$ of local systems is surjective.
+\end{proposition}
+
+The section $\omega$ is an algebraic de~Rham class defined over $K_0$. It need not be represented by a relative holomorphic differential, that is, it need not lie in the Hodge subbundle $f_*\Omega^1_{\cA/U}$ of $E$, and the Hodge filtration of $E$ plays no role below.
+
+\begin{proof}
+The Gauss--Manin connection on $E$ has regular singularities \citep{Katz1970}; see also \citet[II.7.9]{Deligne1970}. As a polynomial in $\theta$, $L_{a,b}=(1-x)\theta^3+\cdots$, and $1-x$ is invertible on $U$. Hence $M_L=\cD_U/\cD_UL_{a,b}$, the quotient of the sheaf of differential operators on $U_{K_0}$ by the left ideal generated by $L_{a,b}$, is a vector bundle of rank three with basis the classes of $1,\theta,\theta^2$, with the connection given by left multiplication; it has regular singularities, since $L_{a,b}$ is Fuchsian. A $\cD$-linear map $M_L\to E$ is determined by the image $\omega$ of the class of $1$, and a section $\omega\in\Gamma(U_{K_0},E)$ occurs if and only if $L_{a,b}\,\omega=0$. Thus
 \[
-\Hom_{\cD_U}(M_L,E)=\{\omega\in\Gamma(U_{K_0},E):L_{a,b}\,\omega=0\}
+\Hom_{\cD}(M_L,E)=\{\omega\in\Gamma(U_{K_0},E):L_{a,b}\,\omega=0\}.
 \]
-is the space of global horizontal sections of the connection $M_L^\vee\otimes E$. It is finite-dimensional, and its formation commutes with extension of the field of constants. By the Riemann--Hilbert correspondence for connections with regular singularities on a smooth curve \citep[II.5.9]{Deligne1970},
+A horizontal section of the dual connection $M_L^\vee$ over an open set is a $\cD$-linear map $M_L\to\cO^{\mathrm{an}}$, and evaluation at the class of $1$ identifies these with the solutions of $L_{a,b}$. Hence $(M_L^\vee)^\nabla=\Sab$ and $M_L^\nabla=\Sab^\vee$. By the comparison between algebraic de~Rham and singular cohomology, $E^\nabla=R^1f_*\C=(R_1f_*\C)^\vee$, the duality being given by integration. Lemma~\ref{lem:descent} therefore gives
 \[
-\Hom_{\cD_U}(M_L,E)\otimes_{K_0}\C\cong\Hom\big(\Sab^\vee,(R_1f_*\C)^\vee\big)\cong\Hom\big(R_1f_*\C,\Sab\big).
+\Hom_{\cD}(M_L,E)\otimes_{K_0}\C\cong\Hom\big(\Sab^\vee,(R_1f_*\C)^\vee\big)\cong\Hom\big(R_1f_*\C,\Sab\big).
 \]
-The right-hand side is nonzero: it contains the projection of $R_1f_*\C\cong V_\C$ onto the summand $\cS_1\cong\Sab$ of \eqref{eq:split}. Hence the $K_0$-vector space $\Hom_{\cD_U}(M_L,E)$ is nonzero; let $\omega$ be a nonzero element of it. For a flat section $\gamma$ we have $L_{a,b}\int_\gamma\omega=\int_\gamma L_{a,b}\,\omega=0$. The map $\Pi$ is nonzero because the pairing between $H_1$ and $H^1_{\mathrm{dR}}$ of an abelian variety is perfect, and it is surjective because $\Sab$ is irreducible.
+Unwinding the identifications, this isomorphism sends $\omega$ to the map $\Pi_\omega:\gamma\mapsto\int_\gamma\omega$. Indeed, for a flat section $\gamma$ the map $E\to\cO^{\mathrm{an}}$, $\eta\mapsto\int_\gamma\eta$, is $\cD$-linear, so its composite with the map $M_L\to E$ defined by $\omega$ is the solution $\int_\gamma\omega$ of $L_{a,b}$; in particular $L_{a,b}\int_\gamma\omega=\int_\gamma L_{a,b}\,\omega=0$. The right-hand side is nonzero: it contains the projection of $R_1f_*\C\cong V_\C$ onto the summand $\cS_1\cong\Sab$ of \eqref{eq:split}. Hence the $K_0$-vector space $\Hom_{\cD}(M_L,E)$ is nonzero, without any extension of $K_0$. Let $\omega$ be a nonzero element. Then $\Pi=\Pi_\omega$ is nonzero, since $\Hom_\cD(M_L,E)$ embeds into its tensor product with $\C$, and it is surjective, because its image is a nonzero sub-local system of the irreducible local system $\Sab$.
 \end{proof}
 
 \begin{corollary}\label{cor:periodH}
@@ -563,7 +647,7 @@ There is a flat section $\gamma_Y$ of $R_1f_*\C$ over a sector at $0$ such that,
 \end{corollary}
 
 \begin{proof}
-Let $Y$ be the logarithmic solution of Lemma~\ref{lem:local0}. Since $\Pi$ is surjective, there is $\gamma_Y$ with $\Pi(\gamma_Y)=Y$. The map $\Pi$ commutes with the local monodromy $T_0$, so the claim follows from Lemma~\ref{lem:local0}(ii).
+Let $Y$ be the logarithmic solution of Lemma~\ref{lem:local0}. Since $\Pi$ is a surjective map of local systems and a sector is simply connected, there is a flat section $\gamma_Y$ over the sector with $\Pi(\gamma_Y)=Y$. The map $\Pi$ commutes with the local monodromy $T_0$, so the claim follows from Lemma~\ref{lem:local0}(ii).
 \end{proof}
 
 %======================================================================
@@ -583,41 +667,71 @@ Every nonempty Zariski open subset of $U$ contains a punctured disc around $0$ i
 \begin{proposition}\label{prop:model}
 There are a number field $K_1\supseteq K_0$, an integer $m\ge1$, a Zariski open neighbourhood $W$ of $0$ in the affine line $\A^1_{K_1}=\Spec K_1[w]$ such that $w\mapsto w^m$ maps $W\setminus\{0\}$ into $U_1$, and a projective flat morphism $\pi:\cX\to W$ with the following properties.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
-\item Over $W\setminus\{0\}$, $\cX$ is isomorphic to the base change of $C$ along $x=w^m$.
+\item Over $W\setminus\{0\}$, $\pi$ is smooth, and $\cX$ is isomorphic to the base change of $C$ along $x=w^m$.
 \item The surface $\cX$ is regular.
-\item The fibre $\cX_0$ over $w=0$ is reduced, and its singular points $P_1,\dots,P_r$ are ordinary double points; each $P_j$ is $K_1$-rational, and so are its two branches.
+\item The fibre $\cX_0$ over $w=0$ is reduced, and its singular points $P_1,\dots,P_r$ are ordinary double points. Each $P_j$ is $K_1$-rational, and $\widehat\cO_{\cX,P_j}\cong K_1[[\hat u,\hat v]]$ with $w=\hat u\hat v$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-By the monodromy theorem \citep{Katz1970}, the local monodromy of $R_1q_*\Z$ around $x=0$ is quasi-unipotent; let $m\ge1$ be such that its $m$-th power is unipotent. Let $R_m$ be the local ring of the affine $w$-line over $K_0$ at $w=0$, regarded as an extension of the local ring of the $x$-line at $0$ via $x=w^m$, and let $J$ be the Jacobian of the base change of the generic fibre of $C$ to the fraction field of $R_m$. Since the residue characteristic is $0$, the inertia group at $w=0$ acts on the $\ell$-adic Tate module of $J$ through the topological monodromy around $w=0$ \citep[Exp.~XIV]{DeligneKatz1973}, which is the $m$-th power of the monodromy around $x=0$. This action is therefore unipotent. By Grothendieck's criterion \citep[Exp.~IX, \S3]{SGA7I}, $J$ has semi-abelian reduction over $R_m$, and by \citet[Theorem~2.4]{DeligneMumford1969} the curve has stable reduction over $R_m$.
+\emph{Step 1: semistable reduction over an algebraically closed residue field.} By the monodromy theorem \citep{Katz1970}, the local monodromy of $R_1q_*\Z$ around $x=0$ is quasi-unipotent; let $m\ge1$ be such that its $m$-th power is unipotent. Let $\Qb\subset\C$ be the algebraic closure of $\Q$, and let $R=\Qb[w]_{(w)}$ be the local ring of the affine $w$-line over $\Qb$ at $0$, a discrete valuation ring with algebraically closed residue field $\Qb$, regarded as an extension of the local ring of the $x$-line at $0$ via $x=w^m$. Let $C_{\Qb(w)}$ be the base change of the generic fibre of $C$ to the fraction field $\Qb(w)$ of $R$, a smooth projective geometrically connected curve of genus $g\ge3$, and let $J$ be its Jacobian. Since the residue characteristic is $0$, the inertia group at $w=0$ is procyclic, topologically generated by an element $\sigma$ with $\sigma(w^{1/n})=\e(1/n)\,w^{1/n}$ for all $n$. By the comparison theorem of \citet[Exp.~XIV]{DeligneKatz1973}, its action on the $\ell$-adic Tate module $T_\ell J\cong H_1(C_{w^m}(\C),\Z)\otimes\Z_\ell$ is given by the topological monodromy around $w=0$, which is the $m$-th power of the monodromy around $x=0$ and hence unipotent. So the inertia group acts unipotently. By Grothendieck's criterion \citep[Exp.~IX, \S3]{SGA7I}, $J$ has semi-abelian reduction over $R$, and by \citet[Theorem~2.4]{DeligneMumford1969}, which is stated for discrete valuation rings with algebraically closed residue field, $C_{\Qb(w)}$ has a stable model $\cX^{\mathrm{st}}$ over $R$.
 
-Let $\cX^{\mathrm{st}}$ be the stable model over $R_m$. After replacing $K_0$ by a finite extension $K_1$, every singular point of its special fibre is a $K_1$-rational ordinary double point with $K_1$-rational branches. The completed local ring at such a point is isomorphic to $K_1[[u,v,w]]/(uv-w^e)$ for some integer $e\ge1$. The minimal desingularization replaces the point by a chain of $e-1$ projective lines over $K_1$, each of multiplicity one in the special fibre, meeting transversally in $K_1$-rational points at which the local equation is $uv=w$; see \citet[\S1]{DeligneMumford1969} and \citet[\S10.3]{Liu2002}. The resulting model is regular, and its special fibre is reduced, with $K_1$-rational ordinary double points with $K_1$-rational branches. It spreads out over a Zariski open neighbourhood $W$ of $0$, and after shrinking $W$ it is smooth over $W\setminus\{0\}$ and has the properties stated.
+\emph{Step 2: descent to a number field.} The ring $R$ is the filtered union of the rings $R_{K'}=K'[w]_{(w)}$, where $K'\subset\Qb$ runs through the number fields containing $K_0$. By the limit theorems of \citet[\S8]{EGAIV3}, there are such a field $K_2$ and a projective flat $R_{K_2}$-scheme $\cX'$ with $\cX'\otimes_{R_{K_2}}R\cong\cX^{\mathrm{st}}$, together with an isomorphism of its generic fibre with $C\otimes K_2(w)$. The special fibre of $\cX'$ becomes isomorphic to that of $\cX^{\mathrm{st}}$ over $\Qb$, so it is reduced and its singular points are ordinary double points. After enlarging $K_2$, every singular point $P$ of the special fibre is $K_2$-rational and both branches at $P$ are defined over $K_2$. Then the completed local ring of $\cX'$ at $P$ is isomorphic to $K_2[[w]][[u,v]]/(uv-c)$ with $c\in wK_2[[w]]$ \citep[\S10.3]{Liu2002}. Writing $c=w^e\varepsilon$ with a unit $\varepsilon$ and replacing $u$ by $\varepsilon^{-1}u$, it is $K_2[[u,v,w]]/(uv-w^e)$ for some $e\ge1$.
+
+\emph{Step 3: resolution.} For $e\ge2$ the point $P$ is a rational double point of type $A_{e-1}$ of the surface $\cX'$. Its minimal resolution, obtained by successive blow-ups of closed points that are $K_2$-rational at every stage, replaces $P$ by a chain of $e-1$ projective lines over $K_2$, each of multiplicity one in the special fibre, meeting each other and the strict transforms of the two branches transversally in $K_2$-rational points; at each of these points the completed local ring is $K_2[[u,v,w]]/(uv-w)\cong K_2[[u,v]]$ \citep[\S1]{DeligneMumford1969}, \citep[\S10.3]{Liu2002}. Doing this at every singular point with $e\ge2$ gives a projective flat $R_{K_2}$-scheme that is regular and whose special fibre is reduced, with only ordinary double points, each $K_2$-rational with completed local ring $K_2[[u,v]]$, $w=uv$.
+
+\emph{Step 4: spreading out.} Put $K_1=K_2$. The scheme of Step~3 and the isomorphism of its generic fibre with $C\otimes K_1(w)$ are defined over some Zariski open neighbourhood $W$ of $0$ in $\A^1_{K_1}$ \citep[\S8]{EGAIV3}; this gives $\pi:\cX\to W$. After shrinking $W$, $\pi$ is projective and flat, smooth over $W\setminus\{0\}$, $w\mapsto w^m$ maps $W\setminus\{0\}$ into $U_1$, and (i) holds. The non-regular locus of $\cX$ is closed, because $\cX$ is of finite type over a field. It does not meet $\cX_0$, because the local rings of $\cX$ at points of $\cX_0$ are local rings of the regular scheme of Step~3. Its image in $W$ is therefore closed and does not contain $0$, and after removing it from $W$ we obtain (ii). Property (iii) holds by Step~3.
 \end{proof}
 
 \begin{remark}\label{rem:m}
 Since $\iota_*$ is surjective and the monodromy of $R_1\pi_*\Z$ around $w=0$ is unipotent, $T_0^m$ is unipotent on $V_\Q$. By Lemma~\ref{lem:local0}(iii), the denominator of $b$ divides $m$.
 \end{remark}
 
-In the next lemma, $\omega_{\cX/W}$ denotes the relative dualizing sheaf, an invertible sheaf that restricts to the sheaf of differentials on the smooth locus of $\pi$, and the class $\omega$ of Proposition~\ref{prop:period} is pulled back along $x=w^m$.
+Put $W^\circ=W\setminus\{0\}$. In the next lemma, $\omega_{\cX/W}$ denotes the relative dualizing sheaf of $\pi$. Since $\cX$ and $W$ are regular, $\pi$ is a local complete intersection morphism, and $\omega_{\cX/W}$ is an invertible sheaf that restricts to $\Omega^1_{\cX/W}$ on the smooth locus of $\pi$ \citep[\S6.4]{Liu2002}. The class $\omega$ of Proposition~\ref{prop:period} pulls back along $\iota$ and along $x=w^m$ to a section $\omega_\cX$ of the relative de~Rham cohomology $H^1_{\mathrm{dR}}(\cX_{W^\circ}/W^\circ)$. By functoriality of the comparison isomorphism, for $w\in W^\circ(\C)$ and $c\in H_1(\cX_w,\C)=H_1(C_{w^m},\C)$ the period of $\omega_\cX$ over $c$ equals the period of $\omega$ over $\iota_*c$.
 
 \begin{lemma}\label{lem:eta}
-After shrinking $W$, there are a closed subscheme $D\subset\cX$, finite and flat over $W$ and containing none of the points $P_j$, and a rational section $\varpi$ of $\omega_{\cX/W}$ whose poles are contained in $D\cup\cX_0$, with the following property. For every $w\in W(\C)\setminus\{0\}$ and every $1$-cycle $\gamma$ on $\cX_w\setminus D_w$,
+After shrinking $W$, there are a closed subscheme $D\subset\cX$, finite over $W$ and containing none of the points $P_j$, and a rational section $\varpi$ of $\omega_{\cX/W}$ whose poles are contained in $D\cup\cX_0$, with the following properties for every $w\in W^\circ(\C)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item The restriction $\varpi_w$ of $\varpi$ to $\cX_w\setminus D_w$ is a holomorphic $1$-form, and its residues at the points of $D_w$ vanish.
+\item For every $1$-cycle $\gamma$ on $\cX_w\setminus D_w$,
 \[
 \int_\gamma\varpi=\int_{\iota_*[\gamma]}\omega ,
 \]
 where $[\gamma]$ denotes the class of $\gamma$ in $H_1(\cX_w,\Z)=H_1(C_{w^m},\Z)$.
+\end{enumerate}
+In particular, $\int_\gamma\varpi$ depends only on $[\gamma]$, and we write $\int_c\varpi$ for $c\in H_1(\cX_w,\C)$, extending linearly.
 \end{lemma}
 
 \begin{proof}
-Choose a projective embedding of $\cX$ over $W$ and a hyperplane that contains none of the points $P_j$ and no irreducible component of $\cX_0$. Let $D$ be its intersection with $\cX$; after shrinking $W$ it is finite and flat over $W$. Let $\cX_\eta$ be the generic fibre of $\pi$, a smooth projective curve over $K_1(w)$, and $D_\eta$ that of $D$. The curve $\cX_\eta\setminus D_\eta$ is affine, so its de~Rham cohomology is computed by global algebraic differential forms \citep{Grothendieck1966}. The restriction map $H^1_{\mathrm{dR}}(\cX_\eta)\to H^1_{\mathrm{dR}}(\cX_\eta\setminus D_\eta)$ is injective. Hence the class $\iota^*\omega$ is represented by a regular $1$-form $\varpi$ on $\cX_\eta\setminus D_\eta$. Viewed as a rational section of $\omega_{\cX/W}$, the form $\varpi$ has poles along $D$ and along finitely many fibres of $\pi$; after shrinking $W$, the only such fibre is $\cX_0$. After shrinking $W$ further, the restriction of $\varpi$ to $\cX_w\setminus D_w$ represents the restriction of $(\iota^*\omega)_w$ for every $w\ne0$. The displayed identity now expresses the compatibility of the period pairing with restriction to $\cX_w\setminus D_w$ and with $\iota$.
+Choose a projective embedding of $\cX$ over $W$ and two hyperplanes $\mathcal H,\mathcal H'$ that contain none of the points $P_j$, no irreducible component of $\cX_0$ and no irreducible component of the generic fibre $\cX_\eta$, a smooth projective curve over $K_1(w)$, and such that $\mathcal H\cap\mathcal H'\cap\cX_\eta=\emptyset$. Let $D=\mathcal H\cap\cX$ and $D'=\mathcal H'\cap\cX$. After shrinking $W$, neither hyperplane contains a component of a fibre of $\pi$ and $D\cap D'\cap\cX_{W^\circ}=\emptyset$. Then $D$ is proper and quasi-finite, hence finite, over $W$.
+
+The curves $\cX_\eta\setminus D_\eta$ and $\cX_\eta\setminus D'_\eta$ are affine, and they cover $\cX_\eta$. Their algebraic de~Rham cohomology is computed by global algebraic differential forms \citep{Grothendieck1966}, so $H^1_{\mathrm{dR}}(\cX_\eta)$ is the first cohomology of the \v{C}ech--de~Rham complex of this cover. Hence the generic fibre of $\omega_\cX$ is represented by a triple $(\varpi,\varpi',\phi)$, where $\varpi$ and $\varpi'$ are regular $1$-forms on $\cX_\eta\setminus D_\eta$ and $\cX_\eta\setminus D'_\eta$, and $\phi$ is a regular function on $\cX_\eta\setminus(D_\eta\cup D'_\eta)$ with $\varpi-\varpi'=d\phi$. Each of these is defined away from finitely many fibres of $\pi$; after shrinking $W$ they are defined on $(\cX\setminus D)_{W^\circ}$, $(\cX\setminus D')_{W^\circ}$ and $(\cX\setminus(D\cup D'))_{W^\circ}$, and the triple defines a section of $H^1_{\mathrm{dR}}(\cX_{W^\circ}/W^\circ)$, computed by the same \v{C}ech--de~Rham complex since these open sets are affine over the affine curve $W^\circ$. This section agrees with $\omega_\cX$ at the generic point. The relative de~Rham cohomology of the smooth projective family of curves $\cX_{W^\circ}\to W^\circ$ is locally free and its formation commutes with base change: it is an extension of $R^1\pi_*\cO$ by $\pi_*\Omega^1$, both locally free of rank equal to the genus and compatible with base change by the theorem on cohomology and base change. As $W^\circ$ is integral, the two sections agree on $W^\circ$, and so, for every $w\in W^\circ(\C)$, the restricted triple $(\varpi_w,\varpi'_w,\phi_w)$ represents $(\omega_\cX)_w$. We view $\varpi$ as a rational section of $\omega_{\cX/W}$; it is regular on $(\cX\setminus D)_{W^\circ}$, so its poles lie in $D\cup\cX_0$.
+
+(i) The form $\varpi_w$ is holomorphic on $\cX_w\setminus D_w$. Near a point of $D_w$, which does not lie on $D'_w$, we have $\varpi_w=\varpi'_w+d\phi_w$ with $\varpi'_w$ holomorphic, and the residue of an exact form is zero.
+
+(ii) On $\cX_w\setminus D_w$ the class $(\omega_\cX)_w$ is represented by $\varpi_w$, so its period over a cycle $\gamma$ in $\cX_w\setminus D_w$ is $\int_\gamma\varpi_w$. By the remark before the lemma, this equals $\int_{\iota_*[\gamma]}\omega$.
+
+Finally, two cycles on $\cX_w\setminus D_w$ with the same class in $H_1(\cX_w,\Z)$ differ in $H_1(\cX_w\setminus D_w,\Z)$ by a combination of small loops around the points of $D_w$, over which the integral of $\varpi_w$ is $2\pi i$ times a residue, hence zero by (i).
 \end{proof}
 
-For each $j$ we fix local analytic coordinates $u,v$ on $\cX(\C)$ near $P_j$ with $uv=w$. Such coordinates exist by the Morse lemma, and the proof of Proposition~\ref{prop:node} shows that they can be taken from the henselization of the local ring of $\cX$ at $P_j$; we make such a choice. For small $w\ne0$ let $\delta_j(w)\subset\cX_w$ be the circle
+\begin{lemma}\label{lem:coords}
+Let $1\le j\le r$, let $\cO=\cO_{\cX,P_j}$, with maximal ideal $\mathfrak m$, and let $\cO^h$ be its henselization. There are $u,v\in\cO^h$ with $uv=w$ that form a regular system of parameters of $\cO^h$. For any such $u,v$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item $\cO^h=\alg{K_1}{u,v}$ inside $\widehat\cO=K_1[[u,v]]$;
+\item every element of $\cO^h$ is a holomorphic function on a neighbourhood of $P_j$ in $\cX(\C)$ whose Taylor series in $u,v$ is its image in $K_1[[u,v]]$;
+\item $u$ and $v$ are holomorphic coordinates on a neighbourhood of $P_j$ in $\cX(\C)$, in which $\pi$ is given by $(u,v)\mapsto uv$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By Proposition~\ref{prop:model}(iii) there are $\hat u,\hat v\in\widehat\cO$ with $\hat u\hat v=w$ and $\widehat\cO=K_1[[\hat u,\hat v]]$. The ring $\cO$ is a local ring of the scheme $\cX$ of finite type over $K_1$, and $\widehat\cO$ is also the completion of $\cO^h$. By Artin's approximation theorem \citep[Theorem~1.10]{Artin1969}, applied to the polynomial equation $Y_1Y_2-w=0$ over $\cO^h$, which has the solution $(\hat u,\hat v)$ in $\widehat\cO$, there are $u,v\in\cO^h$ with $uv=w$, $u\equiv\hat u$ and $v\equiv\hat v$ modulo $\mathfrak m^2\widehat\cO$. Then $u$ and $v$ generate $\mathfrak m\cO^h$ modulo $(\mathfrak m\cO^h)^2$, so they form a regular system of parameters of the two-dimensional regular local ring $\cO^h$. The scheme $\cX$ is regular and of finite type over a field of characteristic $0$, hence smooth over $K_1$, and $P_j$ is $K_1$-rational. Statements (i) and (ii) are therefore Lemma~\ref{lem:hens}. Statement (iii) follows from (ii) and the inverse function theorem, because $du$ and $dv$ are linearly independent at $P_j$ and $uv=w$ in $\cO^h$.
+\end{proof}
+
+For each $j$ we fix $u,v$ as in Lemma~\ref{lem:coords} and a radius $r_0>0$ such that $u,v$ are coordinates on the polydisc $\Delta_j=\{|u|<r_0,\ |v|<r_0\}$ around $P_j$, and $\Delta_j\cap D(\C)=\emptyset$. For $0<|w|<r_0^2$ let $\delta_j(w)\subset\cX_w\cap\Delta_j$ be the circle
 \[
 \delta_j(w)=\{\,|u|=|w|^{1/2},\ v=w/u\,\},
 \]
-oriented by increasing argument of $u$. This is the \emph{vanishing cycle} at $P_j$.
+oriented by increasing argument of $u$. This is the \emph{vanishing cycle} at $P_j$. It lies in $\cX_w\setminus D_w$.
 
 \begin{lemma}\label{lem:variation}
 Let $T_{\cX}$ be the monodromy of $H_1(\cX_w,\Z)$ around $w=0$. Then $T_{\cX}\,\delta_j(w)=\delta_j(w)$ for all $j$, and
@@ -627,49 +741,33 @@ Let $T_{\cX}$ be the monodromy of $H_1(\cX_w,\Z)$ around $w=0$. Then $T_{\cX}\,\
 \end{lemma}
 
 \begin{proof}
-Let $\Delta$ be a small disc around $0$ in $W(\C)$, and choose small closed balls $\cB_j$ around the points $P_j$ whose boundaries meet the fibres of $\pi$ over $\Delta$ transversally. Outside $\bigcup_j\cB_j$ the map $\pi$ is a proper submersion of manifolds with boundary over $\Delta$, hence a trivial fibre bundle, and the monodromy diffeomorphism of $\cX_w$ can be chosen to be the identity on $\cX_w\setminus\bigcup_j\cB_j$. Each $\cX_w\cap\cB_j$ is an annulus with core circle $\delta_j(w)$. Write a $1$-cycle as $\gamma=\gamma_{\mathrm{out}}+\sum_j\gamma_j$, where $\gamma_j$ is a chain in the $j$-th annulus and $\gamma_{\mathrm{out}}$ is a chain outside the balls. Then $T_{\cX}\gamma-\gamma=\sum_j(T_{\cX}\gamma_j-\gamma_j)$, and $T_{\cX}\gamma_j-\gamma_j$ is a cycle in the $j$-th annulus, because the monodromy fixes its boundary pointwise. It is therefore homologous to a multiple of $\delta_j(w)$. The circles $\delta_j(w)$ are defined for all small $w\ne0$ and depend continuously on $w$, so their classes are invariant.
+Let $\Delta$ be a small disc around $0$ in $W(\C)$, and let $\cB_j\subset\Delta_j$ be the closed ball $|u|^2+|v|^2\le\epsilon^2$ around $P_j$, for a small $\epsilon>0$. For $|w|$ small its boundary meets the fibres $uv=w$ transversally. Since the only singular points of $\pi$ over $\Delta$ are the $P_j$, outside $\bigcup_j\cB_j$ the map $\pi$ is a proper submersion of manifolds with boundary over $\Delta$, hence a trivial fibre bundle, and the monodromy diffeomorphism of $\cX_w$ can be chosen to be the identity on $\cX_w\setminus\bigcup_j\cB_j$. Each $\cX_w\cap\cB_j$ is an annulus with core circle $\delta_j(w)$. Write a $1$-cycle as $\gamma=\gamma_{\mathrm{out}}+\sum_j\gamma_j$, where $\gamma_j$ is a chain in the $j$-th annulus and $\gamma_{\mathrm{out}}$ is a chain outside the balls. Then $T_{\cX}\gamma-\gamma=\sum_j(T_{\cX}\gamma_j-\gamma_j)$, and $T_{\cX}\gamma_j-\gamma_j$ is a cycle in the $j$-th annulus, because the monodromy fixes its boundary pointwise. It is therefore homologous to a multiple of $\delta_j(w)$. The circles $\delta_j(w)$ are defined for all small $w\ne0$ and depend continuously on $w$, so their classes are invariant.
 \end{proof}
 
 Lemma~\ref{lem:variation} is the elementary half of the Picard--Lefschetz formula; compare \citet[Exp.~XV]{DeligneKatz1973} and \citet{Clemens1977}. The coefficients in that formula, which are intersection numbers, are not needed here.
-
-\begin{corollary}\label{cor:vanishing}
-There are $z_1,\dots,z_r\in\C$ such that, for all $w\ne0$ in a neighbourhood of $0$,
-\[
-\Fab(w^m)=\sum_{j=1}^rz_j\cdot\frac1{2\pi i}\int_{\delta_j(w)}\varpi .
-\]
-\end{corollary}
-
-\begin{proof}
-Pulled back along $x=w^m$, the local system $R_1f_*\Z$ has local monodromy $T_0^m$ around $w=0$, and the surjection $\iota_*:H_1(\cX_w,\Z)\to H_1(\cA_{w^m},\Z)$ of local systems on a punctured disc satisfies $\iota_*\circ T_{\cX}=T_0^m\circ\iota_*$. On a sector, write $\gamma_Y=\iota_*\tilde\gamma$ with $\tilde\gamma\in H_1(\cX_w,\C)$. By Lemma~\ref{lem:variation},
-\[
-(T_0^m-1)\gamma_Y=\iota_*(T_{\cX}-1)\tilde\gamma=\sum_jz_j'\,\iota_*\delta_j(w)\qquad\text{with }z_j'\in\C .
-\]
-For small $w$ the circle $\delta_j(w)$ lies in $\cX_w\setminus D_w$. By Corollary~\ref{cor:periodH} and Lemma~\ref{lem:eta},
-\[
-\Fab(w^m)=\frac1{2\pi i\,m}\sum_jz_j'\int_{\iota_*\delta_j(w)}\omega=\sum_j\frac{z_j'}m\cdot\frac1{2\pi i}\int_{\delta_j(w)}\varpi
-\]
-on the sector. Both sides are single-valued analytic functions of $w$ on a punctured disc, so the identity holds there.
-\end{proof}
 
 %======================================================================
 \section{Expansion at a node and proof of Theorem A}\label{sec:node}
 %======================================================================
 
 \begin{proposition}\label{prop:node}
-For each $j$ there are an integer $\nu_j\ge0$ and an algebraic power series $g_j\in\alg{K_1}{u,v}$ such that, for all sufficiently small $w\ne0$,
+For each $j$ there are an integer $\nu_j\ge0$ and an algebraic power series $g_j\in\alg{K_1}{u,v}$ such that $\varpi=w^{-\nu_j}g_j\,du/u$ near $P_j$ and, for $0<|w|<r_0^2$ after shrinking $r_0$,
 \[
 \frac1{2\pi i}\int_{\delta_j(w)}\varpi=w^{-\nu_j}\,\Diag(g_j)(w).
 \]
 \end{proposition}
 
 \begin{proof}
-Let $\cO=\cO_{\cX,P_j}$, with maximal ideal $\mathfrak m$. By Proposition~\ref{prop:model}, $\cO$ is a regular local ring of dimension two with residue field $K_1$, and $w\in\mathfrak m^2$ has a nondegenerate quadratic part that splits over $K_1$. By the formal Morse lemma there are regular parameters $\hat u,\hat v$ of the completion $\widehat\cO$ with $\hat u\hat v=w$. By Artin's approximation theorem \citep[Theorem~1.10]{Artin1969}, applied to the equation $uv=w$, there are $u,v\in\cO^h$ with $uv=w$ that are congruent to $\hat u,\hat v$ modulo $\mathfrak m^2$. They form a regular system of parameters of $\cO^h$, so that $\cO^h=\alg{K_1}{u,v}$ by \S\ref{subsec:alg}. They are also analytic coordinates on $\cX(\C)$ near $P_j$, in which $\cX_w$ is given by $uv=w$; these are the coordinates used to define $\delta_j(w)$ in Section~\ref{sec:curves}.
+Let $\cO=\cO_{\cX,P_j}$ and let $u,v\in\cO^h$ be as in Lemma~\ref{lem:coords}.
 
-Near $P_j$ the invertible sheaf $\omega_{\cX/W}$ is generated by the form that restricts to $du/u=-dv/v$ on the smooth fibres \citep[\S1]{DeligneMumford1969}. Let $\omega_0$ be a generator of $\omega_{\cX/W}$ over $\cO$. Then $du/u=\vartheta\,\omega_0$ for a unit $\vartheta$ of $\cO^h$, and $\varpi=\kappa\,\omega_0$ for a rational function $\kappa$ on $\cX$. By Lemma~\ref{lem:eta}, the poles of $\kappa$ near $P_j$ are contained in $\cX_0=\{w=0\}$. Since $\cO$ is normal, $w^{\nu_j}\kappa\in\cO$ for some integer $\nu_j\ge0$. Hence
+\emph{The dualizing sheaf near $P_j$.} The elements $u,v$ lie in the local ring of some étale neighbourhood $(\cX',P')$ of $(\cX,P_j)$ with trivial residue field extension, and define a morphism $\chi=(u,v):\cX'\to\A^2_{K_1}$. It is étale at $P'$, because it induces an isomorphism $K_1[[u,v]]\cong\widehat\cO$ of completed local rings. Since $uv=w$, $\chi$ is a morphism over $\A^1_{K_1}$ if $\A^2_{K_1}$ is mapped to $\A^1_{K_1}$ by $(u,v)\mapsto uv$. This map is the relative complete intersection $\Spec K_1[w][u,v]/(uv-w)\to\Spec K_1[w]$, whose dualizing sheaf is generated by the form that equals $du/u=-dv/v$ wherever $u$ or $v$ is invertible \citep[\S6.4]{Liu2002}; compare \citet[\S1]{DeligneMumford1969}. Relative dualizing sheaves are compatible with étale base change. Hence $\omega_{\cX/W}\otimes\cO^h$ is the free $\cO^h$-module generated by $du/u$.
+
+\emph{Poles.} Let $\omega_0$ be a generator of $\omega_{\cX/W}\otimes\cO$. Then $du/u=\vartheta\,\omega_0$ for a unit $\vartheta$ of $\cO^h$, and $\varpi=\kappa\,\omega_0$ for an element $\kappa$ of the fraction field of $\cO$. By Lemma~\ref{lem:eta}, and since $P_j\notin D$, the poles of $\kappa$ on $\Spec\cO$ lie along prime divisors containing $w$. Let $\nu_j\ge0$ be the largest order of such a pole. Then $w^{\nu_j}\kappa$ has no poles in codimension one on $\Spec\cO$, so $w^{\nu_j}\kappa\in\cO$, as $\cO$ is normal. Hence, in $\omega_{\cX/W}\otimes\cO^h$,
 \[
-\varpi=w^{-\nu_j}\,g_j\,\frac{du}u\qquad\text{with }g_j=w^{\nu_j}\kappa\,\vartheta^{-1}\in\alg{K_1}{u,v}.
+\varpi=w^{-\nu_j}\,g_j\,\frac{du}u\qquad\text{with }g_j=w^{\nu_j}\kappa\,\vartheta^{-1}\in\cO^h=\alg{K_1}{u,v}.
 \]
-The series $g_j=\sum_{l,n\ge0}g_{j;l,n}u^lv^n$ converges for $|u|,|v|<r_0$, for some $r_0>0$. Let $0<|w|<r_0^2$. On $\delta_j(w)$ we have $v=w/u$, so
+
+\emph{Integration.} By Lemma~\ref{lem:coords}(ii), after shrinking $r_0$, $g_j$ is holomorphic on $\Delta_j$ and equals the sum of its Taylor series $\sum_{l,n\ge0}g_{j;l,n}u^lv^n$ there. On $\delta_j(w)$, $0<|w|<r_0^2$, we have $|u|=|v|=|w|^{1/2}<r_0$ and $v=w/u$, and the series converges uniformly. Hence
 \[
 \int_{\delta_j(w)}\varpi=w^{-\nu_j}\sum_{l,n\ge0}g_{j;l,n}\,w^n\oint_{|u|=|w|^{1/2}}u^{l-n}\,\frac{du}u=2\pi i\,w^{-\nu_j}\sum_{n\ge0}g_{j;n,n}\,w^n .\qedhere
 \]
@@ -683,14 +781,42 @@ The regularity of the model is essential for Proposition~\ref{prop:node}. For th
 The diagonal of $(1-\frac12v(1+s)^2)^{-1/2}$ in the variables $s,v$, evaluated at $x/2$, is ${}_2F_1(\frac12,\frac12;1;x)$: the coefficient of $s^nv^n$ is $2^{-n}\binom{2n}n\frac{(1/2)_n}{n!}$, and $4^{-n}\binom{2n}n=\frac{(1/2)_n}{n!}$.
 \end{remark}
 
-\subsection{Proof of Theorem~\ref{thm:A}}\label{subsec:proofA}
-Let $\nu=\max_j\nu_j$. Replacing each $g_j$ by $(uv)^{\nu-\nu_j}g_j$, we obtain from Corollary~\ref{cor:vanishing} and Proposition~\ref{prop:node}
-\[
-w^\nu\,\Fab(w^m)=\sum_{j=1}^rz_j\,\Diag(g_j)(w)\qquad\text{with }g_j\in\alg{K_1}{u,v}\text{ and }z_j\in\C .
-\]
-This is an identity of analytic functions near $0$, hence an identity of power series. Its left-hand side lies in $\Q[[w]]$. By Lemma~\ref{lem:closure}(a), we may take the $z_j$ in $K_1$, so that $w^\nu\Fab(w^m)=\Diag(\tilde g)$ with $\tilde g=\sum_jz_jg_j\in\alg{K_1}{u,v}$. Parts (b), (c) and (d) of Lemma~\ref{lem:closure}, applied in this order, give $g\in\alg\Q{u,v}$ with $\Diag(g)=\Fab$.
+The following proposition collects the passage from vanishing-cycle periods to diagonals. Its hypotheses are exactly what Proposition~\ref{prop:model} and Lemma~\ref{lem:eta} provide; it does not assert that algebraic periods are in general diagonals.
 
-By Lemma~\ref{lem:HKM} with $n=1$, the series $\Fab$ is the diagonal of a rational function in three variables over $\Q$ that is regular at the origin. By Lemma~\ref{lem:local0}(iv), $\Fab$ is transcendental over $\Q(x)$. By Theorem~\ref{thm:furst}, it is therefore not the diagonal of a rational function in two variables; nor is it a rational function. \qed
+\begin{proposition}[From vanishing-cycle periods to diagonals]\label{prop:mechanism}
+Let $K_1\subset\C$ be a number field, $W\subseteq\A^1_{K_1}$ a Zariski open neighbourhood of $0$, and $\pi:\cX\to W$ a projective flat morphism that is smooth over $W\setminus\{0\}$, such that $\cX$ is regular and $\cX_0$ is reduced with only ordinary double points $P_1,\dots,P_r$, each $K_1$-rational with $\widehat\cO_{\cX,P_j}\cong K_1[[\hat u,\hat v]]$, $w=\hat u\hat v$. Let $D\subset\cX$ be a closed subscheme, finite over $W$ and avoiding the $P_j$, and let $\varpi$ be a rational section of $\omega_{\cX/W}$ with poles in $D\cup\cX_0$ (horizontal and vertical poles) whose restrictions to $\cX_w\setminus D_w$, $w\ne0$, have zero residues. Let $T_\cX$ be the monodromy of $H_1(\cX_w,\Z)$ around $w=0$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item For every flat section $\tilde\gamma$ of $H_1(\cX_w,\C)$ over a sector at $0$ there are $z_1,\dots,z_r\in\C$ such that $(T_\cX-1)\tilde\gamma=\sum_jz_j\,\delta_j(w)$, where $\delta_j(w)$ is the vanishing cycle at $P_j$, defined as before Lemma~\ref{lem:variation} with coordinates as in Lemma~\ref{lem:coords}, and, on the sector, for small $|w|$,
+\[
+\frac1{2\pi i}\int_{(T_\cX-1)\tilde\gamma}\varpi=\sum_{j=1}^rz_j\,w^{-\nu_j}\,\Diag(g_j)(w)
+\]
+with $\nu_j\ge0$ and $g_j\in\alg{K_1}{u,v}$.
+\item If, moreover, $f\in\Q[[x]]$ converges near $0$ and $f(w^m)=\frac1{2\pi i}\int_{(T_\cX-1)\tilde\gamma}\varpi$ on the sector, for some $m\ge1$, then $f=\Diag(g)$ for some $g\in\alg\Q{u,v}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:coords}, Lemma~\ref{lem:variation} and Proposition~\ref{prop:node} use only these hypotheses, and so does the last paragraph of the proof of Lemma~\ref{lem:eta}, which shows that $\int_c\varpi$ is a well-defined linear function of $c\in H_1(\cX_w,\C)$.
+
+(a) By Lemma~\ref{lem:variation}, $(T_\cX-1)\tilde\gamma=\sum_jz_j\delta_j(w)$ with $z_j\in\C$, constant on the sector because both sides are flat. The identity follows from Proposition~\ref{prop:node} by linearity.
+
+(b) Let $\nu=\max_j\nu_j$ and replace $g_j$ by $(uv)^{\nu-\nu_j}g_j$, which multiplies $\Diag(g_j)$ by $w^{\nu-\nu_j}$. By (a), $w^\nu f(w^m)=\sum_jz_j\Diag(g_j)(w)$ on the sector. Both sides are holomorphic on a punctured disc around $0$, the right-hand side because each $\Diag(g_j)$ converges near $0$; so the identity holds on the punctured disc, and it is an identity of power series. Its left-hand side lies in $\Q[[w]]$. By Lemma~\ref{lem:closure}(a), applied to the series $\Diag(g_j)\in K_1[[w]]$, we may replace the $z_j$ by elements of $K_1$ (descent of the coefficient field), so that $w^\nu f(w^m)=\Diag(\tilde g)$ with $\tilde g=\sum_jz_jg_j\in\alg{K_1}{u,v}$. Lemma~\ref{lem:closure}(b) replaces $\tilde g$ by an element of $\alg\Q{u,v}$ with the same diagonal; Lemma~\ref{lem:closure}(c) removes the factor $w^\nu$ (removal of a monomial shift); and Lemma~\ref{lem:closure}(d) passes from $f(w^m)$ to $f$ (extraction of a section).
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:A}}\label{subsec:proofA}
+Let $(a,b)$ satisfy \eqref{eq:NR} and assume that $\Fab$ is globally bounded. Theorem~\ref{thm:wt1} and Propositions~\ref{prop:abelian} and~\ref{prop:period} give a number field $K_0$, an abelian scheme $f:\cA\to U_{K_0}$ and a de~Rham class $\omega$, and Corollary~\ref{cor:periodH} gives a flat section $\gamma_Y$ of $R_1f_*\C$ over a sector at $0$ with
+\[
+\Fab(x)=\frac1{2\pi i\,m}\int_{(T_0^m-1)\gamma_Y}\omega\qquad\text{for every }m\ge1 .
+\]
+Propositions~\ref{prop:curves} and~\ref{prop:model} give $C$, $\iota$, $K_1$, $m$ and $\pi:\cX\to W$, and Lemma~\ref{lem:eta} gives $D$ and $\varpi$. They satisfy the hypotheses of Proposition~\ref{prop:mechanism}.
+
+We pull back along $x=w^m$ to a sector in the $w$-plane. The map $\iota_*:H_1(\cX_w,\C)\to H_1(\cA_{w^m},\C)$ is a surjective map of local systems on a punctured disc around $0$, by Proposition~\ref{prop:curves}, and $\iota_*\circ T_\cX=T_0^m\circ\iota_*$. As the sector is simply connected, there is a flat section $\tilde\gamma$ of $H_1(\cX_w,\C)$ over it with $\iota_*\tilde\gamma=\gamma_Y$, and then $(T_0^m-1)\gamma_Y=\iota_*(T_\cX-1)\tilde\gamma$. By Lemma~\ref{lem:eta}(ii),
+\[
+\Fab(w^m)=\frac1{2\pi i}\int_{(T_\cX-1)(\tilde\gamma/m)}\varpi
+\]
+on the sector. Proposition~\ref{prop:mechanism}(b), applied to $f=\Fab$ and the flat section $\tilde\gamma/m$, gives $g\in\alg\Q{u,v}$ with $\Diag(g)=\Fab$.
+
+The series $\Fab$ is D-finite, since $L_{a,b}\Fab=0$. By Lemma~\ref{lem:HKM} with $K=\Q$ and $n=1$, it is the diagonal of a rational function in three variables over $\Q$ that is regular at the origin. By Lemma~\ref{lem:local0}(iv), $\Fab$ is transcendental over $\Q(x)$. By Theorem~\ref{thm:furst}, it is therefore not the diagonal of a rational function in two variables, and it is not a rational function, which is the case of one variable. \qed
 
 %======================================================================
 \section{Examples and further consequences}\label{sec:examples}
@@ -770,7 +896,7 @@ The first statement is part of Corollary~\ref{cor:B} and does not use the Rohrli
 \item For every series $\Fab$ satisfying \eqref{eq:NR}, \citet[Theorem~3.7]{HarderKramerMiller2026} show unconditionally that $\dg(\Fab)\ge2$ and $\hg(\Fab)\ge2$, since the height of $\Fab$, the number of integral lower parameters when $n!$ is counted as $(1)_n$, is $2$. Together with Theorem~\ref{thm:A}, every globally bounded $\Fab$ satisfying \eqref{eq:NR} has diagonal grade exactly $2$. The lower bound also follows from Lemma~\ref{lem:local0}(iv) and Theorem~\ref{thm:furst}, as in \S\ref{subsec:proofA}.
 \item The series of Proposition~\ref{prop:D}(a) have Hadamard grade exactly $2$.
 \item Assuming the Rohrlich--Lang conjecture, $\dg(S_7)=2$ and $\hg(S_7)=\infty$. Since a series of Hadamard grade $k$ has diagonal grade at most $k$ \citep[Proposition~4.1]{HarderKramerMiller2026}, the series of finite Hadamard grade then form a proper subset of the diagonals of rational functions.
-\item For Christol's series, $\dg(H)=2$ by Theorem~\ref{thm:A}, and $\hg(H)\ge2$. \citet[\S VII]{Christol1987} remarked that $H$ does not seem to be the Hadamard product of two functions of height one. \citet[\S10]{RivoalRoques2014} explain that this amounts to the statement that $H$ is not the Hadamard product of two algebraic hypergeometric series with rational coefficients. It would follow from $\hg(H)\ge3$, and under the Rohrlich--Lang conjecture $\hg(H)\ge3$ would imply $\hg(H)=\infty$. Their method does not decide the question. Family~(ii) of Appendix~\ref{app:search} tests a finite range of such factorizations and finds none.
+\item For Christol's series, $\dg(H)=2$ by Theorem~\ref{thm:A}, and $\hg(H)\ge2$. \citet[\S VII]{Christol1987} remarked that $H$ does not seem to be the Hadamard product of two functions of height one. \citet[\S10]{RivoalRoques2014} explain that this amounts to the statement that $H$ is not the Hadamard product of two algebraic hypergeometric series with rational coefficients. It would follow from $\hg(H)\ge3$, and under the Rohrlich--Lang conjecture $\hg(H)\ge3$ would imply $\hg(H)=\infty$. Their method does not decide the question. Family~(ii) of Appendix~\ref{app:search} examines a finite range of such factorizations: it excludes most of them, leaves $3{,}808$ unresolved and does not examine those with reducible parameters.
 \end{enumerate}
 \end{remark}
 
@@ -787,7 +913,7 @@ Let $F={}_3F_2(a_1,a_2,a_3;b_1,b_2;x)$ be as in Corollary~\ref{cor:C}. Diagonals
 \]
 for the values sorted in increasing order. Thus the roots of $P_{ka}$ and of $(t-1)(t-\e(kb_1))(t-\e(kb_2))$ interlace on the unit circle, for every $k$. By the criterion of \citet[Theorem~4.8]{BeukersHeckman1989}, the monodromy group of $F$ is finite. Hence $F$ is algebraic over $\Q(x)$ \citep[compare][Theorem~33]{Christol2015}, and by Theorem~\ref{thm:furst} it is the diagonal of a rational function in two variables. \qed
 
-\subsection{Explicit representations of some neighbours of $H$}
+\subsection{Explicit representations of some neighbours of $H$}\label{subsec:proofD}
 \begin{proof}[Proof of Proposition~\ref{prop:D}]
 (a) Expanding $(1-y)^{-s}=\sum_m(s)_my^m/m!$ and using that $\sum_{\omega^3=1}\omega^m$ equals $3$ if $3\mid m$ and $0$ otherwise gives the two expressions for $\cT_s$. Each $(1-\omega y)^{-s}$ is algebraic over $\Q(\omega,y)$, which is a finite extension of $\Q(y^3)$. Hence $\cT_s(x)$ is algebraic over $\Q(x)$. By Gauss's multiplication formula,
 \[
@@ -832,8 +958,8 @@ By the first formula of Gauss above, $[u^nv^n]\,g_s$ is therefore the coefficien
 \item For every $s\in\Q\setminus\Z$ and $c\in\{\frac13,\frac23\}$ the parameters in part~(a) satisfy \eqref{eq:NR}. So part~(a) applies to infinitely many of the series covered by Theorem~\ref{thm:A}. Besides the two series of \citet{AbdelazizKoutschanMaillard2020}, these include ${}_3F_2(\frac19,\frac49,\frac79;\frac23,1;x)=\cT_{1/3}(x)\star(1-x)^{-1/3}$ and ${}_3F_2(\frac29,\frac59,\frac89;\frac13,1;x)=\cT_{2/3}(x)\star(1-x)^{-2/3}$.
 \item The factorization in part~(a) uses the auxiliary parameters $\frac13$ and $\frac23$, which cancel. It is therefore not among the six factorizations obtained by distributing the given parameters over two factors, which \citet[\S2.3]{AbdelazizKoutschanMaillard2020} examine and rule out for their two series. In the same paper (footnote on p.~4) it is stated, with a reference to \citet{RivoalRoques2014}, that ${}_3F_2(\frac19,\frac49,\frac79;\frac23,1;x)$ cannot be written as a Hadamard product. We have not found such a statement in \citet{RivoalRoques2014}. Their result of this kind, their Proposition~1, concerns the series $S_7$ (see Corollary~\ref{cor:E}). By part~(a), ${}_3F_2(\frac19,\frac49,\frac79;\frac23,1;x)$ is the Hadamard product of two algebraic power series with rational coefficients. The identity in part~(a) is elementary, and it may well be known to specialists; we have not found it in print.
 \item \citet{AbdelazizKoutschanMaillard2020} represent the series of part~(b) as diagonals of the algebraic functions $(1-x-y)^{1-s}/(1-x-y-z)$ in three variables. Indeed, the coefficient of $z^n$ in this function is $(1-x-y)^{-s-n}$, whose coefficient of $x^ny^n$ is $(s+n)_{2n}/n!^2$. Part~(b) needs only two variables. For $s\notin\{\frac13,\frac23\}$ we do not know whether the series of part~(b) is a Hadamard product of algebraic series.
-\item By Lemma~\ref{lem:HKM}, every series in parts~(a) and~(b) is the diagonal of a rational function in three variables. When \eqref{eq:NR} holds, three is the least possible number, by Lemma~\ref{lem:local0}(iv) and Theorem~\ref{thm:furst}.
-\item Neither part applies to $H$, whose upper parameters $\frac19,\frac49,\frac59$ are not of the form $\frac s3,\frac{s+1}3,\frac{s+2}3$. Appendix~\ref{app:search} reports a computer search that found no representation of $H$ as a Hadamard product of two algebraic hypergeometric series, nor as a diagonal of several other simple shapes.
+\item Parts~(a) and~(b) give explicit algebraic power series in two variables. By Lemma~\ref{lem:HKM}, every series in parts~(a) and~(b) is therefore the diagonal of a rational function in three variables; we have not written such rational functions down, although the construction of \citet{DenefLipshitz1987} behind Lemma~\ref{lem:HKM} is effective. When \eqref{eq:NR} holds, three is the least possible number, by Lemma~\ref{lem:local0}(iv) and Theorem~\ref{thm:furst}.
+\item Neither part applies to $H$, whose upper parameters $\frac19,\frac49,\frac59$ are not of the form $\frac s3,\frac{s+1}3,\frac{s+2}3$. Appendix~\ref{app:search} reports a computer search over finite families of candidates, including Hadamard products of two algebraic hypergeometric series; it found no representation of $H$, and it records which candidates were excluded rigorously and which were left unresolved.
 \end{enumerate}
 \end{remark}
 
@@ -842,11 +968,11 @@ By the first formula of Gauss above, $[u^nv^n]\,g_s$ is therefore the coefficien
 %======================================================================
 
 \begin{enumerate}[label=(\arabic*),leftmargin=2em]
-\item \emph{An explicit representation of $H$.} The proof of Theorem~\ref{thm:A} gives no explicit rational function with diagonal $H$, and the search of Appendix~\ref{app:search} found no representation of the simplest kinds. Christol's question whether $H$ is the Hadamard product of two algebraic hypergeometric series also remains open (Remark~\ref{rem:grades}(4)). One way to obtain one would be to find an explicit family of curves, for example a family of cyclic covers of $\PP^1$ branched at moving points, whose Jacobians contain the abelian scheme of \S\ref{subsec:H} up to isogeny, and to make Sections~\ref{sec:curves} and~\ref{sec:node} explicit for it.
+\item \emph{An explicit representation of $H$.} The proof of Theorem~\ref{thm:A} gives no explicit rational function with diagonal $H$, and the search of Appendix~\ref{app:search} found no representation in the finite families it tested. This does not indicate that explicit representations must be complicated; it only rules out the candidates tested. Christol's question whether $H$ is the Hadamard product of two algebraic hypergeometric series also remains open (Remark~\ref{rem:grades}(4)). One way to obtain one would be to find an explicit family of curves, for example a family of cyclic covers of $\PP^1$ branched at moving points, whose Jacobians contain the abelian scheme of \S\ref{subsec:H} up to isogeny, and to make Sections~\ref{sec:curves} and~\ref{sec:node} explicit for it.
 \item \emph{Other integral lower parameters.} Corollary~\ref{cor:C} requires each integral lower parameter to be equal to $1$. Contiguity relations connect ${}_3F_2(a;b,n;x)$, for integers $n\ge2$, with series of the form treated here. We have not examined how global boundedness behaves under these relations.
 \item \emph{Higher order.} The proof of Theorem~\ref{thm:A} uses the order three only in Proposition~\ref{prop:twolevel}. The argument of Sections~\ref{sec:wt1}--\ref{sec:node} applies to an irreducible ${}_nF_{n-1}$ with rational parameters and lower parameters $b_1,\dots,b_{n-2}\notin\Z$ and $1$, provided that every Galois conjugate of its local system has two adjacent Hodge levels. We have not determined for which parameters with $n\ge4$ this holds, nor how the condition is related to global boundedness.
 \item \emph{The number of variables.} The series $\Fab$ of Theorem~\ref{thm:A} are diagonals of rational functions in three variables, and their differential equations have solutions with one power of the logarithm. This agrees with the formula proposed by \citet{HassaniMaillardZenine2025}, in which the minimal number of variables exceeds the highest power of the logarithm by two. As we read it, their conjecture concerns operators that are homomorphic to their adjoints. The operators $L_{a,b}$ considered here are not of this kind: their local systems are not self-dual, as the proof of Lemma~\ref{lem:F0} shows.
-\item \emph{Elementary cases.} Proposition~\ref{prop:D}(a) shows that some of the series covered by Theorem~\ref{thm:A} are diagonals for elementary reasons. It would be useful to know which globally bounded series ${}_3F_2(a;b,1;x)$ are Hadamard products of algebraic series. Among the sixteen such series with parameters in $\frac19\Z$ that satisfy \eqref{eq:NR}, the search of Appendix~\ref{app:search} found explicit representations for exactly the four covered by Proposition~\ref{prop:D}(a). For the other twelve, $H$ among them, we know of no proof that they are diagonals other than Theorem~\ref{thm:A}.
+\item \emph{Elementary cases.} Proposition~\ref{prop:D}(a) shows that some of the series covered by Theorem~\ref{thm:A} are diagonals for elementary reasons. It would be useful to know which globally bounded series ${}_3F_2(a;b,1;x)$ are Hadamard products of algebraic series. Among the sixteen such series with parameters in $\frac19\Z$ that satisfy \eqref{eq:NR}, the search of Appendix~\ref{app:search} produced surviving candidates for exactly the four covered by Proposition~\ref{prop:D}(a). For the other twelve, $H$ among them, it found no representation in the families tested, and we know of no proof that they are diagonals other than Theorem~\ref{thm:A}.
 \item \emph{Moduli.} For $H$, the abelian scheme of \S\ref{subsec:H} has multiplication by an order of $\Q(\zeta_9)$, and its period map takes values in a unitary Shimura variety. An identification of the image of $U$ might lead to an explicit model.
 \end{enumerate}
 
@@ -873,38 +999,125 @@ These four inequalities say that the order of the form is greater than $-1$ alon
 For all six conjugates of $H$, and for every assignment of the parameters to the roles in the integrand, this count agrees with Proposition~\ref{prop:twolevel} up to a shift of the grading and passage to the dual local system (compare Remark~\ref{rem:dual}), and $n(\chi)\,n(-\chi)=0$. Summing over the six conjugates gives the Hodge numbers $(3,12,3)$. The same agreement holds in all $221{,}946$ conjugate cases arising from $38{,}164$ irreducible parameter sets, namely the series ${}_3F_2(a;b,1)$ with denominators $3$--$10$, $12$, $14$, $15$ and $18$, and the general ${}_3F_2(a;b_1,b_2)$ with denominators $3$--$10$. There are no exceptions, and the passage to the dual is uniform.
 
 %======================================================================
-\section{Computations}\label{app:certificates}
+\section{Computations, verification and imported results}\label{app:certificates}
 %======================================================================
 
+\subsection*{Scripts}
 Apart from the search of Appendix~\ref{app:search}, the computations quoted in this paper use exact rational arithmetic and only the Python standard library. The field $\Q(\zeta_9)$ is realized as $\Q[z]/(z^6+z^3+1)$. Signs at real places are certified by rational enclosures of the three roots of $8c^3-6c+1$, obtained by $200$ bisection steps. The supplementary material consists of the following scripts and their outputs.
 \begin{itemize}[leftmargin=2em]
-\item \texttt{monodromy\_hermitian.py} verifies statements (i)--(vi) of \S\ref{subsec:H}, including the Gram determinant $3^{36}$ of the form $\psi_0$.
-\item \texttt{hodge\_L2\_count.py} carries out the comparison of Appendix~\ref{app:euler}.
-\item \texttt{mechanism\_controls.py} verifies, to order $60$, the identity of Remark~\ref{rem:legendre} and the identities of Proposition~\ref{prop:D}(b) for $s=\frac13$ and $s=\frac23$, together with polynomial equations satisfied by $\phi_s$. It also checks the closed form of $\rho$ in the proof of Proposition~\ref{prop:twolevel} on $54{,}264$ parameter sets. One floating-point contour integral is included as an illustration and is labelled as such.
-\item \texttt{verify.py} reruns all of the above and compares the results with the stored outputs. The complete run takes less than one minute on a laptop.
-\item \texttt{hadamard\_identities.py} checks the coefficient identity of Proposition~\ref{prop:D}(a) exactly to order $200$ for twelve pairs $(s,c)$.
-\item The folder \texttt{search} contains the code and output of Appendix~\ref{app:search}. It uses NumPy and arithmetic modulo primes, and takes a few hours on two processor cores.
+\item \texttt{scripts/monodromy\_hermitian.py} verifies statements (i)--(vi) of \S\ref{subsec:H}, including the Gram determinant $3^{36}$ of the form $\psi_0$.
+\item \texttt{scripts/hodge\_L2\_count.py} carries out the comparison of Appendix~\ref{app:euler}.
+\item \texttt{scripts/mechanism\_controls.py} verifies, to order $60$, the identity of Remark~\ref{rem:legendre} and the identities of Proposition~\ref{prop:D}(b) for $s=\frac13$ and $s=\frac23$, together with polynomial equations satisfied by $\phi_s$. It also checks the closed form of $\rho$ in the proof of Proposition~\ref{prop:twolevel} on $54{,}264$ parameter sets. One floating-point contour integral is included as an illustration and is labelled as such.
+\item \texttt{scripts/verify.py} reruns the three scripts above and compares the results with the stored outputs.
+\item \texttt{scripts/hadamard\_identities.py} checks the coefficient identity of Proposition~\ref{prop:D}(a) exactly to order $200$ for twelve pairs $(s,c)$. These checks illustrate the identity; its proof is the one given in \S\ref{subsec:proofD}.
+\item \texttt{scripts/eisenstein\_counterexample.py} checks the identity \eqref{eq:refex} of Appendix~\ref{app:search} exactly to order $120$.
+\item The folder \texttt{search} contains the code and output of Appendix~\ref{app:search}. It uses NumPy and arithmetic modulo primes, and the complete numerical search takes a few hours on two processor cores.
+\item The folder \texttt{audit} contains \texttt{audit\_exclusions.py}, which recomputes from scratch every count of the exact families of Appendix~\ref{app:search} and sorts the exclusions according to the cases of Lemma~\ref{lem:C1}; \texttt{audit\_numerical.py}, which recomputes the sizes of the numerical families, evaluates the bound \eqref{eq:d1bound} and checks the stored survivors; and \texttt{rerun\_numerical\_A2\_A4.py}, which recomputes the numerical families A2 and A4 and compares their survivors with the stored output.
 \end{itemize}
+
+\subsection*{Reproduction}
+For version~1.4 all scripts listed above were rerun with Python~3.13.18; the search, \texttt{audit\_numerical.py} and \texttt{rerun\_numerical\_A2\_A4.py} also use NumPy~2.5.3. The paper was typeset with \TeX\ Live~2023. From the folder \texttt{supplementary}, the commands
+\begin{verbatim}
+python3 -I scripts/verify.py --full
+python3 -I scripts/hadamard_identities.py
+python3 -I scripts/eisenstein_counterexample.py
+python3 -I audit/audit_exclusions.py
+python3 -I audit/audit_numerical.py
+python3 -I audit/rerun_numerical_A2_A4.py
+\end{verbatim}
+reproduce the checks; on a laptop they take about $7$\,s, $3$\,s, $1$\,s, $3$\,min, $1$\,s and $1$\,min, respectively. The shell script \texttt{run\_checks.sh} runs all of them, together with a test of the search engine, and stops at the first failure; each script exits with a nonzero status if its results differ from those stated in the paper. All checks passed. The file \texttt{VERIFICATION\_LOG.md} records the outputs, and \texttt{SHA256SUMS} the checksums of all files. The numerical families A3, B2 and B3 were not recomputed for version~1.4; their stored output was re-examined by \texttt{audit\_numerical.py}.
+
+\subsection*{Imported results}
+Table~\ref{tab:imports} lists the results from the literature on which the proof of Theorem~\ref{thm:A} depends, and where they are used. All other steps are proved in the paper.
+
+\begin{table}[ht]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.47\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}}
+\toprule
+Imported result & Use\\
+\midrule
+Levelt; irreducibility and finiteness criteria \citep[Prop.~3.3, Thm.~3.5, Thm.~4.8]{BeukersHeckman1989} & Lemma~\ref{lem:levelt}; Lemma~\ref{lem:C1}; Corollary~\ref{cor:C}\\
+Christol's criterion \citep[Props.~1, 1bis]{Christol1987} & Lemma~\ref{lem:christol}, Proposition~\ref{prop:twolevel}\\
+Hodge numbers \citep[Prop.~2.6, Thm.~1]{Fedorov2018} & Proposition~\ref{prop:twolevel}\\
+Abelian schemes and weight one \citep[4.4.3]{Deligne1971}, \citep[Thm.~7.13]{Milne2013} & Proposition~\ref{prop:abelian}\\
+Limit theorems \citep[\S8]{EGAIV3}, \citep[\S17]{EGAIV4} & Propositions~\ref{prop:abelian}, \ref{prop:model}\\
+Regularity of Gauss--Manin, monodromy theorem \citep{Katz1970} & Propositions~\ref{prop:period}, \ref{prop:model}\\
+Riemann--Hilbert correspondence \citep[II.5.9]{Deligne1970} & Lemma~\ref{lem:descent}\\
+Bertini \citep[\S6]{Jouanolou1983}; Lefschetz \citep[\S3.1]{Lazarsfeld2004} & Proposition~\ref{prop:curves}\\
+Grothendieck's criterion \citep[Exp.~IX, \S3]{SGA7I}; comparison \citep[Exp.~XIV]{DeligneKatz1973} & Proposition~\ref{prop:model}, Step~1\\
+Stable reduction \citep[Thm.~2.4]{DeligneMumford1969}; nodes and their resolution \citep[\S1]{DeligneMumford1969}, \citep[\S10.3]{Liu2002} & Proposition~\ref{prop:model}, Steps 1--3\\
+Dualizing sheaf \citep[\S6.4]{Liu2002} & Lemma~\ref{lem:eta}, Proposition~\ref{prop:node}\\
+Algebraic de~Rham theorem for affine varieties \citep{Grothendieck1966} & Lemma~\ref{lem:eta}\\
+Artin approximation \citep[Thm.~1.10]{Artin1969} & Lemmas~\ref{lem:hens}, \ref{lem:coords}\\
+Algebraic to rational diagonals \citep[Lemma~3.2]{HarderKramerMiller2026}, resting on \citep[Thm.~6.2, Rem.~6.4]{DenefLipshitz1987} & \S\ref{subsec:proofA}\\
+P\'olya--Furstenberg \citep{Polya1922,Furstenberg1967} & \S\ref{subsec:proofA} (lower bound)\\
+\bottomrule
+\end{tabular}
+\medskip
+\caption{Results from the literature used in the proof of Theorem~\ref{thm:A}.}\label{tab:imports}
+\end{table}
+
+The statements of \citet{Fedorov2018}, \citet[4.4.3]{Deligne1971}, \citet[Theorem~7.13]{Milne2013}, \citet[Theorem~2.4]{DeligneMumford1969}, \citet[Theorem~1.10]{Artin1969} and \citet[Lemma~3.2]{HarderKramerMiller2026} were compared with the cited sources for this version; the versions consulted are listed in \texttt{VERIFICATION\_LOG.md}, together with the references that were not rechecked.
 
 %======================================================================
 \section{A search for explicit representations of \texorpdfstring{$H$}{H}}\label{app:search}
 %======================================================================
 
-Theorem~\ref{thm:A} does not produce an explicit representation of $H$. We searched for one in several families of simple candidates and found none. We report the search because it supports the expectation, expressed by \citet{AbdelazizKoutschanMaillard2020}, that any explicit representation of $H$ is more complicated than those of the neighbouring series, and because it led to Proposition~\ref{prop:D}(a). It says nothing about candidates outside these families. The code and the complete output are part of the supplementary material.
+Theorem~\ref{thm:A} does not produce an explicit representation of $H$. We searched for one in several finite families of simple candidates and found none. We report the search because it led to Proposition~\ref{prop:D}(a), and so that it need not be repeated. It says nothing about candidates outside these families, and it gives no lower bound for the complexity of representations of $H$. The code and the complete output are part of the supplementary material.
+
+We use three terms. A candidate is \emph{excluded} if a complete mathematical argument, given below, shows that it is not a representation of the target; the argument may rely on exact computations, that is, computations with rational numbers or with residues modulo primes, without rounding. A candidate is \emph{unresolved} if the computations do not decide it, whatever evidence they provide. A candidate \emph{survives} if it passes all tests; survivors are not thereby proved to be representations. Exact arithmetic alone does not make a decision complete: each exclusion below rests on the criterion it is checked against.
+
+\subsection*{A transcendence criterion}
+For finite multisets $T$ and $B$ of rational numbers with $|T|=|B|$, no element of $T$ or $B$ a non-positive integer, put
+\[
+\Phi_{T,B}(x)=\sum_{n\ge0}\frac{\prod_{t\in T}(t)_n}{\prod_{b\in B}(b)_n}\,x^n ,
+\]
+so that $n!=(1)_n$ counts as a lower parameter $1$. We reduce $(T,B)$ by the following two operations, as long as possible:
+\begin{enumerate}[label=(R\arabic*),leftmargin=3em]
+\item remove $t\in T$ and $b\in B$ with $t=b$;
+\item remove $t\in T$ and $b\in B$ with $t-b\in\Z_{\ge1}$.
+\end{enumerate}
+Let $(T^\circ,B^\circ)$ be the result. The operation (R1) does not change the series. A pair removed by (R2) contributes to the $n$-th coefficient of $\Phi_{T,B}$ the factor $(t)_n/(b)_n=(b+n)_{t-b}/(b)_{t-b}$, which is a polynomial in $n$. Hence $\Phi_{T,B}=P(\theta)\,\Phi_{T^\circ,B^\circ}$ for a nonzero polynomial $P$.
+
+\begin{lemma}\label{lem:C1}
+Suppose that $T^\circ\ne\emptyset$, that no element of $T^\circ$ differs from an element of $B^\circ$ by an integer, and that $B^\circ$ contains an integer. Suppose further that $B^\circ$ contains at least two integers, or that it contains exactly one and the interlacing condition of \citet[Theorem~4.8]{BeukersHeckman1989} fails for $T^\circ$ and $B^\circ$ with this integer replaced by $1$. Then $\Phi_{T,B}$ is transcendental over $\Q(x)$.
+\end{lemma}
+
+\begin{proof}
+Let $m_0\ge1$ be the least integer in $B^\circ$, and let $B^1$ be obtained from $B^\circ$ by replacing one copy of $m_0$ by $1$. The contiguity relation $(\theta+b-1)\Phi_{T,B'\cup\{b\}}=(b-1)\,\Phi_{T,B'\cup\{b-1\}}$, which follows from $(n+b-1)/(b)_n=(b-1)/(b-1)_n$, applied for $b=m_0,m_0-1,\dots,2$, gives $\Phi_{T^\circ,B^1}=c\,Q(\theta)\,\Phi_{T^\circ,B^\circ}$ with $Q(\theta)=\prod_{j=1}^{m_0-1}(\theta+j)$ and $c\ne0$. Since operators in $\theta$ commute,
+\[
+c\,Q(\theta)\,\Phi_{T,B}=P(\theta)\,\Phi_{T^\circ,B^1}.
+\]
+As $1\in B^1$, the series $\Phi_{T^\circ,B^1}$ is the solution holomorphic at $0$ of the hypergeometric operator $L^1$ with upper parameters $T^\circ$ and lower parameters $B^1$. By hypothesis and \citet[Proposition~3.3]{BeukersHeckman1989}, the local system $\cS^1$ of solutions of $L^1$ is irreducible. Its monodromy group is infinite: if $B^1$ contains at least two integers, the local monodromy at $0$ has the eigenvalue $1$ with multiplicity at least two and is conjugate to a companion matrix \citep[Theorem~3.5]{BeukersHeckman1989}, so it has a nontrivial Jordan block; otherwise this is \citet[Theorem~4.8]{BeukersHeckman1989}.
+
+The operator $P(\theta)$ commutes with analytic continuation, so its kernel on $\cS^1$ is a sub-local system. It is not all of $\cS^1$: the solutions of $P(\theta)y=0$ are holomorphic at $x=1$, whereas the local monodromy of $\cS^1$ at $1$ is a pseudo-reflection, by Levelt's theorem \citep[Theorem~3.5]{BeukersHeckman1989}, and in particular not trivial. By irreducibility the kernel is zero, so $P(\theta)$ maps $\cS^1$ isomorphically onto a local system with infinite irreducible monodromy, which contains $P(\theta)\Phi_{T^\circ,B^1}\ne0$. If $\Phi_{T,B}$ were algebraic, so would be $Q(\theta)\Phi_{T,B}$, and the analytic continuations of $P(\theta)\Phi_{T^\circ,B^1}$ would span a nonzero sub-local system with finite monodromy, hence the whole local system, a contradiction.
+\end{proof}
+
+The criterion does not apply when, after reduction, some lower parameter exceeds an upper parameter by a positive integer, or when no lower parameter is an integer. In those cases we only record the primes that occur in the denominators of the first $80$ coefficients but divide no denominator of a parameter. By Eisenstein's theorem, primes of this kind occur only finitely often in the coefficients of an algebraic series; but finitely many such primes are no obstruction to algebraicity. For example,
+\begin{equation}\label{eq:refex}
+{}_2F_1\Big(\frac12,\frac{116}{11};\frac{105}{11};x\Big)=(1-x)^{-1/2}+\frac{11}{210}\,x\,(1-x)^{-3/2}
+\end{equation}
+is algebraic, although its first coefficient is $\frac{58}{105}$ and the primes $3,5,7$, which divide no parameter denominator, occur in the denominators of its coefficients. (This series is decided correctly by Lemma~\ref{lem:C1}'s reduction step (R2), which our classifier applies first, but it shows that three outside primes do not imply transcendence.) We therefore treat all such cases as unresolved.
 
 \subsection*{Exact families}
-Two families were treated exactly, by reduction to the criterion of \citet[Theorem~4.8]{BeukersHeckman1989}.
-
-\emph{(i) The shape of Proposition~\ref{prop:D}(b).} Let $g(u,v)=(1-u)^{-A}\varphi\big(v/(1-u)^k\big)$ with $k\ge1$, $A\in\Q$ and $\varphi$ an algebraic power series. Since $[u^n](1-u)^{-A-kn}=(A+kn)_n/n!$, we have $\Diag(g)=H(\lambda x)$ for some $\lambda\in\Q^\times$ if and only if $\varphi$ is the hypergeometric series with coefficients $\lambda'^{\,n}\prod_{t\in T}(t)_n/\prod_{t\in B}(t)_n$, where
+\emph{(i) The shape of Proposition~\ref{prop:D}(b).} Let $g(u,v)=(1-u)^{-A}\varphi\big(v/(1-u)^k\big)$ with $k\ge1$, $A\in\Q$ and $\varphi$ an algebraic power series. Since $[u^n](1-u)^{-A-kn}=(A+kn)_n/n!$, we have $\Diag(g)=H(\lambda x)$ for some $\lambda\in\Q^\times$ if and only if $\varphi(y)=\Phi_{T,B}(\lambda'y)$ for some $\lambda'\in\Q^\times$, where
 \[
-T=\big\{\tfrac19,\tfrac49,\tfrac59\big\}\cup\Big\{\frac{A+i}k:0\le i<k\Big\},\qquad B=\big\{\tfrac13,1\big\}\cup\Big\{\frac{A+i}{k+1}:0\le i\le k\Big\},
+T=\big\{\tfrac19,\tfrac49,\tfrac59\big\}\cup\Big\{\frac{A+i}k:0\le i<k\Big\},\qquad B=\big\{\tfrac13,1\big\}\cup\Big\{\frac{A+i}{k+1}:0\le i\le k\Big\}.
 \]
-and this series is algebraic. We tested $1\le k\le8$ and all $A=p/q$ with $1\le q\le36$ and $|A|\le4$, excluding non-positive integers: $25{,}312$ pairs $(k,A)$. In $25{,}266$ cases the parameters are irreducible after cancellation and the interlacing condition fails, so $\varphi$ is transcendental. In the remaining $46$ cases the parameters are reducible, and the denominators of the first $80$ coefficients of $\varphi$ involve at least three primes that do not divide the denominators of the parameters. By Eisenstein's theorem this is strong evidence, but not a proof, that $\varphi$ is transcendental.
+We tested $1\le k\le8$ and all $A=p/q$ with $1\le q\le36$ and $|A|\le4$, excluding non-positive integers: $25{,}312$ pairs $(k,A)$. In $25{,}266$ cases $\Phi_{T,B}$ is transcendental by Lemma~\ref{lem:C1}, so these candidates are excluded. Of them, $25{,}221$ need only (R1) and have $1$ as their only integral lower parameter, so that \citet[Theorem~4.8]{BeukersHeckman1989} applies directly; $43$ need (R2); and $2$ need the shift of an integral lower parameter in the proof of Lemma~\ref{lem:C1}. The remaining $46$ cases are unresolved. In each of them at least three outside primes occur, which is evidence, but not proof, that $\varphi$ is transcendental.
 
-\emph{(ii) Hadamard factorizations.} This family concerns Christol's question whether $H$ is the Hadamard product of two algebraic hypergeometric series (Remark~\ref{rem:grades}(4)). Suppose that $H=\varphi\star\psi$, where $\psi$ is hypergeometric with upper parameters $S$ and lower parameters $\{1\}\cup R$. Then $\varphi$ is hypergeometric with upper parameters $\{\frac19,\frac49,\frac59\}\cup R$ and lower parameters $\{\frac13,1\}\cup S$. We tested all $\psi$ with $|S|\le3$ and parameters in $\{j/18:1\le j\le36\}$: $5{,}642{,}388$ choices. For $35{,}303$ of them the parameters of $\psi$ are irreducible and interlace, so $\psi$ is algebraic. For each of these, $\varphi$ is transcendental: by the interlacing criterion in $31{,}495$ cases, and by the Eisenstein evidence described in (i) in the remaining $3{,}808$. The $1{,}457{,}968$ choices for which the parameters of $\psi$ are reducible were not examined.
+\emph{(ii) Hadamard factorizations.} This family concerns Christol's question whether $H$ is the Hadamard product of two algebraic hypergeometric series (Remark~\ref{rem:grades}(4)). Suppose that $H=\varphi\star\psi$, where $\psi=\Phi_{S,\{1\}\cup R}$. Then $\varphi=\Phi_{T,B}$ with $T=\{\frac19,\frac49,\frac59\}\cup R$ and $B=\{\frac13,1\}\cup S$. We tested all $\psi$ with $|S|\le3$ and parameters in $\{j/18:1\le j\le36\}$: $5{,}642{,}388$ choices. They fall into three classes.
+\begin{itemize}[leftmargin=2em]
+\item For $4{,}149{,}117$ choices, $\psi$ is transcendental by Lemma~\ref{lem:C1}: in $3{,}658{,}432$ cases by \citet[Theorem~4.8]{BeukersHeckman1989} directly, in $472{,}957$ because two integral lower parameters remain, and in $17{,}728$ after the shift of an integral lower parameter. These choices are excluded.
+\item For $1{,}457{,}968$ choices the parameters of $\psi$ are reducible after (R1), that is, some upper and lower parameter differ by a nonzero integer, or no integral lower parameter remains. These choices were not examined. Reducible parameters can give algebraic series, as \eqref{eq:refex} shows, so these factorizations are not excluded.
+\item For $35{,}303$ choices, $\psi$ is algebraic: in $34{,}600$ cases by the interlacing criterion, and in $703$ cases because all parameters cancel and $\psi=(1-x)^{-1}$. For each of them we examined $\varphi$. In $31{,}495$ cases $\varphi$ is transcendental by Lemma~\ref{lem:C1}, so the factorization is excluded: in $28{,}783$ cases directly, in $2{,}009$ after (R2), and in the $703$ trivial cases $\psi=(1-x)^{-1}$, $\varphi=H$, because two integral lower parameters remain. The remaining $3{,}808$ cases are unresolved, with evidence of the kind described above.
+\end{itemize}
+Thus, within this range, no factorization of $H$ into two algebraic hypergeometric series exists with $\psi$ irreducible, except possibly in the $3{,}808$ unresolved cases; factorizations with reducible $\psi$ were not examined.
 
 \subsection*{Numerical families}
-Let $f=\prod_jF_j^{\alpha_j}$ with polynomials $F_j$ satisfying $F_j(0)=1$ and $\alpha_j\in\Q$. With $Q=\prod_jF_j$ and $P_v=\sum_j\alpha_j\,(\partial_vF_j)\prod_{i\ne j}F_i$ we have $Q\,\partial_vf=P_v\,f$ for each variable $v$. This gives recurrences for the coefficients of $f$. We computed the first seven coefficients $d_0,\dots,d_6$ of $\Diag(f)$ modulo $p=2^{31}-1$, simultaneously for a grid of exponent vectors, and compared the invariants $d_j/d_1^{\,j}$, $2\le j\le6$, with those of the target series. If $\Diag(f)$ equals the target at $\lambda x$, then $f$ passes this test unless $p$ divides the numerator of $\lambda$ times the first coefficient of the target. Every candidate that passed was recomputed to $50$ coefficients modulo the prime $2147483629$. Table~\ref{tab:search} lists the families. The exponents are nonzero multiples of $\frac19$, and candidates are taken up to permutations of the variables.
+Let $f=\prod_jF_j^{\alpha_j}$ with polynomials $F_j$ satisfying $F_j(0)=1$ and $\alpha_j\in\Q$. With $Q=\prod_jF_j$ and $P_v=\sum_j\alpha_j\,(\partial_vF_j)\prod_{i\ne j}F_i$ we have $Q\,\partial_vf=P_v\,f$ for each variable $v$. This gives recurrences for the coefficients of $f$; solving them requires division only by $Q(0)=1$, by positive integers less than $60$ and by the denominator $9$ of the exponents, all of which are invertible modulo the primes used below. We computed the first seven coefficients $d_0=1,d_1,\dots,d_6$ of $\Diag(f)$ modulo $p=2^{31}-1$, simultaneously for a grid of exponent vectors. Table~\ref{tab:search} lists the families. The exponents are nonzero multiples of $\frac19$, and candidates are taken up to permutations of the variables.
 
 \begin{table}[ht]
 \centering
@@ -928,19 +1141,31 @@ B3 & three such factors, $a,b\in\{0,-1,-2,-4\}$, & $|\alpha|\le1$ & $426{,}610{,
 \caption{Numerical search families.}\label{tab:search}
 \end{table}
 
-All candidates were compared with the sixteen globally bounded series ${}_3F_2(a;b,1;x)$ with parameters in $\frac19\Z$ that satisfy \eqref{eq:NR}, $H$ among them.
+All candidates were compared with the sixteen globally bounded series ${}_3F_2(a;b,1;x)$ with parameters in $\frac19\Z$ that satisfy \eqref{eq:NR}, $H$ among them. Let $t_n$ be the coefficients of such a target, so that $t_0=1$ and $t_1=a_1a_2a_3/b\ne0$. If $\Diag(f)(x)$ equals the target at $\lambda x$ for some $\lambda\in\Q^\times$, then $\lambda=d_1/t_1\ne0$ and
+\begin{equation}\label{eq:invariants}
+d_j\,d_1^{-j}=t_j\,t_1^{-j}\qquad(2\le j\le6).
+\end{equation}
+The search discarded every candidate with $d_1\equiv0\bmod p$ and every candidate for which \eqref{eq:invariants} fails modulo $p$. This excludes it rigorously, for the following reason. The coefficient $d_1$ is a rational number whose denominator divides $9^3\cdot3!$ in families A and $9^2\cdot2!$ in families B. Bounding each coefficient of $F_j^{\alpha_j}$ by the corresponding coefficient of $(1-|M_j|)^{-|\alpha_j|}$, where $F_j=1-M_j$ and $|M_j|$ has the absolute values of the coefficients of $M_j$, gives
+\begin{equation}\label{eq:d1bound}
+|d_1|\cdot\operatorname{den}(d_1)\le39{,}680{,}928<p
+\end{equation}
+in all five families (the bound for A2; the others are smaller). Hence $d_1\equiv0\bmod p$ only if $d_1=0$, in which case $\lambda$ would vanish. Otherwise all quantities in \eqref{eq:invariants} are $p$-adic units or $p$-integral, and \eqref{eq:invariants} implies the same congruence modulo $p$. Thus every candidate that the screen discarded is excluded, provided the code computes $d_0,\dots,d_6$ correctly. As a check on the code, the screen recovers the known representations listed below, and the families A2 and A4 were recomputed for version~1.4 with identical results.
+
+Candidates that passed the screen were recomputed to $50$ coefficients modulo the prime $2147483629$. There were $312$ survivors, and all of them agree with their target in these $50$ coefficients. None of them has $H$ as its target.
 
 \subsection*{Controls and results}
-The search recovered the representation $(1-x-y)^{2/3}/(1-x-y-z)$ of \citet{AbdelazizKoutschanMaillard2020} in family A2. It also recovered the function $(1-u-v)^{-1/3}$, whose diagonal is ${}_2F_1(\frac16,\frac23;1;4x)$, in all families containing it. The exact families (i) and (ii) recovered several representations of each of the two series of \citet{AbdelazizKoutschanMaillard2020}; this is how Proposition~\ref{prop:D}(a) was found.
+The search recovered the representation $(1-x-y)^{2/3}/(1-x-y-z)$ of \citet{AbdelazizKoutschanMaillard2020} in family A2; Remark~\ref{rem:propD}(3) proves it. It also recovered the function $(1-u-v)^{-1/3}$, whose diagonal is ${}_2F_1(\frac16,\frac23;1;4x)$, in all families containing it. The exact families (i) and (ii), run on the two series of \citet{AbdelazizKoutschanMaillard2020}, recovered several representations of each; this is how Proposition~\ref{prop:D}(a) was found.
 
-No representation of $H$ was found in any family. Among the sixteen target series, the numerical families found representations for exactly four, namely those covered by Proposition~\ref{prop:D}(a):
+No candidate in the numerical families represents $H$; in the exact families no candidate represents $H$ except possibly the unresolved ones and, in family~(ii), those not examined. Among the sixteen target series, survivors occurred for exactly four, namely those covered by Proposition~\ref{prop:D}(a):
 \[
 {}_3F_2\big(\tfrac19,\tfrac49,\tfrac79;\tfrac13,1\big),\quad{}_3F_2\big(\tfrac19,\tfrac49,\tfrac79;\tfrac23,1\big),\quad{}_3F_2\big(\tfrac29,\tfrac59,\tfrac89;\tfrac13,1\big),\quad{}_3F_2\big(\tfrac29,\tfrac59,\tfrac89;\tfrac23,1\big).
 \]
-The exact families were also run for the series ${}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$ of Corollary~\ref{cor:B}, with the grid $\{j/14:1\le j\le28\}$ in (ii), and found nothing. For family~(ii) this agrees with \citet[Proposition~1]{RivoalRoques2014}, which, under the Rohrlich--Lang conjecture, excludes every factorization of $S_7$ into finitely many algebraic series. The numerical families were not run for this series.
+The survivors were not certified individually as identities; that these four series are diagonals follows from Proposition~\ref{prop:D}(a).
+
+The exact families were also run for the series $S_7={}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$ of Corollary~\ref{cor:B}, with the grid $\{j/14:1\le j\le28\}$ in (ii). In family~(i), $25{,}260$ of the $25{,}312$ pairs $(k,A)$ are excluded by Lemma~\ref{lem:C1} and $52$ are unresolved. In family~(ii), $1{,}128{,}113$ choices of $\psi$ are excluded, $514{,}632$ reducible choices were not examined, and of the $17{,}011$ algebraic choices, $14{,}539$ are excluded and $2{,}472$ are unresolved. This is consistent with \citet[Proposition~1]{RivoalRoques2014}, which, under the Rohrlich--Lang conjecture, excludes every factorization of $S_7$ into finitely many algebraic series. The numerical families were not run for this series.
 
 \section*{Statement on the use of AI tools}
-The mathematical argument, the computations and the text of this paper were developed with extensive assistance from large language models (Claude, Anthropic), under the author's direction. All computational claims can be reproduced with the supplementary scripts. At the time of writing the paper has not been refereed, and the author welcomes corrections.
+The mathematical argument, the computations and the text of this paper were developed with extensive assistance from large language models (Claude, Anthropic), under the author's direction. All computational claims can be reproduced with the supplementary scripts (Appendix~\ref{app:certificates}). Version~1.4 incorporates the corrections and expansions requested in a referee report on version~1.3. The paper has not been published in a refereed venue, and the author welcomes corrections.
 
 \section*{Data availability}
 The scripts described in Appendices~\ref{app:certificates} and~\ref{app:search}, and their outputs, are available as supplementary material and at \url{https://github.com/bbrhuft/christol-3f2-diagonals}.

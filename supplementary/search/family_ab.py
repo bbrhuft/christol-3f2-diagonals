@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Families A and B: products of powers of polynomials, matched mod p against target 3F2's.
 
-A2: (1-L1)^al (1-L2)^be,            L in {a x + b y + c z : a, b, c in {0,1,2}}, 3 variables
-A3: (1-L1)^al (1-L2)^be (1-L3)^ga,  same forms, 3 variables
-B2: F1^al F2^be,       F = 1 + a u + b v + c uv + d u^2 + e v^2 (small coefficients), 2 variables
-B3: F1^al F2^be F3^ga, F from a short list of natural quadratics, 2 variables
-Exponents: multiples of 1/9 (A2, B2: |alpha| <= 2; A3, B3: |alpha| <= 1), nonzero.
+A2: (1-L1)^al (1-L2)^be,            L = a x + b y + c z, a, b, c in {0,1,2,3}, |alpha| <= 3
+A3: (1-L1)^al (1-L2)^be (1-L3)^ga,  a, b, c in {0,1,2},                     |alpha| <= 2
+A4: four factors (1-L),             a, b, c in {0,1},                       |alpha| <= 1
+B2: F1^al F2^be,       F = 1 + a u + b v + c uv + d u^2 + e v^2 (small coefficients), |alpha| <= 2
+B3: F1^al F2^be F3^ga, F from a short list of natural quadratics,                 |alpha| <= 1
+Exponents: nonzero multiples of 1/9.  (Docstring corrected in version 1.4 to match the code
+below and Table 4 of the paper; the code itself is unchanged.)
 
 A candidate matches target T if its diagonal d satisfies d_n = c^n t_n for n <= N,
 tested through the scale-free invariants d_j/d_1^j (j = 2..N) mod p.  Survivors are

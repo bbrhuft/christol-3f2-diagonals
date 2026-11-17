@@ -34,3 +34,6 @@ print("all identities hold to n =", NMAX, ":", ok)
 for name, (s, c) in {"3F2(1/9,4/9,7/9;1/3,1)": (Fr(1, 3), Fr(2, 3)), "3F2(1/9,4/9,7/9;2/3,1)": (Fr(1, 3), Fr(1, 3)),
                      "3F2(2/9,5/9,8/9;2/3,1)": (Fr(2, 3), Fr(1, 3)), "3F2(2/9,5/9,8/9;1/3,1)": (Fr(2, 3), Fr(2, 3))}.items():
     print(f"{name} = T_{s} * (1-x)^(-{c})")
+
+import sys
+sys.exit(0 if ok else 1)
