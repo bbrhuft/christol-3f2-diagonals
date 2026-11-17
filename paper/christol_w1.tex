@@ -44,6 +44,7 @@
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cA}{\mathcal{A}}
+\newcommand{\cT}{\mathcal{T}}
 \newcommand{\tp}{\mathrm{top}}
 \newcommand{\bt}{\mathrm{bot}}
 \newcommand{\alg}[2]{#1\langle #2\rangle}
@@ -69,7 +70,7 @@
 
 \subjclass[2020]{Primary 33C20, 14D07; Secondary 13F25, 14K10, 32G20, 05A15}
 \keywords{Christol's conjecture, diagonals of rational functions, globally bounded power series, hypergeometric functions, variations of Hodge structure, abelian schemes, vanishing cycles}
-\date{17 November 2026}
+\date{17 November 2026 (version 1.2)}
 
 \begin{abstract}
 Christol conjectured that every globally bounded, D-finite power series with rational coefficients is the diagonal of a rational function. We prove this for the hypergeometric series ${}_3F_2(a_1,a_2,a_3;b,1;x)$ with rational parameters such that $a_i$, $b$ and $a_i-b$ are not integers: if such a series is globally bounded, then it is the diagonal of an algebraic power series in two variables, and hence of a rational function in three variables, which is the least possible number. This includes Christol's example ${}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$ from 1987. The proof is Hodge-theoretic and not constructive. Using Fedorov's formula for the Hodge numbers of hypergeometric local systems, we show that the series is globally bounded exactly when every Galois conjugate of its local system carries a complex variation of Hodge structure with two adjacent Hodge levels. The restriction of scalars of the local system then underlies a polarized integral variation of Hodge structure of weight one. By a theorem of Deligne the series is therefore a period of an abelian scheme, and hence of a family of curves, where it is an integral over vanishing cycles of a semistable degeneration. Expanding this integral at the nodes of a regular model gives the diagonal representation.
@@ -83,7 +84,7 @@ Christol conjectured that every globally bounded, D-finite power series with rat
 
 \emph{Christol's conjecture.} In the late 1980s Gilles Christol conjectured the converse: every power series with both features is a diagonal. The conjecture is open in general. Hypergeometric series are the standard test case, because global boundedness can be read off from their parameters. Christol himself gave the first test case that the known methods could not settle, ${}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$. It has been cited as unresolved ever since, most recently in 2026.
 
-\emph{What this paper shows.} We prove that this series, and every series in the same family that has integer coefficients after rescaling, is a diagonal. More precisely, it is the diagonal of a rational function in three variables, and three is the smallest number possible. Combined with known results, this settles Christol's conjecture for a natural class of ${}_3F_2$ series.
+\emph{What this paper shows.} We prove that this series, and every series in the same family that has integer coefficients after rescaling, is a diagonal. More precisely, it is the diagonal of a rational function in three variables, and three is the smallest number possible. Combined with known results, this settles Christol's conjecture for a natural class of ${}_3F_2$ series. Along the way we observe that some neighbouring series, long listed alongside Christol's as hard cases, are diagonals for an elementary reason. Christol's series is not of that kind, and a large computer search found no simple formula for it.
 
 \emph{How the two areas meet.} Many interesting functions are \emph{periods}: integrals taken around loops drawn on geometric shapes that vary with a parameter. Christol showed that periods around the loop that shrinks to a point when the shape pinches are diagonals, provided the shape has the right dimension. The classical integral formula for these series uses two-dimensional shapes (surfaces). For a series of this kind the dimension is right only for curves, which are one-dimensional. The key observation of the paper is that the arithmetic condition on the coefficients (global boundedness) is equivalent to a geometric condition from Hodge theory: every algebraic conjugate of the underlying symmetry data has only two layers in its Hodge decomposition. That condition is exactly what allows the series to be realized as a period of a family of curves, sitting inside a family of abelian varieties. Christol's principle then applies. The result connects the combinatorics of power series with the geometry of how algebraic varieties degenerate.
 
@@ -120,11 +121,11 @@ where $(c)_n=c(c+1)\cdots(c+n-1)$. Hypergeometric series are a natural test clas
 \begin{equation}\label{eq:H}
 H(x)={}_3F_2\Big(\tfrac19,\tfrac49,\tfrac59;\tfrac13,1;x\Big).
 \end{equation}
-\citet{BostanEtAl2013} listed many further globally bounded ${}_3F_2$ series that cannot be reduced to the two extreme cases by the known closure properties of diagonals. \citet{AbdelazizKoutschanMaillard2020} proved that two of them,
+\citet{BostanEtAl2013} listed many further globally bounded ${}_3F_2$ series that are not obviously reducible to the two extreme cases by closure properties of diagonals, such as Hadamard products. \citet{AbdelazizKoutschanMaillard2020} proved that two of them,
 \[
 {}_3F_2\big(\tfrac19,\tfrac49,\tfrac79;\tfrac13,1;x\big)\qquad\text{and}\qquad{}_3F_2\big(\tfrac29,\tfrac59,\tfrac89;\tfrac23,1;x\big),
 \]
-are diagonals, and gave two heuristic arguments that $H$ is one as well. In 2026 the series $H$ was still described as not known to be a diagonal \citep{CarusoFurnsinn2026b}, and Christol's conjecture as unsolved even for hypergeometric series \citep{CarusoFurnsinn2026a}.
+are diagonals, and gave two heuristic arguments that $H$ is one as well. In 2026 the series $H$ was still described as not known to be a diagonal \citep{CarusoFurnsinn2026b}, and Christol's conjecture as unsolved even for hypergeometric series \citep{CarusoFurnsinn2026a}. As we observe in Proposition~\ref{prop:D}(a) below, the two series of Abdelaziz, Koutschan and Maillard are in fact Hadamard products of two algebraic power series, by an elementary identity that covers infinitely many further series. The identity does not apply to $H$, and a computer search for explicit representations of several simple shapes found none for $H$ (Appendix~\ref{app:search}).
 
 \subsection{Main results}
 We call the pair $(a,b)$ \emph{non-resonant} if
@@ -145,14 +146,25 @@ Christol's series $H(x)={}_3F_2(\frac19,\frac49,\frac59;\frac13,1;x)$ is the dia
 Let $a_1,a_2,a_3\in\Q\setminus\Z$ and $b_1,b_2\in(\Q\setminus\Z)\cup\{1\}$ with $a_i-b_j\notin\Z$ for all $i,j$. Then ${}_3F_2(a_1,a_2,a_3;b_1,b_2;x)$ is globally bounded if and only if it is the diagonal of a rational function over $\Q$ that is regular at the origin.
 \end{maincor}
 
-Corollary~\ref{cor:C} combines Theorem~\ref{thm:A} with the two extreme cases recalled above; it is proved in \S\ref{subsec:proofC}. The proof of Theorem~\ref{thm:A} is not constructive and does not produce the series $g$. For the two series of \citet{AbdelazizKoutschanMaillard2020}, however, the conclusion of Theorem~\ref{thm:A} can be made explicit.
+Corollary~\ref{cor:C} combines Theorem~\ref{thm:A} with the two extreme cases recalled above; it is proved in \S\ref{subsec:proofC}. The proof of Theorem~\ref{thm:A} is not constructive and does not produce the series $g$. For some neighbours of $H$, however, the conclusion of Theorem~\ref{thm:A} can be made explicit, and in part elementary. We write $f\star g$ for the Hadamard product of power series, defined in the notation below.
 
 \begin{mainprop}\label{prop:D}
-For $r\in\Q\setminus\Z$ put $\phi_r(s)=\sum_{n\ge0}\binom{2n-r}{n}s^n$. Then $\phi_r$ is algebraic over $\Q(s)$, and
+For $s\in\Q\setminus\Z$ let
 \[
-{}_3F_2\Big(\frac{1-r}3,\frac{2-r}3,\frac{3-r}3;1-r,1;27x\Big)=\Diag\Big[(1-u)^{r-1}\,\phi_r\Big(\frac{v}{(1-u)^2}\Big)\Big].
+\cT_s(x)=\sum_{n\ge0}\frac{(s)_{3n}}{(3n)!}\,x^n=\frac13\sum_{\omega^3=1}\big(1-\omega\,x^{1/3}\big)^{-s},
 \]
-For $r=\frac13$ and $r=\frac23$ the left side is ${}_3F_2(\frac29,\frac59,\frac89;\frac23,1;27x)$ and ${}_3F_2(\frac19,\frac49,\frac79;\frac13,1;27x)$, respectively.
+which is algebraic over $\Q(x)$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item For $c\in\{\frac13,\frac23\}$,
+\[
+{}_3F_2\Big(\frac s3,\frac{s+1}3,\frac{s+2}3;1-c,1;x\Big)=\cT_s(x)\star(1-x)^{-c}=\Diag\big[\cT_s(u)\,(1-v)^{-c}\big].
+\]
+\item Let $\phi_s(y)=\sum_{n\ge0}\binom{2n+s-1}{n}y^n$. Then $\phi_s$ is algebraic over $\Q(y)$, and
+\[
+{}_3F_2\Big(\frac s3,\frac{s+1}3,\frac{s+2}3;s,1;27x\Big)=\Diag\Big[(1-u)^{-s}\,\phi_s\Big(\frac{v}{(1-u)^2}\Big)\Big].
+\]
+\end{enumerate}
+The two series of \citet{AbdelazizKoutschanMaillard2020} are the cases $(s,c)=(\frac13,\frac23)$ and $(\frac23,\frac13)$ of \textup{(a)}, and the cases $s=\frac13$ and $s=\frac23$ of \textup{(b)}.
 \end{mainprop}
 
 \subsection{Strategy of the proof}
@@ -208,19 +220,19 @@ The abelian scheme in step~(3) is obtained from Riemann's theorem in families an
 
 \emph{Global boundedness and algebraicity.} \citet{Christol1987} characterized the globally bounded hypergeometric series with rational parameters by an interlacing condition over all Galois conjugates of the parameters. \citet{BeukersHeckman1989} gave the analogous criterion for finite monodromy, hence for algebraicity, and determined the monodromy groups. \citet{FurnsinnYurkevich2024} extended the algebraicity criterion to arbitrary parameters, and \citet{CarusoFurnsinn2026a,CarusoFurnsinn2026b} implemented these criteria and related arithmetic invariants.
 
-\emph{Hypergeometric diagonals.} \citet{AbdelazizKoutschanMaillard2020} represented the two series of Proposition~\ref{prop:D} as diagonals of algebraic functions in three variables and settled further ${}_3F_2$ and ${}_4F_3$ examples. \citet{BostanYurkevich2022} determined the hypergeometric series that arise as diagonals of products of powers of $1-x_1-\dots-x_n$. Proposition~\ref{prop:D} shows that two algebraic variables suffice for the two series of Abdelaziz, Koutschan and Maillard.
+\emph{Hypergeometric diagonals.} \citet{AbdelazizKoutschanMaillard2020} represented their two series, and the one-parameter family of Proposition~\ref{prop:D}(b), as diagonals of algebraic functions in three variables. Using the algorithm of \citet{DenefLipshitz1987}, they also wrote down rational functions in six variables with these diagonals, and they settled further ${}_3F_2$ and ${}_4F_3$ examples. \citet{BostanYurkevich2022} determined the hypergeometric series that arise as diagonals of products of powers of $1-x_1-\dots-x_n$. Proposition~\ref{prop:D}(a) shows that the two series of Abdelaziz, Koutschan and Maillard are Hadamard products of two algebraic series, and Proposition~\ref{prop:D}(b) represents their one-parameter family with two algebraic variables.
 
 \emph{Hodge theory of hypergeometric local systems.} Hypergeometric local systems are rigid, and \citet{Katz1996} showed that rigid local systems with quasi-unipotent local monodromy are of geometric origin. \citet[Proposition~2.6]{Fedorov2018} shows that a hypergeometric connection with real parameters underlies a polarizable complex variation of Hodge structure, unique up to a shift of the grading; for existence he uses \citet[Corollary~8.1]{Simpson1990} and \citet[Theorem~2.4.1]{DettweilerSabbah2013}, and for uniqueness \citet[Proposition~1.13(i)]{Deligne1987}. He also computes the Hodge numbers \citep[Theorem~1]{Fedorov2018}. This formula is the main input of Proposition~\ref{prop:twolevel}. Restriction of scalars and diagonals are not considered there.
 
 \emph{Geometric realizations.} The Euler integral realizes ${}_nF_{n-1}$ as a period of a family of varieties of relative dimension $n-1$; see \citet[\S4.3]{Christol2015} for ${}_3F_2$ and \citet{KellyVoight2024} for the resulting hypergeometric motives. For ${}_2F_1$ the realization is by curves, and \citet{Archinard2003} constructed the corresponding abelian varieties explicitly. Our weight-one realization of ${}_3F_2$ comes instead from the equivalence of \citet[4.4.3]{Deligne1971} between abelian schemes and polarizable variations of Hodge structure of weight one, proved in detail by \citet[Theorem~7.13]{Milne2013}. Over a point, the passage from the weight-two Hodge structure of the Euler realization to weight one is a half twist \citep{vanGeemen2001,vanGeemenIzadi2002}. Periods of degenerating abelian varieties over locally invariant cycles were studied by \citet{Andre1989} in connection with $G$-functions.
 
-To our knowledge, no proof that $H$ is a diagonal has appeared, and none for any $\Fab$ with $b\notin\Z$ other than the two series treated by \citet{AbdelazizKoutschanMaillard2020}. Each ingredient of our proof is classical. What appears to be new is the equivalence of Proposition~\ref{prop:twolevel} and its use, through a realization of weight one, to bring Christol's minimum-weight principle to bear.
+To our knowledge, no proof that $H$ is a diagonal has appeared. In the examples of series $\Fab$ with $b\notin\Z$ that we know to be diagonals, including those of Proposition~\ref{prop:D}, the representation is explicit. For $H$ none is known, and the search of Appendix~\ref{app:search} found none of the simplest kinds. Each ingredient of our proof is classical. What appears to be new is the equivalence of Proposition~\ref{prop:twolevel} and its use, through a realization of weight one, to bring Christol's minimum-weight principle to bear.
 
 \subsection{Organization}
-Section~\ref{sec:prelim} collects the facts we need on algebraic power series, hypergeometric local systems, global boundedness and variations of Hodge structure. Sections~\ref{sec:twolevel}--\ref{sec:node} carry out steps (1)--(5), and Theorem~\ref{thm:A} is proved in \S\ref{subsec:proofA}. Section~\ref{sec:examples} treats the examples and proves Corollaries~\ref{cor:B} and~\ref{cor:C} and Proposition~\ref{prop:D}. Section~\ref{sec:remarks} contains concluding remarks. Appendix~\ref{app:euler} gives an independent computational check of the Hodge numbers, and Appendix~\ref{app:certificates} describes the accompanying computations.
+Section~\ref{sec:prelim} collects the facts we need on algebraic power series, hypergeometric local systems, global boundedness and variations of Hodge structure. Sections~\ref{sec:twolevel}--\ref{sec:node} carry out steps (1)--(5), and Theorem~\ref{thm:A} is proved in \S\ref{subsec:proofA}. Section~\ref{sec:examples} treats the examples and proves Corollaries~\ref{cor:B} and~\ref{cor:C} and Proposition~\ref{prop:D}. Section~\ref{sec:remarks} contains concluding remarks. Appendix~\ref{app:euler} gives an independent computational check of the Hodge numbers, Appendix~\ref{app:certificates} describes the accompanying computations, and Appendix~\ref{app:search} reports a search for explicit representations of $H$.
 
 \subsection*{Notation and conventions}
-We write $\e(t)=e^{2\pi it}$ and $U=\PP^1\setminus\{0,1,\infty\}$, a scheme over $\Q$; base change to a field $F$ is denoted by $U_F$, and $U(\C)$ carries its analytic topology. We put $\theta=x\,\frac{d}{dx}$. Local systems are on $U(\C)$ unless stated otherwise. The local monodromy around $0$ of any local system on $U(\C)$ is denoted by $T_0$; on solutions of a differential equation it acts by analytic continuation. For $t\in\R$, $\{t\}\in[0,1)$ is the fractional part. The letter $k$ always denotes an element of $(\Z/N\Z)^\times$, where $N$ is a common denominator of the parameters. Complex conjugation is denoted by a bar, and $X^*=\overline X^{\,T}$ for a complex matrix $X$. For a field $F$ and variables $u_1,\dots,u_n$, $\alg F{u_1,\dots,u_n}$ is the ring of power series in $F[[u_1,\dots,u_n]]$ that are algebraic over $F(u_1,\dots,u_n)$.
+We write $\e(t)=e^{2\pi it}$ and $U=\PP^1\setminus\{0,1,\infty\}$, a scheme over $\Q$; base change to a field $F$ is denoted by $U_F$, and $U(\C)$ carries its analytic topology. We put $\theta=x\,\frac{d}{dx}$. Local systems are on $U(\C)$ unless stated otherwise. The local monodromy around $0$ of any local system on $U(\C)$ is denoted by $T_0$; on solutions of a differential equation it acts by analytic continuation. For $t\in\R$, $\{t\}\in[0,1)$ is the fractional part. The letter $k$ always denotes an element of $(\Z/N\Z)^\times$, where $N$ is a common denominator of the parameters. Complex conjugation is denoted by a bar, and $X^*=\overline X^{\,T}$ for a complex matrix $X$. For a field $F$ and variables $u_1,\dots,u_n$, $\alg F{u_1,\dots,u_n}$ is the ring of power series in $F[[u_1,\dots,u_n]]$ that are algebraic over $F(u_1,\dots,u_n)$. The Hadamard product of $f=\sum a_nx^n$ and $g=\sum b_nx^n$ is $f\star g=\sum a_nb_nx^n$; it equals $\Diag\big(f(u)g(v)\big)$.
 
 %======================================================================
 \section{Preliminaries}\label{sec:prelim}
@@ -748,35 +760,54 @@ Let $F={}_3F_2(a_1,a_2,a_3;b_1,b_2;x)$ be as in Corollary~\ref{cor:C}. Diagonals
 \]
 for the values sorted in increasing order. Thus the roots of $P_{ka}$ and of $(t-1)(t-\e(kb_1))(t-\e(kb_2))$ interlace on the unit circle, for every $k$. By the criterion of \citet[Theorem~4.8]{BeukersHeckman1989}, the monodromy group of $F$ is finite. Hence $F$ is algebraic over $\Q(x)$ \citep[compare][Theorem~33]{Christol2015}, and by Theorem~\ref{thm:furst} it is the diagonal of a rational function in two variables. \qed
 
-\subsection{Explicit representations in two variables}
+\subsection{Explicit representations of some neighbours of $H$}
 \begin{proof}[Proof of Proposition~\ref{prop:D}]
-Let $\mathcal C(s)=\frac{1-\sqrt{1-4s}}{2s}$ be the generating function of the Catalan numbers, so that $\mathcal C=1+s\,\mathcal C^2$. We first show that, for every $\alpha\in\Q$,
+(a) Expanding $(1-y)^{-s}=\sum_m(s)_my^m/m!$ and using that $\sum_{\omega^3=1}\omega^m$ equals $3$ if $3\mid m$ and $0$ otherwise gives the two expressions for $\cT_s$. Each $(1-\omega y)^{-s}$ is algebraic over $\Q(\omega,y)$, which is a finite extension of $\Q(y^3)$. Hence $\cT_s(x)$ is algebraic over $\Q(x)$. By Gauss's multiplication formula,
+\[
+(s)_{3n}=27^n\Big(\frac s3\Big)_n\Big(\frac{s+1}3\Big)_n\Big(\frac{s+2}3\Big)_n\qquad\text{and}\qquad(3n)!=27^n\Big(\frac13\Big)_n\Big(\frac23\Big)_n\,n!.
+\]
+Since $\{c,1-c\}=\{\frac13,\frac23\}$, we have $(\frac13)_n(\frac23)_n=(1-c)_n(c)_n$, and therefore
+\[
+\frac{(s)_{3n}}{(3n)!}\cdot\frac{(c)_n}{n!}=\frac{(\frac s3)_n(\frac{s+1}3)_n(\frac{s+2}3)_n}{(1-c)_n\,n!^2}.
+\]
+As $(1-x)^{-c}=\sum_n(c)_nx^n/n!$, this is the first identity. The second holds for every Hadamard product, because the coefficient of $u^nv^n$ in $f(u)g(v)$ is $a_nb_n$.
+
+(b) Let $\mathcal C(y)=\frac{1-\sqrt{1-4y}}{2y}$ be the generating function of the Catalan numbers, so that $\mathcal C=1+y\,\mathcal C^2$. We first show that, for every $\alpha\in\Q$,
 \begin{equation}\label{eq:catalan}
-\sum_{n\ge0}\binom{2n+\alpha}{n}s^n=\frac{\mathcal C(s)^\alpha}{\sqrt{1-4s}} ;
+\sum_{n\ge0}\binom{2n+\alpha}{n}y^n=\frac{\mathcal C(y)^\alpha}{\sqrt{1-4y}} ;
 \end{equation}
-compare \citet[\S5.4]{GrahamKnuthPatashnik1994}. Put $t=\mathcal C-1$, so that $t=s(1+t)^2$. The Lagrange inversion formula, in the form
+compare \citet[\S5.4]{GrahamKnuthPatashnik1994}. Put $\tau=\mathcal C-1$, so that $\tau=y(1+\tau)^2$. The Lagrange inversion formula, in the form
 \[
-\frac{G(t)}{1-s\chi'(t)}=\sum_{n\ge0}s^n\,[t^n]\,G(t)\chi(t)^n\qquad\text{for }t=s\chi(t),
+\frac{G(\tau)}{1-y\chi'(\tau)}=\sum_{n\ge0}y^n\,[\tau^n]\,G(\tau)\chi(\tau)^n\qquad\text{for }\tau=y\chi(\tau),
 \]
-applied with $\chi(t)=(1+t)^2$ and $G(t)=(1+t)^\alpha$, gives
+applied with $\chi(\tau)=(1+\tau)^2$ and $G(\tau)=(1+\tau)^\alpha$, gives
 \[
-\frac{\mathcal C^\alpha}{1-2s\,\mathcal C}=\sum_{n\ge0}s^n\,[t^n](1+t)^{\alpha+2n}=\sum_{n\ge0}\binom{2n+\alpha}{n}s^n ,
+\frac{\mathcal C^\alpha}{1-2y\,\mathcal C}=\sum_{n\ge0}y^n\,[\tau^n](1+\tau)^{\alpha+2n}=\sum_{n\ge0}\binom{2n+\alpha}{n}y^n ,
 \]
-and $1-2s\,\mathcal C=\sqrt{1-4s}$. For $\alpha=-r$ this shows that $\phi_r=\mathcal C^{-r}(1-4s)^{-1/2}$ is algebraic over $\Q(s)$.
+and $1-2y\,\mathcal C=\sqrt{1-4y}$. For $\alpha=s-1$ this shows that $\phi_s=\mathcal C^{s-1}(1-4y)^{-1/2}$ is algebraic over $\Q(y)$.
 
 Consequently the series
 \[
-g_r(u,v)=(1-u)^{r-1}\,\phi_r\Big(\frac v{(1-u)^2}\Big)=\sum_{n\ge0}\binom{2n-r}n\,v^n\,(1-u)^{r-1-2n}
+g_s(u,v)=(1-u)^{-s}\,\phi_s\Big(\frac v{(1-u)^2}\Big)=\sum_{n\ge0}\binom{2n+s-1}n\,v^n\,(1-u)^{-s-2n}
 \]
-lies in $\alg\Q{u,v}$. The coefficient of $u^n$ in $(1-u)^{r-1-2n}$ is $(2n+1-r)_n/n!$, and $\binom{2n-r}n=(n+1-r)_n/n!$. Hence
+lies in $\alg\Q{u,v}$. The coefficient of $u^n$ in $(1-u)^{-s-2n}$ is $(s+2n)_n/n!$, and $\binom{2n+s-1}n=(s+n)_n/n!$. Hence
 \[
-[u^nv^n]\,g_r=\frac{(n+1-r)_n\,(2n+1-r)_n}{n!^2}=\frac{(n+1-r)_{2n}}{n!^2}=\frac{(1-r)_{3n}}{(1-r)_n\,n!^2}.
+[u^nv^n]\,g_s=\frac{(s+n)_n\,(s+2n)_n}{n!^2}=\frac{(s+n)_{2n}}{n!^2}=\frac{(s)_{3n}}{(s)_n\,n!^2}.
 \]
-By Gauss's multiplication formula, $(1-r)_{3n}=27^n\prod_{j=1}^3\big(\frac{j-r}3\big)_n$. Therefore $[u^nv^n]\,g_r$ is the coefficient of $x^n$ in ${}_3F_2\big(\frac{1-r}3,\frac{2-r}3,\frac{3-r}3;1-r,1;27x\big)$.
+By the first formula of Gauss above, $[u^nv^n]\,g_s$ is therefore the coefficient of $x^n$ in
+\[
+{}_3F_2\Big(\frac s3,\frac{s+1}3,\frac{s+2}3;s,1;27x\Big).\qedhere
+\]
 \end{proof}
 
-\begin{remark}
-For $r=\frac13$ and $r=\frac23$, \citet{AbdelazizKoutschanMaillard2020} represent the same two series as diagonals of the algebraic functions $(1-x-y)^r/(1-x-y-z)$ in three variables. Indeed, the coefficient of $z^n$ in this function is $(1-x-y)^{r-n-1}$, whose coefficient of $x^ny^n$ is $(n+1-r)_{2n}/n!^2$. By Lemma~\ref{lem:HKM}, Proposition~\ref{prop:D} shows that both series are diagonals of rational functions in three variables, which is optimal by Lemma~\ref{lem:local0}(iv) and Theorem~\ref{thm:furst}. We do not know a comparable closed form for $H$.
+\begin{remark}\label{rem:propD}
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item For every $s\in\Q\setminus\Z$ and $c\in\{\frac13,\frac23\}$ the parameters in part~(a) satisfy \eqref{eq:NR}. So part~(a) applies to infinitely many of the series covered by Theorem~\ref{thm:A}. Besides the two series of \citet{AbdelazizKoutschanMaillard2020}, these include ${}_3F_2(\frac19,\frac49,\frac79;\frac23,1;x)=\cT_{1/3}(x)\star(1-x)^{-1/3}$ and ${}_3F_2(\frac29,\frac59,\frac89;\frac13,1;x)=\cT_{2/3}(x)\star(1-x)^{-2/3}$.
+\item The factorization in part~(a) uses the auxiliary parameters $\frac13$ and $\frac23$, which cancel. It is therefore not among the six factorizations obtained by distributing the given parameters over two factors, which \citet[\S2.3]{AbdelazizKoutschanMaillard2020} examine and rule out for their two series. In the same paper (footnote on p.~4) it is stated, with a reference to \citet{RivoalRoques2014}, that ${}_3F_2(\frac19,\frac49,\frac79;\frac23,1;x)$ cannot be written as a Hadamard product. By part~(a) it is the Hadamard product of two algebraic power series with rational coefficients. The identity in part~(a) is elementary, and it may well be known to specialists; we have not found it in print.
+\item \citet{AbdelazizKoutschanMaillard2020} represent the series of part~(b) as diagonals of the algebraic functions $(1-x-y)^{1-s}/(1-x-y-z)$ in three variables. Indeed, the coefficient of $z^n$ in this function is $(1-x-y)^{-s-n}$, whose coefficient of $x^ny^n$ is $(s+n)_{2n}/n!^2$. Part~(b) needs only two variables. For $s\notin\{\frac13,\frac23\}$ we do not know whether the series of part~(b) is a Hadamard product of algebraic series.
+\item By Lemma~\ref{lem:HKM}, every series in parts~(a) and~(b) is the diagonal of a rational function in three variables. When \eqref{eq:NR} holds, three is the least possible number, by Lemma~\ref{lem:local0}(iv) and Theorem~\ref{thm:furst}.
+\item Neither part applies to $H$, whose upper parameters $\frac19,\frac49,\frac59$ are not of the form $\frac s3,\frac{s+1}3,\frac{s+2}3$. Appendix~\ref{app:search} reports a computer search that found no representation of $H$ as a Hadamard product of two algebraic hypergeometric series, nor as a diagonal of several other simple shapes.
+\end{enumerate}
 \end{remark}
 
 %======================================================================
@@ -784,10 +815,11 @@ For $r=\frac13$ and $r=\frac23$, \citet{AbdelazizKoutschanMaillard2020} represen
 %======================================================================
 
 \begin{enumerate}[label=(\arabic*),leftmargin=2em]
-\item \emph{An explicit representation of $H$.} The proof of Theorem~\ref{thm:A} gives no explicit rational function with diagonal $H$. One way to obtain one would be to find an explicit family of curves, for example a family of cyclic covers of $\PP^1$ branched at moving points, whose Jacobians contain the abelian scheme of \S\ref{subsec:H} up to isogeny, and to make Sections~\ref{sec:curves} and~\ref{sec:node} explicit for it.
+\item \emph{An explicit representation of $H$.} The proof of Theorem~\ref{thm:A} gives no explicit rational function with diagonal $H$, and the search of Appendix~\ref{app:search} found no representation of the simplest kinds. One way to obtain one would be to find an explicit family of curves, for example a family of cyclic covers of $\PP^1$ branched at moving points, whose Jacobians contain the abelian scheme of \S\ref{subsec:H} up to isogeny, and to make Sections~\ref{sec:curves} and~\ref{sec:node} explicit for it.
 \item \emph{Other integral lower parameters.} Corollary~\ref{cor:C} requires each integral lower parameter to be equal to $1$. Contiguity relations connect ${}_3F_2(a;b,n;x)$, for integers $n\ge2$, with series of the form treated here. We have not examined how global boundedness behaves under these relations.
 \item \emph{Higher order.} The proof of Theorem~\ref{thm:A} uses the order three only in Proposition~\ref{prop:twolevel}. The argument of Sections~\ref{sec:wt1}--\ref{sec:node} applies to an irreducible ${}_nF_{n-1}$ with rational parameters and lower parameters $b_1,\dots,b_{n-2}\notin\Z$ and $1$, provided that every Galois conjugate of its local system has two adjacent Hodge levels. We have not determined for which parameters with $n\ge4$ this holds, nor how the condition is related to global boundedness.
 \item \emph{The number of variables.} The series $\Fab$ of Theorem~\ref{thm:A} are diagonals of rational functions in three variables, and their differential equations have solutions with one power of the logarithm. This agrees with the formula proposed by \citet{HassaniMaillardZenine2025}, in which the minimal number of variables exceeds the highest power of the logarithm by two. As we read it, their conjecture concerns operators that are homomorphic to their adjoints. The operators $L_{a,b}$ considered here are not of this kind: their local systems are not self-dual, as the proof of Lemma~\ref{lem:F0} shows.
+\item \emph{Elementary cases.} Proposition~\ref{prop:D}(a) shows that some of the series covered by Theorem~\ref{thm:A} are diagonals for elementary reasons. It would be useful to know which globally bounded series ${}_3F_2(a;b,1;x)$ are Hadamard products of algebraic series. Among the sixteen such series with parameters in $\frac19\Z$ that satisfy \eqref{eq:NR}, the search of Appendix~\ref{app:search} found explicit representations for exactly the four covered by Proposition~\ref{prop:D}(a). For the other twelve, $H$ among them, we know of no proof that they are diagonals other than Theorem~\ref{thm:A}.
 \item \emph{Moduli.} For $H$, the abelian scheme of \S\ref{subsec:H} has multiplication by an order of $\Q(\zeta_9)$, and its period map takes values in a unitary Shimura variety. An identification of the image of $U$ might lead to an explicit model.
 \end{enumerate}
 
@@ -817,20 +849,74 @@ For all six conjugates of $H$, and for every assignment of the parameters to the
 \section{Computations}\label{app:certificates}
 %======================================================================
 
-The computations quoted in this paper use exact rational arithmetic and only the Python standard library. The field $\Q(\zeta_9)$ is realized as $\Q[z]/(z^6+z^3+1)$. Signs at real places are certified by rational enclosures of the three roots of $8c^3-6c+1$, obtained by $200$ bisection steps. The supplementary material consists of the following scripts and their outputs.
+Apart from the search of Appendix~\ref{app:search}, the computations quoted in this paper use exact rational arithmetic and only the Python standard library. The field $\Q(\zeta_9)$ is realized as $\Q[z]/(z^6+z^3+1)$. Signs at real places are certified by rational enclosures of the three roots of $8c^3-6c+1$, obtained by $200$ bisection steps. The supplementary material consists of the following scripts and their outputs.
 \begin{itemize}[leftmargin=2em]
 \item \texttt{monodromy\_hermitian.py} verifies statements (i)--(vi) of \S\ref{subsec:H}, including the Gram determinant $3^{36}$ of the form $\psi_0$.
 \item \texttt{hodge\_L2\_count.py} carries out the comparison of Appendix~\ref{app:euler}.
-\item \texttt{mechanism\_controls.py} verifies, to order $60$, the identity of Remark~\ref{rem:legendre} and the identities of Proposition~\ref{prop:D} for $r=\frac13$ and $r=\frac23$, together with polynomial equations satisfied by $\phi_r$. It also checks the closed form of $\rho$ in the proof of Proposition~\ref{prop:twolevel} on $54{,}264$ parameter sets. One floating-point contour integral is included as an illustration and is labelled as such.
-\item \texttt{verify.py} reruns all of the above and compares the results with the stored outputs.
+\item \texttt{mechanism\_controls.py} verifies, to order $60$, the identity of Remark~\ref{rem:legendre} and the identities of Proposition~\ref{prop:D}(b) for $s=\frac13$ and $s=\frac23$, together with polynomial equations satisfied by $\phi_s$. It also checks the closed form of $\rho$ in the proof of Proposition~\ref{prop:twolevel} on $54{,}264$ parameter sets. One floating-point contour integral is included as an illustration and is labelled as such.
+\item \texttt{verify.py} reruns all of the above and compares the results with the stored outputs. The complete run takes less than one minute on a laptop.
+\item \texttt{hadamard\_identities.py} checks the coefficient identity of Proposition~\ref{prop:D}(a) exactly to order $200$ for twelve pairs $(s,c)$.
+\item The folder \texttt{search} contains the code and output of Appendix~\ref{app:search}. It uses NumPy and arithmetic modulo primes, and takes a few hours on two processor cores.
 \end{itemize}
-The complete run takes less than one minute on a laptop.
+
+%======================================================================
+\section{A search for explicit representations of \texorpdfstring{$H$}{H}}\label{app:search}
+%======================================================================
+
+Theorem~\ref{thm:A} does not produce an explicit representation of $H$. We searched for one in several families of simple candidates and found none. We report the search because it supports the expectation, expressed by \citet{AbdelazizKoutschanMaillard2020}, that any explicit representation of $H$ is more complicated than those of the neighbouring series, and because it led to Proposition~\ref{prop:D}(a). It says nothing about candidates outside these families. The code and the complete output are part of the supplementary material.
+
+\subsection*{Exact families}
+Two families were treated exactly, by reduction to the criterion of \citet[Theorem~4.8]{BeukersHeckman1989}.
+
+\emph{(i) The shape of Proposition~\ref{prop:D}(b).} Let $g(u,v)=(1-u)^{-A}\varphi\big(v/(1-u)^k\big)$ with $k\ge1$, $A\in\Q$ and $\varphi$ an algebraic power series. Since $[u^n](1-u)^{-A-kn}=(A+kn)_n/n!$, we have $\Diag(g)=H(\lambda x)$ for some $\lambda\in\Q^\times$ if and only if $\varphi$ is the hypergeometric series with coefficients $\lambda'^{\,n}\prod_{t\in T}(t)_n/\prod_{t\in B}(t)_n$, where
+\[
+T=\big\{\tfrac19,\tfrac49,\tfrac59\big\}\cup\Big\{\frac{A+i}k:0\le i<k\Big\},\qquad B=\big\{\tfrac13,1\big\}\cup\Big\{\frac{A+i}{k+1}:0\le i\le k\Big\},
+\]
+and this series is algebraic. We tested $1\le k\le8$ and all $A=p/q$ with $1\le q\le36$ and $|A|\le4$, excluding non-positive integers: $25{,}312$ pairs $(k,A)$. In $25{,}266$ cases the parameters are irreducible after cancellation and the interlacing condition fails, so $\varphi$ is transcendental. In the remaining $46$ cases the parameters are reducible, and the denominators of the first $80$ coefficients of $\varphi$ involve at least three primes that do not divide the denominators of the parameters. By Eisenstein's theorem this is strong evidence, but not a proof, that $\varphi$ is transcendental.
+
+\emph{(ii) Hadamard factorizations.} Suppose that $H=\varphi\star\psi$, where $\psi$ is hypergeometric with upper parameters $S$ and lower parameters $\{1\}\cup R$. Then $\varphi$ is hypergeometric with upper parameters $\{\frac19,\frac49,\frac59\}\cup R$ and lower parameters $\{\frac13,1\}\cup S$. We tested all $\psi$ with $|S|\le3$ and parameters in $\{j/18:1\le j\le36\}$: $5{,}642{,}388$ choices. For $35{,}303$ of them the parameters of $\psi$ are irreducible and interlace, so $\psi$ is algebraic. For each of these, $\varphi$ is transcendental: by the interlacing criterion in $31{,}495$ cases, and by the Eisenstein evidence described in (i) in the remaining $3{,}808$. The $1{,}457{,}968$ choices for which the parameters of $\psi$ are reducible were not examined.
+
+\subsection*{Numerical families}
+Let $f=\prod_jF_j^{\alpha_j}$ with polynomials $F_j$ satisfying $F_j(0)=1$ and $\alpha_j\in\Q$. With $Q=\prod_jF_j$ and $P_v=\sum_j\alpha_j\,(\partial_vF_j)\prod_{i\ne j}F_i$ we have $Q\,\partial_vf=P_v\,f$ for each variable $v$. This gives recurrences for the coefficients of $f$. We computed the first seven coefficients $d_0,\dots,d_6$ of $\Diag(f)$ modulo $p=2^{31}-1$, simultaneously for a grid of exponent vectors, and compared the invariants $d_j/d_1^{\,j}$, $2\le j\le6$, with those of the target series. If $\Diag(f)$ equals the target at $\lambda x$, then $f$ passes this test unless $p$ divides the numerator of $\lambda$ times the first coefficient of the target. Every candidate that passed was recomputed to $50$ coefficients modulo the prime $2147483629$. Table~\ref{tab:search} lists the families. The exponents are nonzero multiples of $\frac19$, and candidates are taken up to permutations of the variables.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llcr}
+\toprule
+& factors & exponents & candidates\\
+\midrule
+A2 & two factors $1-L$, $L=ax+by+cz$, $a,b,c\in\{0,1,2,3\}$ & $|\alpha|\le3$ & $1{,}140{,}156$\\
+A3 & three factors $1-L$, $a,b,c\in\{0,1,2\}$ & $|\alpha|\le2$ & $23{,}328{,}000$\\
+A4 & four factors $1-L$, $a,b,c\in\{0,1\}$ & $|\alpha|\le1$ & $1{,}049{,}760$\\
+B2 & two factors $1+au+bv+cuv+du^2+ev^2$, & $|\alpha|\le2$ & $472{,}043{,}376$\\
+& \quad $a,b\in\{0,\pm1,-2,-3,-4\}$, $c\in\{0,\pm1,\pm2\}$, $d,e\in\{0,\pm1\}$ & &\\
+B3 & three such factors, $a,b\in\{0,-1,-2,-4\}$, & $|\alpha|\le1$ & $426{,}610{,}800$\\
+& \quad $c\in\{0,\pm1\}$, $d\in\{0,1\}$, $e=0$ & &\\
+\midrule
+& total & & $924{,}172{,}092$\\
+\bottomrule
+\end{tabular}
+\medskip
+\caption{Numerical search families.}\label{tab:search}
+\end{table}
+
+All candidates were compared with the sixteen globally bounded series ${}_3F_2(a;b,1;x)$ with parameters in $\frac19\Z$ that satisfy \eqref{eq:NR}, $H$ among them.
+
+\subsection*{Controls and results}
+The search recovered the representation $(1-x-y)^{2/3}/(1-x-y-z)$ of \citet{AbdelazizKoutschanMaillard2020} in family A2. It also recovered the function $(1-u-v)^{-1/3}$, whose diagonal is ${}_2F_1(\frac16,\frac23;1;4x)$, in all families containing it. The exact families (i) and (ii) recovered several representations of each of the two series of \citet{AbdelazizKoutschanMaillard2020}; this is how Proposition~\ref{prop:D}(a) was found.
+
+No representation of $H$ was found in any family. Among the sixteen target series, the numerical families found representations for exactly four, namely those covered by Proposition~\ref{prop:D}(a):
+\[
+{}_3F_2\big(\tfrac19,\tfrac49,\tfrac79;\tfrac13,1\big),\quad{}_3F_2\big(\tfrac19,\tfrac49,\tfrac79;\tfrac23,1\big),\quad{}_3F_2\big(\tfrac29,\tfrac59,\tfrac89;\tfrac13,1\big),\quad{}_3F_2\big(\tfrac29,\tfrac59,\tfrac89;\tfrac23,1\big).
+\]
+The exact families were also run for the series ${}_3F_2(\frac17,\frac27,\frac47;\frac12,1;x)$ of Corollary~\ref{cor:B}, with the grid $\{j/14:1\le j\le28\}$ in (ii), and found nothing. The numerical families were not run for this series.
 
 \section*{Statement on the use of AI tools}
 The mathematical argument, the computations and the text of this paper were developed with extensive assistance from large language models (Claude, Anthropic), under the author's direction. All computational claims can be reproduced with the supplementary scripts. At the time of writing the paper has not been refereed, and the author welcomes corrections.
 
 \section*{Data availability}
-The scripts described in Appendix~\ref{app:certificates} and their outputs are available as supplementary material.
+The scripts described in Appendices~\ref{app:certificates} and~\ref{app:search}, and their outputs, are available as supplementary material and at \url{https://github.com/bbrhuft/christol-3f2-diagonals}.
 
 \bibliographystyle{plainnat}
 \bibliography{christol_w1}

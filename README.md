@@ -2,7 +2,7 @@
 
 David Jordan, Maynooth University Social Sciences Institute (MUSSI), Maynooth University.
 
-**Paper:** [`paper/christol_w1.pdf`](paper/christol_w1.pdf) (version 1.1, 17 November 2026)
+**Paper:** [`paper/christol_w1.pdf`](paper/christol_w1.pdf) (version 1.2, 17 November 2026)
 
 ## Summary
 
@@ -14,6 +14,8 @@ with rational parameters such that aᵢ, b and aᵢ − b are not integers. If s
 
 The proof is Hodge-theoretic and not constructive. Global boundedness is shown to be equivalent to every Galois conjugate of the hypergeometric local system having two adjacent Hodge levels. That condition gives a polarized integral variation of Hodge structure of weight one, hence (by Deligne) an abelian scheme and a family of curves of which the series is a period. Expanding the period over vanishing cycles at the nodes of a regular semistable model gives the diagonal.
 
+The paper also observes (Proposition D) that some neighbouring series once listed as hard cases, including the two treated by Abdelaziz, Koutschan and Maillard (2020), are Hadamard products of two algebraic series, for an elementary reason. Christol's series is not of this kind, and a computer search over about 924 million simple candidates (Appendix C) found no explicit representation for it.
+
 **Status:** preprint. The argument has not yet been reviewed by independent experts. Corrections are welcome; please open an issue.
 
 ## Contents
@@ -22,9 +24,11 @@ The proof is Hodge-theoretic and not constructive. Global boundedness is shown t
 |---|---|
 | `paper/christol_w1.tex` | LaTeX source (amsart, natbib) |
 | `paper/christol_w1.bib`, `paper/christol_w1.bbl` | Bibliography database and compiled bibliography |
-| `paper/christol_w1.pdf` | Compiled paper, 25 pages |
+| `paper/christol_w1.pdf` | Compiled paper, 28 pages |
 | `supplementary/scripts/` | Exact-arithmetic Python scripts for the computations in §8.1 and Appendices A–B |
 | `supplementary/results/` | Stored outputs of those scripts |
+| `supplementary/scripts/hadamard_identities.py` | Exact check of the Hadamard factorization in Proposition D(a) |
+| `supplementary/search/` | Code and results of the search for an explicit representation of H (Appendix C) |
 
 ## Building the paper
 
@@ -49,6 +53,10 @@ python3 scripts/verify.py --full   # adds the full Hodge-number scan (221,946 ca
 - `hodge_L2_count.py`: Appendix A, an independent check of the Hodge numbers by counting square-integrable 2-forms on the Euler surfaces.
 - `mechanism_controls.py`: Remark 7.2, Proposition D, and the closed form of Fedorov's ρ used in Proposition 3.1.
 - `w1_tools.py`: shared arithmetic in ℚ(ζ₉) and certified sign tests.
+
+`python3 scripts/hadamard_identities.py` checks Proposition D(a) exactly to 200 coefficients (a few seconds).
+
+The search of Appendix C (`supplementary/search/`) uses NumPy and arithmetic modulo primes and takes a few hours on two cores; see its README. `python3 test_engine.py` in that folder reproduces the published Abdelaziz–Koutschan–Maillard representation as a quick check.
 
 ## Use of AI tools
 
