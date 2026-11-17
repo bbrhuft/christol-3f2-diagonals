@@ -26,6 +26,7 @@ Proposition D observes that some neighbouring series, including the two treated 
 |---|---|
 | `paper/christol_w1.tex`, `.bib`, `.bbl` | LaTeX source (amsart, natbib numeric) and bibliography |
 | `paper/christol_w1.pdf` | compiled paper |
+| `paper/christol_w1_v1_5_standalone.tex` | v1.5 source with the bibliography embedded; compiles with pdflatex alone (no `.bib` or BibTeX needed) |
 | `supplementary/scripts/` | exact-arithmetic scripts for §8.1, Proposition D and Appendices A–C |
 | `supplementary/results/` | stored reference outputs |
 | `supplementary/search/` | search code, results, explicit B2/B3 pools, and tests (Appendix C) |
@@ -67,6 +68,8 @@ The scripts check examples, the search and its bookkeeping. They do not verify t
 cd paper
 latexmk -pdf christol_w1.tex
 ```
+
+`christol_w1.bib` and `christol_w1.bbl` have not changed since v1.3 (48 entries), which is why GitHub shows the v1.3 commit beside them. If you compile `christol_w1.tex` somewhere that holds an older `christol_w1.bib`, the references will be wrong; `christol_w1_v1_5_standalone.tex` avoids this.
 
 ## Use of AI tools
 
