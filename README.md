@@ -27,6 +27,7 @@ Proposition D observes that some neighbouring series, including the two treated 
 | `paper/christol_w1.tex`, `.bib`, `.bbl` | LaTeX source (amsart, natbib numeric) and bibliography |
 | `paper/christol_w1.pdf` | compiled paper |
 | `paper/christol_w1_v1_5_standalone.tex` | v1.5 source with the bibliography embedded; compiles with pdflatex alone (no `.bib` or BibTeX needed) |
+| `paper/christol_w1_v1_6_standalone.tex`, `.pdf` | v1.6 standalone source and PDF: expanded AI-assistance acknowledgement; bibliography with hyperlinked DOIs and arXiv identifiers, added DOIs/URLs, updated publication data (Hassani–Maillard–Zenine 2025, Kelly–Voight 2026, Fürnsinn–Yurkevich 2024) and a note on the Dettweiler–Sabbah erratum |
 | `supplementary/scripts/` | exact-arithmetic scripts for §8.1, Proposition D and Appendices A–C |
 | `supplementary/results/` | stored reference outputs |
 | `supplementary/search/` | search code, results, explicit B2/B3 pools, and tests (Appendix C) |
