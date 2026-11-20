@@ -2,7 +2,7 @@
 
 David Jordan, Maynooth University Social Sciences Institute (MUSSI), Maynooth University.
 
-**Paper:** [`paper/christol_w1.pdf`](paper/christol_w1.pdf) (version 1.5, 17 November 2026, 39 pages)
+**Paper:** [`paper/christol_w1_v1_6_standalone.pdf`](paper/christol_w1_v1_6_standalone.pdf) (version 1.6, 17 November 2026, 39 pages)
 
 ## Summary
 
