@@ -1,0 +1,3 @@
+Inverse-contiguity coefficients: 1220 passed; ranks 3,4,5; m=2,3,4,7,12.
+Counting/block/reflection checks: 2000 parameter multisets passed; 47 satisfy the GB criterion.
+These finite checks corroborate identities; they do not prove the arbitrary-rank geometric construction.

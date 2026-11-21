@@ -1,0 +1,4 @@
+B in the integral A-orbit basis:
+Matrix([[1, 0, -2, -1, 2, 0], [0, 1, 2, -1, -2, -1], [0, 1, 0, 0, 0, -1], [0, -1, 1, 2, 0, -2], [0, 1, 0, -1, 0, 0], [0, -1, 0, 2, 1, -2]])
+Both generators preserve the Hermitian form; det(H)=49 and e1 is isotropic.
+Transvection span determinant sqrt(-7), consecutive pairing 7, no scalar twist at A.

@@ -1,0 +1,4 @@
+Full regenerated JSON matches every supplied value.
+Byte-identical: True
+Original SHA-256: bbd21d5bd10861e235ff9c4a976f236877d511c6e4f9e100ca1c40b1482d1a1e
+Regenerated SHA-256: bbd21d5bd10861e235ff9c4a976f236877d511c6e4f9e100ca1c40b1482d1a1e

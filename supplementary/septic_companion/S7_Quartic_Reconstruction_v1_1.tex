@@ -1,0 +1,232 @@
+\documentclass[10pt]{article}
+\usepackage[margin=.92in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black}
+\newcommand{\Q}{\mathbb Q}\newcommand{\C}{\mathbb C}\newcommand{\Z}{\mathbb Z}
+\newcommand{\Res}{\operatorname{Res}}\newcommand{\Jac}{\operatorname{Jac}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\title{An algebraic genus-three normal form for the septic hypergeometric period}
+\author{Constructive research note for the Cartier--Miller project}
+\date{Version 1.1, 21 November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We give a marked local equation for the genus-three Jacobian family attached to the septic hypergeometric series $S_7$. At $x=64/s^{14}$ its central fibre is $v^2=u^7-1$ and its nearby curves are smooth plane quartics. We determine an integral cycle, a canonical differential and the exact normalization for which its period is $S_7$. Convergent recursions specify the curve and differential by algebraic power series over $\Q(s)$. The local inverse works for general nearby period planes; the hypergeometric monodromy, lattice and connection constants identify this particular algebraic family. We show that its unmarked generic curve admits a plane quartic model over $\Q(x)$. Computing the coefficients of such a global equation remains open in this construction.
+\end{abstract}
+
+\section{The curve and differential}
+Write $\theta=x\partial_x$ and
+\[
+ L=\theta^2(\theta-1/2)-x(\theta+1/7)(\theta+2/7)(\theta+4/7),
+ \qquad S_7={}_3F_2(1/7,2/7,4/7;1/2,1;x).
+\]
+Let $C_\infty$ denote the smooth compactification of $v^2=u^7-1$. Set $x=64/s^{14}$. In $\mathbb P(1,1,1,2)$ with coordinates $[X:Y:Z:V]$, take
+\begin{align}
+ XZ-Y^2&=h(s)V,\label{curve1}\\
+ V^2&=F_p(X,Y,Z)=YZ^3-X^4+\sum_{j=1}^5p_j(s)M_j(X,Y,Z),\label{curve2}\\
+ M_j&=X^{4-\lceil j/2\rceil}Y^{j\bmod2}Z^{\lfloor j/2\rfloor}.\nonumber
+\end{align}
+The initial terms are
+\[
+\begin{array}{lll}
+ h=s+O(s^{15}),& p_1=49s^{10}/512+O(s^{24}),&
+ p_2=11s^6/32+O(s^{20}),\\
+ p_3=-s^2/2+O(s^{16}),&p_4=-1039s^{12}/50176+O(s^{26}),&
+ p_5=229s^8/1792+O(s^{22}).
+\end{array}
+\]
+Section 4 specifies every coefficient. At $s=0$, putting $X=1$, $Y=u$, $Z=z$, $V=v$ gives $z=u^2$, $v^2=u^7-1$. This complete intersection is the smooth compactification, with one point at infinity, and avoids the vertex of weighted projective space. Smoothness persists near zero by properness. When $h\ne0$ the canonical plane equation is
+\[
+ (XZ-Y^2)^2=h(s)^2 F_p(X,Y,Z).
+\]
+In particular the nearby smooth fibres are nonhyperelliptic.
+
+On the affine chart put
+\[
+ (\Omega_0,\Omega_1,\Omega_2)=
+ \frac{2(1,u,z)\,du}{2v-h\,\partial_z F_p(1,u,z)},\qquad z=u^2+h v .
+\]
+These are the three canonical forms by complete-intersection adjunction (the numerator sections are $X,Y,Z$). Define
+\[
+ \eta_s=s^2\sum_{i=0}^2 b_i(s)\Omega_i,\quad
+ b_0=305s^8/12544+O(s^{22}),\quad b_1=5s^4/56+O(s^{18}),\quad
+ b_2=1-61277s^{14}/5619712+O(s^{28}).
+\]
+Then $\lim_{s\to0}s^{-2}\eta_s=u^2du/v$. With the explicit constant and closed cycle of Section 3 one has
+\[
+ S_7(x)=\kappa c\int_{\gamma_s}\eta_s,\qquad L(\nabla_\theta)[\eta_s]=0.
+\]
+Here $L(\nabla_\theta)$ means substitution of the Gauss--Manin derivative for $\theta$. The period identity specifies analytic continuation from $x<0$; transport in the period local system recovers the normalized germ at zero. The slice series are used only near infinity. No convergence radius reaching $x=-1$ or $x=0$ is asserted. The equation holds in relative de Rham cohomology on the punctured germ. The same order-three operator is minimal for this section because its periods span all three Frobenius solutions.
+
+\section{The flat period data}
+Take $\zeta=e^{2\pi i/7}$, $c=-2^{-6/7}\zeta^2$, $t=cs^2$ so $x=-t^{-7}$. With $D_t=t\partial_t$, the pulled-back numerator of $L$ is
+\[
+ (D_t-1)(D_t-2)(D_t-4)+t^7D_t^2(D_t+7/2).
+\]
+For $k=1,2,4$ let $y_k=t^k H_k$ with
+\[
+ H_k=\sum_{n\ge0} d_{kn}t^{7n},\quad d_{k0}=1,\quad
+ \frac{d_{k,n+1}}{d_{kn}}=
+ -\frac{d^2(d+7/2)}{(d+6)(d+5)(d+3)},\qquad d=k+7n.
+\]
+These converge for $|t|<1$. Write $e_i=[u^i du/v]$, $0\le i\le5$ on $C_\infty$ and transport them as flat classes in a marked local deformation. They form the usual hyperelliptic de Rham basis; $e_0,e_1,e_2$ are holomorphic. Let $T(u,v)=(\zeta^5 u,v)$. For eigenvalues $\zeta,\zeta^2,\zeta^4$ its cohomology space $W$ is spanned by $e_2,e_5,e_4$, respectively. The other three eigenlines span $W'$. These are the two eigenspaces of the quadratic multiplication determined by the quadratic-residue sum $T^*+(T^*)^2+(T^*)^4$, acting by $w=(-1+\sqrt{-7})/2$ on $W$ (with $\operatorname{Im}\sqrt{-7}>0$).
+
+Set $\lambda=5/(4c)$, $\mu=1/(32c^3)$, $a=\lambda y_2/y_1$, $b=\mu y_4/y_1$. In particular
+\[
+ a=\tfrac54 s^2H_2/H_1,\qquad b=\tfrac1{32}s^6H_4/H_1,\qquad t^7=-s^{14}/64.
+\]
+Prescribe the following holomorphic plane in the flat six-dimensional space:
+\begin{equation}
+ e_0+(a/5)e_3,\qquad e_1+(b/3)e_3,\qquad e_2+b e_4+a e_5.\label{graph}
+\end{equation}
+It consists of the specified line in $W$ and its annihilator in $W'$. Indeed $\langle e_i,e_j\rangle$ vanishes unless $i+j=5$, by the order-seven action. The three values for $i=0,1,2$ are in the ratios $1/5:1/3:1$. This follows by taking the residues of a primitive of $e_i$ times $e_{5-i}$ at infinity, using $u=w^{-2}$ and $e_i\sim-2w^{4-2i}dw$. The resulting plane is Lagrangian. Positivity holds near the central plane by openness. Section 4 realizes this entire plane by curves. Prescribing just its third vector would leave the other two holomorphic forms undetermined.
+
+\section{An integral cycle and the exact normalization}
+Let $\delta$ go from the root $1$ to $0$ and out to the root $\zeta$ on the sheet with $v(0)=i$, and return on the opposite sheet. Take $\gamma=(1+T_*)\delta$. The consecutive translates of $\delta$ and of $\gamma$ both generate homology: $1+T_*$ has determinant $\Phi_7(-1)=1$. The second choice has precisely the intersection row of the logarithmic vector $v_*$ in Section 5. On this integral cycle
+\[
+ J_q=\int_\gamma e_{q-1}
+ =(1+\zeta^{5q})\frac{2(\zeta^q-1)}{7i}\,
+ B(q/7,1/2),\qquad q=3,6,5 .
+\]
+The two radial integrals give the formula directly. With $U=\{1,2,4\}$ let
+\[
+ C_k=\frac{\Gamma(1/2)}
+ {\Gamma(1/2-k/7)\Gamma(1-k/7)}
+ \prod_{j\in U\setminus\{k\}}\frac{\Gamma((j-k)/7)}{\Gamma(j/7)} .
+\]
+The Barnes connection formula [1, Eq.~16.8.8] on $x<0$ gives $S_7=\sum C_k y_k$. Define $\kappa=C_1/J_3$. Duplication and reflection [1, Eqs.~5.5.5, 5.5.3] give
+\[
+ \frac{C_2/J_6}{C_1/J_3}=-5\,2^{-8/7}\zeta^{-2}=\lambda,\qquad
+ \frac{C_4/J_5}{C_1/J_3}=-2^{-17/7}\zeta=\mu .
+\]
+For reproducibility, with $S_j=\sin(\pi j/7)$ the cyclotomic factors after extracting the displayed real powers and integer multipliers are
+\[
+ \frac{\zeta^3-1}{\zeta^q-1}
+ \bigg(\frac{S_1}{S_d}\bigg)^2
+ \frac{1+\zeta}{1+\zeta^k}
+ =\begin{cases}\zeta^{-2}&(k,q,d)=(2,6,2),\\
+                 \zeta&(k,q,d)=(4,5,3).
+   \end{cases}
+\]
+The checker reduces both equalities modulo $\Phi_7$. Multiplying the third vector in \eqref{graph} by $\kappa y_1$ therefore gives $S_7$ on $\gamma$. Its values on $T_*^j\gamma$ have coefficients $C_k\zeta^{jk}$ and span the three-dimensional solution space by Vandermonde. This also verifies the choice of branch, scalar and solution.
+
+\section{The all-order reconstruction and operator certificate}
+Let $P_{ij}(h,p)$ be the coordinates of $[\Omega_i]$ on $e_j$ in the flat trivialization. They are analytic by integration on transported cycles. An explicit rational Taylor formula follows by implicit residues. Write $V_0^2=u^7-1$, set $z=u^2+h v$ and $G=F_p(1,u,z)-(u^7-1)$. For the numerator $N_i=1,u,z$, respectively, expand $N_iG^l$ in terms $A u^jv^k$. Its contribution to the class is
+\[
+ A\binom{(k-1)/2}{l}\,[u^j V_0^{k-1-2l}du].
+\]
+Sum over $l\ge0$. This is twice the residue at $v=V_0$ of $N_iG^l\,dv/(v^2-V_0^2)^{l+1}$, obtained by differentiating the simple residue $l$ times with respect to $V_0^2$. One may integrate on representatives away from the finitely many branch points and use a locally fixed $u$-projection. Compactness of a representative justifies termwise integration near the central fibre. Odd $k$ give zero or a polynomial differential in $u$, hence exact. Negative odd powers reduce by
+\[
+ [u^jdu/V_0^{2l+1}]=\left(\frac{2(j+1)}{7(2l-1)}-1\right)[u^jdu/V_0^{2l-1}],\qquad l\ge1.
+\]
+For $j\ge7$, $[u^jdu/V_0]=\frac{2(j-6)}{2j-5}[u^{j-7}du/V_0]$; index $6$ is exact. These follow by differentiating $u^{j+1}/V_0^{2l-1}$ and $u^{j-6}V_0$. Positive powers use $V_0^2=u^7-1$. Every coefficient requires finitely many terms.
+
+The isomorphism $(h,v)\mapsto(-h,-v)$ sends each canonical form to its negative. On the central fibre it is the hyperelliptic involution, acting by $-1$ on every flat class. Parallel transport gives the same action on the marking, so these two signs cancel in every entry of $P$. Put $D=h^2$. Impose for each $i$ the three equations
+\begin{align*}
+ P_{i3}&=a P_{i0}/5+b P_{i1}/3,& P_{i4}&=bP_{i2},&P_{i5}&=aP_{i2}.
+\end{align*}
+These are the graph equations \eqref{graph}. At the origin $P_{i j}=\delta_{ij}$ for $0\le i\le2$. The normalized graph lies in the Lagrangian Grassmannian. It has six independent coordinates, corresponding to a symmetric matrix after scaling the anti-diagonal pairings. One can take $(i,j)=(0,3),(1,4),(2,3),(1,3),(0,4),(0,5)$ in the normalized graph, formed by premultiplying by the inverse of its first three columns.
+
+For $p_l$ the first variation of row $i$ is $-\frac12[u^{i+l}du/V_0^3]$. Each of the last four listed coordinates sees one of $p_1,p_2,p_4,p_5$ with nonzero coefficient. In the chart just specified and column order $(p_3,D,p_1,p_2,p_4,p_5)$, the full Jacobian at the origin is
+\[
+ \begin{pmatrix}-1/14&3/14\\-3/14&-3/28\end{pmatrix}
+ \;\oplus\;\operatorname{diag}(-1/14,-1/14,-3/14,-5/14).
+\]
+The first block has determinant $3/56$.
+For example the $D$-contribution to row zero is
+$(3/2)[u^3du/V_0]-(9/8)[u^{10}du/V_0^3]$.
+Row one has the same integrand times $u$; row two also receives $(3/2)[u^5du/V_0]$ from $z=u^2+hv$. The six-by-six Jacobian is invertible. Thus the analytic inverse function theorem proves existence and uniqueness of $D,p_1,\ldots,p_5$ as convergent series for the prescribed graph. To first order $P_{03}=a/5$ and $P_{14}=0$ give $D=4a/5+O(s^4)=s^2+O(s^4)$ and $p_3=-s^2/2+O(s^4)$. Take the square root $h=s+O(s^3)$. Coefficientwise inversion of the same matrix gives a rational recursion. The graphs and hence every $p_j,D$ are even in $s$.
+
+To recover the differential, solve $\sum_i d_iP_{ij}=\delta_{2j}$ for $j=0,1,2$ and put $b_i=H_1d_i$. The coefficient matrix is the identity at the origin. Equations \eqref{graph} now give the flat class exactly:
+\[
+ [\eta_s]=c^{-1}(y_1 e_2+\lambda y_2 e_5+\mu y_4 e_4).
+\]
+Every component is a Frobenius solution. This proves the differential identity to all orders. The inverse here applies to any nearby analytic Lagrangian graph in its six coordinates, allowing a square root to recover $h$. This is consistent with the genus-three local Torelli picture [7,9]. The identification of the period plane and its global algebraicity require the specific septic data. In $s$ the polynomial numerator operator is
+\[
+ (D_s-2)(D_s-4)(D_s-8)-\frac{s^{14}}{64}D_s^2(D_s+7),\qquad D_s=s\partial_s ,
+\]
+a nonzero scalar-function multiple of the original $L$. A separate finite check solves the moving equation directly for $v/V_0$ by Hensel expansion, substitutes into the three adjunction forms and reduces this numerator operator term by term in de Rham cohomology. It checks rational differentials with even powers of $V_0$ by testing residues at all seventh roots. The original operator check through $s^{28}$ is retained as a short test. Section 7 describes the higher-precision checks.
+
+\paragraph{Symmetry lemma.}
+Put $\epsilon=e^{\pi i/7}$, $\zeta=\epsilon^2$ and $\sigma=s^{14}$. Then
+\[
+ h\in s\Q[[\sigma]],\qquad p_j\in s^{e_j}\Q[[\sigma]],\quad
+ (e_1,\dots,e_5)=(10,6,2,12,8),\qquad
+ (b_0,b_1,b_2)\in s^8\Q[[\sigma]]\times s^4\Q[[\sigma]]\times\Q[[\sigma]] .
+\]
+Indeed, send $(u,z,v)$ to $(\epsilon^4 u,\epsilon^8 z,-v)$. The resulting slice has $\widetilde h=-\epsilon^8 h=\epsilon h$ and $\widetilde p_j=\epsilon^{-4j}p_j$. The inverse transformation on the central fibre is $T$ followed by the hyperelliptic involution. Its pullback takes the graph at $(a,b)$ to the graph at $(\zeta a,\zeta^3 b)$: the central sign acts by a scalar on the plane. These are exactly $a(\epsilon s),b(\epsilon s)$. Uniqueness of the inverse in $(p,D)$, and then $h/s\to1$, give the asserted laws for $p,h$. In particular $D=s^2+O(s^{16})$, $p_3=-s^2/2+O(s^{16})$ and $h=s+O(s^{15})$.
+
+For the forward map $f_s:C_s\to C_{\epsilon s}$, $f_s^*e_j=-\epsilon^{4(j+1)}e_j$ in the marking. Substituting the three Frobenius powers into the displayed flat class gives $f_s^*[\eta_{\epsilon s}]=-[\eta_s]$. Holomorphic differentials inject into de Rham cohomology, so the equality holds for forms. The pullbacks of the three $\Omega_i$ have multipliers $-\epsilon^{4(i+1)}$; the factor $s^2$ in $\eta_s$ contributes $\epsilon^2$. Comparing coefficients gives weights $8,4,0$ for $b_i$. After extracting the indicated power, each series can therefore be stored in $\sigma=64/x$. This weight law alone gives a series in $1/x$ and says nothing about rationality of an individual slice coordinate.
+
+\section{The polarized local system and algebraicity}
+We derive the weight-one input here for $S_7$. The earlier project manuscript and lattice calculation [3] motivated the construction.
+Write $r=\sqrt{-7}$, $w=(-1+r)/2$, $k=(7+r)/2$. In column convention the pilot uses $A$ at infinity, $B^{-1}$ at zero. Both $A,B$ have first two columns $e'_2,e'_3$ in the standard basis of $K^3$, $K=\Q(r)$; the last columns are $(1,-\bar w,w)^t$ and $(-1,1,1)^t$. The invariant form and integral pairing are
+\[
+ H=\begin{pmatrix}0&k&r\\ \bar k&0&k\\-r&\bar k&0\end{pmatrix},\qquad
+ J(v,z)=\operatorname{Tr}_{K/\Q}(v^*Hz/r).
+\]
+Let $v_*=(-1,0,1)^t/r$. It spans $\operatorname{im}(B^2-I)$ over $K$. Hence under the complex solution identification [4] its image is a scalar times $S_7$, the analytic solution in the image of the local logarithmic block. Fix that scalar so its image is $S_7$. The analytic exponent zero has a unique power-series solution with value one, and the logarithmic jump spans it.
+
+The intersection numbers of $\delta$ with the rotated branch arcs are zero except for its two immediate neighbours, where they are opposite units. Indeed the arcs can be deformed to chords between consecutive roots, avoiding every other root. Disjoint chords give disjoint closed lifts; adjacent lifts meet transversely once at their common simple branch point. In the ordering by $T$ the two neighbours occur at $j=3,4$. Up to the common orientation convention the first row for $\gamma,T_*^j\gamma$ ($j=0,\ldots,6$) is therefore
+\[
+                     (0,0,1,1,-1,-1,0).
+\]
+It agrees up to sign with $J(v_*,A^jv_*)$ by direct multiplication. The Gram determinant on the first six translates is one. For completeness set $\Lambda=\sum_{i=0}^5\Z A^iv_*$. The Gram determinant gives a basis and unimodular $J$ on $\Lambda$. The action of $A$ is integral by $\Phi_7(A)=0$. In this ordered basis $B$ is
+\[
+\begin{pmatrix}
+1&0&-2&-1&2&0\\0&1&2&-1&-2&-1\\0&1&0&0&0&-1\\
+0&-1&1&2&0&-2\\0&1&0&-1&0&0\\0&-1&0&2&1&-2
+\end{pmatrix}.
+\]
+Both generators are invertible on $\Lambda$ and preserve $H$ by direct multiplication. Since $\det H=49$ and its first basis vector is isotropic, its signature is $(1,2)$. The two marked lattices agree, with pairing up to common sign. Sending $A^jv_*$ to $T_*^j\gamma$ also matches their periods, since infinity continuation sends $y_k$ to $\zeta^k y_k$. This identifies the flat evaluation section of the global equation with the section constructed locally. The complementary rank-three part is its conjugate in the rational local system. In particular the prescribed $K$-action and the pairing extend globally.
+
+\paragraph{From a complex variation to an integral polarization.}
+In Fedorov's convention $\prod(D-\alpha_j)-x\prod(D-\beta_j)$, take the parameters mod $\Z$ in $[0,1)$, ordered increasingly. Here $\alpha=(0,0,1/2)$ and $\beta=(3,5,6)/7$; the integral changes of exponent preserve the irreducible local system by Levelt's theorem [4]. There is no common parameter. Fedorov [2, Prop.~2.6 and Thm.~1] gives a polarizable complex variation, unique up to shift, with $\rho(k)=\#\{j:\alpha_j<\beta_k\}-k=(1,1,0)$. Thus the two adjacent pieces have ranks one and two. Conjugating the eigenvalues gives $\beta=(1,2,4)/7$ and $\rho=(1,0,0)$. Dualizing interchanges the grading order up to shift. Only adjacency and the unordered ranks enter the construction below.
+
+For clarity, the real structure is restriction of scalars from $K$. In cohomology take either summand $V$ and shift its complex grading to degrees $0,1$. Write $V=V^1\oplus V^0$. In $V\oplus\bar V$ take the holomorphic bundle
+\[
+ F^1=V^1\oplus\overline{V^0},\qquad H^{0,1}=\overline{F^1}.
+\]
+Here $V^1$ is holomorphic and $V^0$ is antiholomorphic by the two endpoint conditions for a complex variation; complex conjugation is the one on the underlying real restriction of scalars. This is a real weight-one variation on the rational local system. Its Hodge decomposition respects $K$. On $V$ the Hermitian form induced by the trace pairing (dually in cohomology) is a real scalar multiple of the complex Hodge polarization by irreducibility and Schur's lemma. Hence $V^1,V^0$ are orthogonal and have opposite definite signs. Since $J$ pairs the two conjugate summands and vanishes on each separately, $F^1$ is isotropic. Conjugation reverses the sign of $iJ(z,\bar z)$, so it has the same definite sign on both pieces of $F^1$. Choosing the overall sign of $J$ yields a unimodular integral polarization. This step supplies the rational and principal structures required to pass from [2] to Deligne's equivalence [6]. The resulting principally polarized abelian scheme is defined on the complex punctured $x$-line. Equivalently, after trivializing a level $m\ge3$ structure on a finite cover, algebraicity of its holomorphic moduli map follows by Borel [8]; forgetting level descends the map to coarse moduli.
+
+Here is a check that the evaluation section actually lies in the geometric Hodge line. Take a finite cover killing the semisimple parts of the boundary monodromies. One may take the compositum of the cyclic covers adjoining seventh roots of $1/x$ and square roots of $x$ and $1-x$. Use the compact smooth normalization. The weight-one flat bundle has its Deligne extension $\mathcal E$ and extended Hodge bundle $\mathcal F^1$. The evaluation section extends holomorphically in $\mathcal E$. At zero the exponents are $0,0,1/2$, at one $0,1,1/2$ and at infinity $1/7,2/7,4/7$. After this cover its coefficients in flat frames have at worst logarithmic growth at zero and one. Passage to canonical frames multiplies by polynomials in logarithms. The resulting single-valued coefficients have removable singularities. At infinity the section has a zero of positive order. Its saturated line therefore has positive degree.
+
+By semipositivity the extended Hodge bundle is nef [5, Cor.~1.3]. The extended quotient $\mathcal E/\mathcal F^1$ is its dual by polarization; unipotent residues ensure compatibility of canonical extensions with duals. A positive-degree line cannot map nontrivially to this dual: saturation of the image would give a positive-degree subline, whose dual is a negative-degree quotient of a nef bundle. Consequently:
+\begin{enumerate}
+\item Evaluation lies in $\mathcal F^1$ and, after dividing by its vanishing parameter, limits to $e_2$ at infinity.
+\item The limiting subspace $F^1\cap W$ contains $e_2$ and is $T$-stable by equivariance at the finite-monodromy fibre.
+\item The global polarization agrees with the central cup product up to common sign. On $W$ its associated Hermitian form gives $e_2$ the isolated sign: $e_2$ is holomorphic on $C_\infty$, while the distinct character lines $e_4,e_5$ are antiholomorphic.
+\item A $T$-stable two-plane containing $e_2$ would also contain one of $e_4,e_5$, contradicting definiteness. Thus $F^1\cap W$ is the evaluation line. Isotropy forces the remaining two-plane in $W'$ to be its annihilator. This identifies the full Hodge plane with \eqref{graph}.
+\end{enumerate}
+The abelian moduli map is algebraic by the preceding construction.
+The smooth algebraic slice \eqref{curve1}--\eqref{curve2}, with its six parameters, maps algebraically to principally polarized threefold moduli by its Jacobian. It is quasi-finite near the central point: in a marked analytic chart the calculated graph is an invertible analytic coordinate change in $(p,D)$, followed in the source by $D=h^2$. Passing to coarse moduli takes only finite local stabilizers. Equivalently one can use level structure locally. This also explains the extra square root in the curve parameter at a hyperelliptic fibre; compare [7, Prop.~9.1]. Pull this quasi-finite algebraic map back along the algebraic base curve. The branch selected by the analytic inverse is consequently algebraic over $\C(s)$. The differential coefficients are algebraic there as well. On a finite cover the abelian schemes with identified polarized level structure are isomorphic, and the evaluation section of their algebraic de Rham bundle is algebraic by its extension above and GAGA on the compact base. Express it in the three algebraic canonical forms. All the series $h,p_j,b_i$ have rational Taylor coefficients. A polynomial dependence of bounded bidegree over $\C$ then gives one over $\Q$: the annihilating coefficients solve a rational homogeneous linear system with finitely many unknowns. Thus $h,p_j,b_i$ are algebraic over $\Q(s)$. Their minimal polynomials are not needed for the recursion.
+
+\section{The coarse map and the generic field of definition}
+The unmarked Jacobian moduli point lies in $\mathcal A_3(\C(x))$ because the polarized system was constructed on the $x$-line itself. The Torelli map identifies the smooth nonhyperelliptic locus with its image on coarse moduli in characteristic zero [7,9]; the generic curve therefore gives a point of $M_3(\C(x))$. Its coordinates in an affine chart over $\Q$ at the generic point are rational functions of $x$. They have Laurent coefficients in $\Q$ after substitution $x=64/s^{14}$ since the local quartic has rational Taylor coefficients. Thus they belong to $\Q(x)$: in the variable $1/x$, a rational Laurent series with rational coefficients has a rational numerator and denominator over $\Q$, by the finite linear recurrence for its coefficients. The symmetry lemma exhibits the fourteen local parameters giving the same unmarked point. Global single-valued algebraicity on the $x$-line supplies the rational-function assertion.
+
+\paragraph{The generic curve has trivial automorphism group.}
+Write $v=r v_*$. In the standard basis $N=B^2-I=v(1,1,1)$ and $N^2=0$. Its kernel is $v^\perp$ by unitarity (or direct calculation). The vectors $v,Av,A^2v$ have determinant $r$ and $v^*HAv=7$. Every finite-index subgroup of the monodromy contains nonzero powers of the three conjugate transvections with these directions. An invariant nonzero complex subspace cannot be perpendicular to all three. Applying a transvection minus the identity puts one of the directions in the subspace, and consecutive nonorthogonal directions then yield all three. Thus both conjugate rank-three summands stay irreducible after every finite cover.
+
+They also stay inequivalent. If they became equivalent, restrict further to a finite-index normal subgroup. Its space of intertwiners would be a line by Schur's lemma. The full group would act on that line by a character, making the two original representations scalar twists. At $A$ this requires $\{1,2,4\}$ and $\{3,5,6\}$ to be translates modulo seven. Both sums are zero modulo seven, so the translation is zero, and the sets differ. It follows that the complex centralizer on the six-dimensional space has dimension two after any such restriction. The rational centralizer already contains $K$ and hence equals $K$.
+
+A geometric generic endomorphism spreads over an open set on a finite cover, so its action on homology centralizes such a subgroup. Conversely $K$ acts by rational Hodge endomorphisms and hence by abelian-scheme endomorphisms up to isogeny [6]. Thus the geometric generic endomorphism algebra is $\Q(\sqrt{-7})$. Its only roots of unity are $\pm1$. A finite-order curve automorphism acts faithfully on the Jacobian; either scalar acts trivially on the projective canonical plane. Since the generic curve is canonically embedded there, its automorphism group is trivial. The isomorphisms between its Galois conjugates are therefore unique and satisfy Weil's cocycle condition [10]. The generic curve has a model over $\Q(x)$, and the canonical system over that field gives a plane quartic. This is a descent result for the unmarked curve. An explicit global quartic, a formula for its normalized differential in global coordinates, and a finite rational-function primitive are further computational targets. Ratios of homogeneous invariants of equal weight give suitable rational functions for a future interpolation test.
+
+\section{Computational evidence}
+An audit by Claude Opus 5.5 supplied a second exact reconstruction. It lifts the moving root directly, imposes six period equations, and tests the remaining three. The archive contains that audit as received, its full order-$100$ jet, and rerun instructions. The rational jet agrees through $s^{100}$ in all nine coefficient functions and the full $3\times6$ period matrix. All three unused graph equations and the second-kind residue tests pass. Multiplying the regenerated period matrix by the regenerated differential coefficients gives an additional check of the original operator on all six components through $s^{102}$, including the factor $s^2$ in $\eta_s$. In $1/x$ these tests see six or seven corrections beyond the leading term, depending on the weight. The operator identity itself was proved in Section 4.
+
+For the curve truncated at order 100, quadrature of the three canonical forms over the seven transported cycles at $s=0.45+0.1i$ gives maximum relative discrepancy $3.9\times10^{-15}$ across 21 period values. On the negative $x$-ray the relative differences for the normalized marked period are below $2\times10^{-16}$ near $x=-1455$, below $7\times10^{-16}$ near $x=-280$, and about $5.9\times10^{-11}$ at $x=-64$. These are numerical comparisons to the hypergeometric function. A radius of convergence or a location for the nearest singularity of the slice has not been certified. Continuation beyond the local chart uses the global period system.
+
+\clearpage\section*{Reproducibility and references}
+The bundle contains the source, exact data, validation scripts, run commands and software versions. The computational audit and this revision are AI-assisted research work; specialist peer review remains outstanding.
+\begin{enumerate}
+\item NIST Digital Library of Mathematical Functions, \href{https://dlmf.nist.gov/16.8.E8}{Eq.~16.8.8} and \href{https://dlmf.nist.gov/5.5}{Sec.~5.5}.
+\item R. Fedorov (2018), \href{https://doi.org/10.1093/imrn/rnx044}{Variations of Hodge structures for hypergeometric differential operators and parabolic Higgs bundles}, \emph{IMRN}, 5583--5608, Prop.~2.6 and Thm.~1.
+\item Project, \emph{Constructive investigation of the $S_7$ period}, principal lattice and order-seven special fibre, preceding research bundle. The pertinent matrices and the new cycle comparison appear above.
+\item F. Beukers and G. Heckman (1989), Monodromy for the hypergeometric function, \emph{Inventiones Mathematicae} 95, 325--354, Prop.~3.2 and Thm.~3.5.
+\item O. Fujino and T. Fujisawa, \href{https://www.math.kyoto-u.ac.jp/~fujino/OnSemipositivity6.pdf}{On semipositivity theorems}, Thm.~1.1 and Cor.~1.3.
+\item P. Deligne, \emph{Th\'eorie de Hodge II}, Sect.~4.4.3, equivalence for abelian schemes and integral polarized variations.
+\item R. Hain, \emph{The rank of the normal functions of the Ceresa and Gross--Schoen cycles}, Prop.~9.1, on the marked genus-three Torelli cover.
+\item A. Borel (1972), \href{https://doi.org/10.4310/jdg/1214430642}{Some metric properties of arithmetic quotients of symmetric spaces and an extension theorem}, \emph{J. Differential Geom.} 6, 543--560. See also J. S. Milne, \emph{Shimura varieties and moduli}, Thm.~4.3.
+\item F. Oort and J. Steenbrink (1980), The local Torelli problem for algebraic curves, in \emph{Journ\'ees de G\'eom\'etrie Alg\'ebrique d'Angers 1979}, 157--204.
+\item J. Sijsling and J. Voight, \href{https://doi.org/10.1007/s40993-016-0057-3}{On explicit descent of marked curves and maps}, \emph{Research in Number Theory} 2 (2016), Weil descent criterion and Cor.~2.4.
+\end{enumerate}
+\end{document}

@@ -51,19 +51,19 @@ Proposition D observes that some neighbouring series, including the two treated 
 | `supplementary/results/` | stored reference outputs |
 | `supplementary/search/` | search code, results, explicit B2/B3 pools, and tests (Appendix C) |
 | `supplementary/audit/` | audits of the search and a failure-injection test of the checks |
+| `supplementary/tools/verify_extension.py` | v1.7 higher-order checks (contiguity and counting identities in ranks 3–6) |
+| `supplementary/septic_companion/` | v1.8 septic companion note v1.1: PDF, TeX, scripts, audit archive, recorded outputs |
 | `supplementary/run_checks.sh` | runs all checks; nonzero exit status on any failed expectation |
 | `docs/v1.9/` | summary of changes from v1.6 to v1.9 |
 | `docs/v1.5/`, `docs/v1.4/` | change logs, responses, verification logs and dependency tables for those versions (unchanged) |
-| `releases/` | complete archives of v1.4 and v1.5, each with `SHA256SUMS` and, for v1.5, the one-command check `verify_all.sh` |
+| `releases/` | complete archives of v1.4 and v1.5, each with `SHA256SUMS` and, for v1.5, the one-command check `verify_all.sh`; the septic companion bundle v1.1 as distributed |
 
-### Supplementary material referenced by v1.9 but not yet in this repository
+### Supplementary material added for v1.7 and v1.8
 
-The v1.9 paper also refers to two later bundles. They are **not yet deposited here** and will be added:
+- **`supplementary/tools/verify_extension.py`**: the v1.7 higher-order checks (Appendix B, "Higher-order checks in version 1.7"). Uses only the standard library and runs in about two seconds. It checks 1,220 coefficients of the forward and inverse contiguity identities (ranks 3–5, $m=2,3,4,7,12$) and the counting, equal-block and reflection identities on 2,000 parameter multisets in ranks 3–6; 47 of them satisfy the global-boundedness criterion. Output: `supplementary/results/verify_extension.txt`.
+- **`supplementary/septic_companion/`**: the septic companion note, *An algebraic genus-three normal form for the septic hypergeometric period* (version 1.1, 21 November 2026), cited as [SepticReconstruction] for equation (1.5) and Example 9.4. It contains the PDF, standalone TeX, verification scripts, the original audit archive `S7_quartic_audit_checks.zip`, the recorded outputs in `rerun/`, its own `README.md` with rerun instructions, and `SHA256SUMS.txt`. The files are unchanged from the distributed bundle, which is also kept byte-for-byte as `releases/S7_Quartic_Reconstruction_v1_1_Bundle.zip`.
 
-- the **v1.7 higher-order verification bundle**, `tools/verify_extension.py` (Appendix B, "Higher-order checks in version 1.7": contiguity identities across ranks three to five, and counting checks on 2,000 parameter multisets in ranks three to six);
-- the **septic companion note**, *An algebraic genus-three normal form for the septic hypergeometric period* (version 1.1, 21 November 2026), with its source, verification scripts and check outputs (cited as [SepticReconstruction] for equation (1.5) and Example 9.4).
-
-Until they are added, the statements that depend on them can't be checked from this repository. The legacy scripts in `supplementary/` cover §9.1, Proposition D and Appendices A–C as before.
+These finite checks support the operator, counting and septic calculations. They do not certify the general geometric existence proof.
 
 ## Reproducing the computations
 
@@ -93,6 +93,17 @@ SHA-256 of the v1.9 paper files:
 
 - `christol_w1_v1_9_standalone.tex`: `9f7083e4fb71f3e57e0436261d51a796f37cba7f7d0e8bda2dbb0f9c95bba4d5`
 - `christol_w1_v1_9_standalone.pdf`: `e746abebc8f1961c5c8291850ac37eb3af0848b4df489ad75037c902a3e71ac9`
+
+The v1.7 checks (standard library only, about 2 seconds):
+
+```sh
+python3 supplementary/tools/verify_extension.py
+```
+
+The septic companion checks (Python ≥ 3.10 with `python-flint`, `sympy`, `mpmath`, `numpy`). Run them from a copy of `supplementary/septic_companion/` and follow its `README.md`. Regenerating the series to order 100 (`dump_series.py 100`) takes about 4 minutes; the remaining steps take under a minute.
+
+- `S7_Quartic_Reconstruction_v1_1_Bundle.zip`: `1a443d424c639eb44908c31b635527b48970831920c7243d102d0bd98af93a8f`
+- `verify_extension.py`: `c0c19e6ad6fca58021f4c759db881ff82117f55d08a9b7e872e03b2d431f6549`
 
 The scripts check examples, the search and its bookkeeping. They do not verify the general proof of Theorem A.
 

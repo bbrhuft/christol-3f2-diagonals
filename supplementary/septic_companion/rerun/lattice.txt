@@ -1,0 +1,12 @@
+H Hermitian: True
+A^* H A == H: True
+B^* H B == H: True
+charpoly A: (2*t**3 + t**2 - sqrt(7)*I*t**2 - t - sqrt(7)*I*t - 2)/2  ; charpoly B: (t - 1)**2*(t + 1)
+rank(A-B) = 1
+im(B^2-I) columns: [[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]]
+eigenvalues of H: [6.52035, -5.02477, -1.49558]
+J(v*, A^j v*), j=0..6: [0, 0, 1, 1, -1, -1, 0]
+Gram on A^j v*, j=0..5:
+ Matrix([[0, 0, 1, 1, -1, -1], [0, 0, 0, 1, 1, -1], [-1, 0, 0, 0, 1, 1], [-1, -1, 0, 0, 0, 1], [1, -1, -1, 0, 0, 0], [1, 1, -1, -1, 0, 0]]) 
+ det = 1
+A + A^2 + A^4 == w*I: True

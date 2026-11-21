@@ -1,0 +1,2 @@
+s = (0.45 + 0.1j), |s^14| = 1.96e-05; min distance of other branch points to each V-path over the deformation: 0.064, 0.327, 0.335, 0.069, 0.064, 0.327, 0.069
+   max rel error of P (3 rows x 7 cycles): 3.88e-15;  eta_s periods vs Frobenius: 1.95e-15

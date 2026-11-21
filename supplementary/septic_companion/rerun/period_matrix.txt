@@ -1,0 +1,2 @@
+Computed all 18 period-coordinate series directly from the curve jet through degree 100
+Every period entry agrees exactly; second-kind residue tests passed.

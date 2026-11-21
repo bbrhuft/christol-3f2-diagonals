@@ -1,0 +1,2 @@
+All nine weights hold through s^100.
+All six de Rham components satisfy the original pulled-back numerator through s^102, including the three prescribed nonzero leading terms.

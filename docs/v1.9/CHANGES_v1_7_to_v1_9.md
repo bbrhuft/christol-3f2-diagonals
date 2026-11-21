@@ -76,6 +76,6 @@ as in the paper's acknowledgement. Section and theorem numbers refer to v1.9.
 
 ## Repository status
 
-The v1.7 verification bundle and the v1.8 septic companion note (source, scripts, outputs) are
-cited in the paper as part of the supplementary material. They are not yet in this repository;
-see the main `README.md`.
+The v1.7 verification script is in `supplementary/tools/verify_extension.py`, and the v1.8
+septic companion note v1.1 is in `supplementary/septic_companion/` (original bundle in
+`releases/`). Both were rerun when they were deposited; see `RERUN_LOG_2026-11-21.md`.
