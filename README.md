@@ -1,53 +1,69 @@
-# Christol's conjecture for non-resonant globally bounded $`{}_3F_2(a_1,a_2,a_3;b,1)`$ series
+# Christol's conjecture for non-resonant globally bounded hypergeometric series of height two
 
 David Jordan, Maynooth University Social Sciences Institute (MUSSI), Maynooth University.
 
-**Paper:** [`paper/christol_w1_v1_6_standalone.pdf`](paper/christol_w1_v1_6_standalone.pdf) (version 1.6, 17 November 2026, 40 pages)
+**Paper:** [`paper/christol_w1_v1_9_standalone.pdf`](paper/christol_w1_v1_9_standalone.pdf) (version 1.9, 21 November 2026, 45 pages). Source: [`paper/christol_w1_v1_9_standalone.tex`](paper/christol_w1_v1_9_standalone.tex) (bibliography embedded; compiles with `pdflatex` alone).
+
+What changed since v1.6: [`docs/v1.9/CHANGES_v1_7_to_v1_9.md`](docs/v1.9/CHANGES_v1_7_to_v1_9.md).
 
 ## Summary
 
 Christol conjectured that every globally bounded, D-finite power series with rational coefficients is the diagonal of a rational function. The paper proves this for the hypergeometric series
 
-$${}_3F_2(a_1, a_2, a_3; b, 1; x)$$
+$${}_nF_{n-1}(a_1,\dots,a_n;\ b_1,\dots,b_{n-2},\ m;\ x),\qquad n\ge 3,\ m\in\mathbb{Z}_{\ge 1},$$
 
-with rational parameters such that $`a_i`$, $b$, and $`a_i - b`$ are not integers. If such a series is globally bounded, it is the diagonal of an algebraic power series in two variables, and hence of a rational function in three variables; three is the least possible number of variables. This includes Christol's 1987 example $`{}_3F_2(1/9, 4/9, 5/9; 1/3, 1; x)`$, and the series $`{}_3F_2(1/7, 2/7, 4/7; 1/2, 1; x)`$, which Christol suggested as a possible counterexample to his conjecture.
+with rational parameters satisfying the non-resonance condition (NR): every $`a_i`$, every $`b_j`$ and every $`a_i-b_j`$ is non-integral. Counting the factorial as a lower parameter $1$, these are the series of **height two**. Global boundedness does not depend on $m$. If the series is globally bounded, it is the diagonal of an algebraic power series in two variables over $`\mathbb{Q}`$, and hence of a rational function in three variables; three is the least possible number of variables (Theorem A). Repetitions within the upper list, or within the non-integral lower list, are allowed.
 
-By a result of Rivoal and Roques (2014), assuming the Rohrlich–Lang conjecture, the $1/7$ series is not a Hadamard product of finitely many algebraic series. Conditionally on that conjecture alone, the paper therefore gives a diagonal of a rational function with infinite Hadamard grade (Corollary E).
+The result includes Christol's 1987 example $`H(x)={}_3F_2(1/9, 4/9, 5/9; 1/3, 1; x)`$ and the series $`S_7(x)={}_3F_2(1/7, 2/7, 4/7; 1/2, 1; x)`$, which Christol suggested as a possible counterexample to his conjecture (Corollary B). By a result of Rivoal and Roques (2014), assuming the Rohrlich–Lang conjecture, $`S_7`$ is not a Hadamard product of finitely many algebraic series. Conditionally on that conjecture alone, the paper therefore gives a diagonal of a rational function with infinite Hadamard grade (Corollary E).
 
-The proof is Hodge-theoretic and **not constructive**: it shows that the diagonal representations exist but does not produce them. Global boundedness is equivalent to every Galois conjugate of the hypergeometric local system having two adjacent Hodge levels. That condition gives a polarized integral variation of Hodge structure of weight one, hence (by Deligne) an abelian scheme and a family of curves of which the series is a period. Expanding the period over vanishing cycles at the nodes of a regular semistable model gives the diagonal.
+Combined with the two extreme heights, the paper settles the conjecture for every non-resonant $`{}_3F_2(a_1,a_2,a_3;b_1,b_2;x)`$ whose lower parameters are non-integral or positive integers (Corollary C). At maximal height (all displayed lower parameters positive integers, any order $n$), the series is a Hadamard product of $n$ algebraic series, and $`\mathrm{hg}=\mathrm{dg}=n`$ (Remark 9.6).
+
+The proof is Hodge-theoretic and **not constructive**: it shows that the diagonal representations exist but does not produce them. Global boundedness is equivalent to every Galois conjugate of the hypergeometric local system having exactly two adjacent Hodge levels (Fedorov's formula). That condition gives a polarized integral variation of Hodge structure of weight one, hence (by Deligne) an abelian scheme and a family of curves of which the series is a period. Expanding the period over vanishing cycles at the nodes of a regular semistable model gives the diagonal. For $m\ge 2$ an explicit rational differential inverse of the contiguity relation reduces to $m=1$.
+
+For $`S_7`$ the curve step is made explicit near $x=\infty$: with $`x=64/s^{14}`$, a companion note gives a marked genus-three family whose central fibre is $`v^2=u^7-1`$, and a holomorphic differential whose period over a transported cycle is $`S_7`$. Turning this into an explicit diagonal remains open.
 
 Proposition D observes that some neighbouring series, including the two treated by Abdelaziz, Koutschan and Maillard (2020), are Hadamard products of two algebraic series, for an elementary reason. Christol's series is not of this kind. A computer search (Appendix C) found no explicit representation of it **among the candidates it enumerated**. That search gives no lower bound for the complexity of a representation. Its numerical families B2 and B3 cover only explicit restricted factor pools, which are smaller than first described; see Appendix C and `supplementary/search/README.md`.
 
 | **Aspect** | **Known Before** | **Known Now (Assuming the Paper Is Correct)** |
 | --- | --- | --- |
-| **General Christol's conjecture** | Open in general; every diagonal of a rational function is D-finite and globally bounded, while the converse was unsolved even for hypergeometric series. | Still open in general, as well as for higher-order $`{}_nF_{n-1}`$ ($`n \ge 4`$), resonant parameters, and integral lower parameters $`n \ge 2`$. |
-| **Non-resonant $`{}_3F_2(a_1,a_2,a_3;b,1;x)`$ (intermediate weight)** | Widely open; only isolated examples and a one-parameter family were known to be diagonals. The classical Euler integral gave a family of surfaces (minimum monodromy weight $`-2`$), mismatching the series' weight $`-1`$ so Christol's theorem did not apply. | Proved (Theorem A): every globally bounded series in this class is the diagonal of a 2-variable algebraic power series over $`\mathbb{Q}`$ and of a 3-variable rational function over $`\mathbb{Q}`$ regular at the origin (non-constructively). |
-| **Non-resonant $`{}_3F_2(a_1,a_2,a_3;b_1,b_2;x)`$ with $`b_1,b_2 \in (\mathbb{Q}\setminus\mathbb{Z})\cup\{1\}`$** | Settled only at the two extremes: when $`b_1,b_2 \notin \mathbb{Z}`$ (globally bounded $`\iff`$ algebraic $`\iff`$ 2-variable rational diagonal) and when $`b_1=b_2=1`$ (Hadamard product of binomial series $`\iff`$ diagonal). | Completely settled (Corollary C): the series is globally bounded if and only if it is the diagonal of a rational function over $`\mathbb{Q}`$ regular at the origin. |
+| **General Christol's conjecture** | Open in general; every diagonal of a rational function is D-finite and globally bounded, while the converse was unsolved even for hypergeometric series. | Still open in general, and for hypergeometric series of intermediate height $`2<h<n`$ and for resonant parameters. |
+| **Non-resonant $`{}_nF_{n-1}(a;b_1,\dots,b_{n-2},m;x)`$, $`n\ge3`$, $`m\ge1`$ (height two)** | Widely open; for $`n=3`$ only isolated examples and a one-parameter family were known to be diagonals. The classical Euler integral gives a family of dimension $`n-1`$ (minimum monodromy weight $`-(n-1)`$), mismatching the series' weight $`-1`$, so Christol's theorem did not apply. | Proved (Theorem A): every globally bounded series in this class is the diagonal of a 2-variable algebraic power series over $`\mathbb{Q}`$ and of a 3-variable rational function over $`\mathbb{Q}`$ regular at the origin (non-constructively). Global boundedness is independent of $m$. |
+| **Non-resonant $`{}_3F_2(a_1,a_2,a_3;b_1,b_2;x)`$ with $`b_1,b_2 \in \mathbb{Q}\setminus\mathbb{Z}_{\le0}`$** | Settled only when $`b_1,b_2 \notin \mathbb{Z}`$ (globally bounded $`\iff`$ algebraic) and when both $`b_j`$ are positive integers (Hadamard product of algebraic series). | Completely settled (Corollary C): the series is globally bounded if and only if it is the diagonal of a rational function over $`\mathbb{Q}`$ regular at the origin. |
+| **Maximal height: $`{}_nF_{n-1}(a;m_1,\dots,m_{n-1};x)`$, all $`m_j`$ positive integers** | Known to be a Hadamard product of algebraic series when all $`m_j=1`$. | For all positive integers $`m_j`$: a Hadamard product of $n$ algebraic series, with $`\mathrm{hg}=\mathrm{dg}=n`$, so $`n+1`$ rational variables are optimal (Remark 9.6). |
 | **Christol's 1987 test case $`H(x) = {}_3F_2(\tfrac{1}{9},\tfrac{4}{9},\tfrac{5}{9};\tfrac{1}{3},1;x)`$** | Not known to be a diagonal; only heuristic arguments existed. Known unconditionally that $`\mathrm{dg}(H) \ge 2`$ and $`\mathrm{hg}(H) \ge 2`$. | Proved to be the diagonal of a 2-variable algebraic series and a 3-variable rational function over $`\mathbb{Q}`$, with $`\mathrm{dg}(H) = 2`$ (Corollary B). No explicit representation is known, and whether $`H`$ is a Hadamard product of two algebraic hypergeometric series remains open. |
-| **Potential counterexample $`S_7(x) = {}_3F_2(\tfrac{1}{7},\tfrac{2}{7},\tfrac{4}{7};\tfrac{1}{2},1;x)`$** | Suggested by Christol as a possible counterexample; not known whether it is a diagonal. Under the Rohrlich–Lang conjecture, known not to be a Hadamard product of finitely many algebraic power series over $`\overline{\mathbb{Q}}`$ ($`\mathrm{hg}(S_7) = \infty`$). | Ruled out as a counterexample (Corollary B): proved non-constructively to be the diagonal of a 2-variable algebraic series and a 3-variable rational function over $`\mathbb{Q}`$, with $`\mathrm{dg}(S_7) = 2`$. |
+| **Potential counterexample $`S_7(x) = {}_3F_2(\tfrac{1}{7},\tfrac{2}{7},\tfrac{4}{7};\tfrac{1}{2},1;x)`$** | Suggested by Christol as a possible counterexample; not known whether it is a diagonal. Under the Rohrlich–Lang conjecture, known not to be a Hadamard product of finitely many algebraic power series over $`\overline{\mathbb{Q}}`$ ($`\mathrm{hg}(S_7) = \infty`$). | Ruled out as a counterexample (Corollary B): proved non-constructively to be the diagonal of a 2-variable algebraic series and a 3-variable rational function over $`\mathbb{Q}`$, with $`\mathrm{dg}(S_7) = 2`$. An explicit local genus-three curve and differential realizing its period near $x=\infty$ are described (companion note); an explicit diagonal is still open. |
 | **Diagonals vs. Hadamard products of algebraic series** | Every Hadamard product of $`k`$ algebraic series is a diagonal in $`k+1`$ rational variables. The failure of the converse was known only conditionally on *both* Christol's conjecture and the Rohrlich–Lang conjecture. | Christol's conjecture is removed as a hypothesis (Corollary E): assuming *only* the Rohrlich–Lang conjecture, $`S_7`$ is a 3-variable rational diagonal with $`\mathrm{hg}(S_7) = \infty`$, so series of finite Hadamard grade form a proper subset of diagonals. |
-| **Minimal number of rational variables (diagonal grade $`\mathrm{dg}`$)** | For non-resonant $`{}_3F_2(a;b,1;x)`$, the lower bound $`\mathrm{dg}(F_{a;b}) \ge 2`$ (at least 3 rational variables) was known unconditionally, but no general upper bound was known. | Exact diagonal grade established (Theorem A): every globally bounded non-resonant $`{}_3F_2(a;b,1;x)`$ has $`\mathrm{dg}(F_{a;b}) = 2`$ (3 rational variables are both sufficient and necessary). |
+| **Minimal number of rational variables (diagonal grade $`\mathrm{dg}`$)** | For height two, the lower bound $`\mathrm{dg} \ge 2`$ (at least 3 rational variables) was known unconditionally (Harder–Kramer-Miller), but no general upper bound was known. | Exact diagonal grade established (Theorem A): every globally bounded non-resonant height-two series has $`\mathrm{dg} = 2`$ (3 rational variables are both sufficient and necessary). |
 | **Known explicit $`{}_3F_2`$ examples (Abdelaziz–Koutschan–Maillard 2020)** | $`{}_3F_2(\tfrac{1}{9},\tfrac{4}{9},\tfrac{7}{9};\tfrac{1}{3},1;x)`$, $`{}_3F_2(\tfrac{2}{9},\tfrac{5}{9},\tfrac{8}{9};\tfrac{2}{3},1;x)`$, and a one-parameter family were given as explicit 3-variable algebraic and 6-variable rational diagonals. A footnote claimed $`{}_3F_2(\tfrac{1}{9},\tfrac{4}{9},\tfrac{7}{9};\tfrac{2}{3},1;x)`$ is not a Hadamard product. | Shown elementarily (Proposition D) that those series—including $`{}_3F_2(\tfrac{1}{9},\tfrac{4}{9},\tfrac{7}{9};\tfrac{2}{3},1;x)`$ and infinitely many neighbours—are Hadamard products of two algebraic series ($`\mathrm{hg} = 2`$), and the one-parameter family is an explicit 2-variable algebraic diagonal (hence 3-variable rational). |
-| **Hodge-theoretic meaning of global boundedness for $`{}_3F_2(a;b,1)`$** | Characterized arithmetically by Christol's interlacing criterion across Galois conjugates, without a weight-one geometric realization. | Equivalent to every Galois conjugate of the hypergeometric local system having two adjacent Hodge levels (Section 3), which allows a weight-one realization via an abelian scheme and a family of curves matching monodromy weight $`-1`$ (Sections 4–6). |
+| **Hodge-theoretic meaning of global boundedness at height two** | Characterized arithmetically by Christol's interlacing criterion across Galois conjugates, without a weight-one geometric realization. | Equivalent to every Galois conjugate of the hypergeometric local system having exactly two adjacent Hodge levels, in any rank (Proposition 3.1), which allows a weight-one realization via an abelian scheme and a family of curves matching monodromy weight $`-1`$ (Sections 4–7). |
 
-**Status:** preprint, not refereed. Versions 1.4 and 1.5 were revised after AI-assisted manuscript reviews (not journal peer review); see [`docs/`](docs/). The proof has not been checked by an independent specialist. Corrections are welcome; please open an issue.
+**Status:** preprint, not refereed. Versions 1.4–1.9 were revised after AI-assisted manuscript reviews and AI-assisted development (not journal peer review); see [`docs/`](docs/) and the acknowledgement at the end of the paper. The proof has not been checked by an independent specialist. Corrections are welcome; please open an issue.
 
 ## Contents
 
 | Path | Contents |
 |---|---|
-| `paper/christol_w1.tex`, `.bib`, `.bbl` | LaTeX source (amsart, natbib numeric) and bibliography |
-| `paper/christol_w1.pdf` | compiled paper |
-| `paper/christol_w1_v1_5_standalone.tex` | v1.5 source with the bibliography embedded; compiles with pdflatex alone (no `.bib` or BibTeX needed) |
-| `paper/christol_w1_v1_6_standalone.tex`, `.pdf` | v1.6 standalone source and PDF: expanded AI-assistance acknowledgement; bibliography with hyperlinked DOIs and arXiv identifiers, added DOIs/URLs, updated publication data (Hassani–Maillard–Zenine 2025, Kelly–Voight 2026, Fürnsinn–Yurkevich 2024) and a note on the Dettweiler–Sabbah erratum |
-| `supplementary/scripts/` | exact-arithmetic scripts for §8.1, Proposition D and Appendices A–C |
+| `paper/christol_w1_v1_9_standalone.tex`, `.pdf` | **current version (1.9)**: standalone source with embedded bibliography, and PDF |
+| `paper/christol_w1_v1_6_standalone.tex`, `.pdf` | v1.6 standalone source and PDF (rank three only; archived on Zenodo, DOI [10.5281/zenodo.24355840](https://doi.org/10.5281/zenodo.24355840)) |
+| `paper/christol_w1_v1_5_standalone.tex` | v1.5 standalone source |
+| `paper/christol_w1.tex`, `.bib`, `.bbl`, `.pdf` | legacy multi-file source (v1.5 era); superseded by the standalone files above |
+| `supplementary/scripts/` | exact-arithmetic scripts for §9.1 (Christol's example), Proposition D and Appendices A–C |
 | `supplementary/results/` | stored reference outputs |
 | `supplementary/search/` | search code, results, explicit B2/B3 pools, and tests (Appendix C) |
 | `supplementary/audit/` | audits of the search and a failure-injection test of the checks |
 | `supplementary/run_checks.sh` | runs all checks; nonzero exit status on any failed expectation |
-| `docs/v1.5/` | change log and response, verification log, dependency/status table |
-| `docs/v1.4/` | the corresponding documents for version 1.4 (unchanged) |
+| `docs/v1.9/` | summary of changes from v1.6 to v1.9 |
+| `docs/v1.5/`, `docs/v1.4/` | change logs, responses, verification logs and dependency tables for those versions (unchanged) |
 | `releases/` | complete archives of v1.4 and v1.5, each with `SHA256SUMS` and, for v1.5, the one-command check `verify_all.sh` |
+
+### Supplementary material referenced by v1.9 but not yet in this repository
+
+The v1.9 paper also refers to two later bundles. They are **not yet deposited here** and will be added:
+
+- the **v1.7 higher-order verification bundle**, `tools/verify_extension.py` (Appendix B, "Higher-order checks in version 1.7": contiguity identities across ranks three to five, and counting checks on 2,000 parameter multisets in ranks three to six);
+- the **septic companion note**, *An algebraic genus-three normal form for the septic hypergeometric period* (version 1.1, 21 November 2026), with its source, verification scripts and check outputs (cited as [SepticReconstruction] for equation (1.5) and Example 9.4).
+
+Until they are added, the statements that depend on them can't be checked from this repository. The legacy scripts in `supplementary/` cover §9.1, Proposition D and Appendices A–C as before.
 
 ## Reproducing the computations
 
@@ -73,17 +89,22 @@ SHA-256 of the archives:
 - v1.5: `ae86b2470d5cc82eec60e47bf88dda51577830f1a8ba6378ff3bf204bc63f8b1`
 - v1.4: `06f5ad9ce69ea592b1c99ae301051af5f7880446a5bcb4d6e7126a0fb3cc74e0`
 
+SHA-256 of the v1.9 paper files:
+
+- `christol_w1_v1_9_standalone.tex`: `9f7083e4fb71f3e57e0436261d51a796f37cba7f7d0e8bda2dbb0f9c95bba4d5`
+- `christol_w1_v1_9_standalone.pdf`: `e746abebc8f1961c5c8291850ac37eb3af0848b4df489ad75037c902a3e71ac9`
+
 The scripts check examples, the search and its bookkeeping. They do not verify the general proof of Theorem A.
 
 ## Building the paper
 
 ```sh
 cd paper
-latexmk -pdf christol_w1.tex
+pdflatex christol_w1_v1_9_standalone.tex   # run three times for references and contents
 ```
 
-`christol_w1.bib` and `christol_w1.bbl` have not changed since v1.3 (48 entries), which is why GitHub shows the v1.3 commit beside them. If you compile `christol_w1.tex` somewhere that holds an older `christol_w1.bib`, the references will be wrong; `christol_w1_v1_5_standalone.tex` avoids this.
+The bibliography is embedded, so no BibTeX run is needed. The file compiles without errors or undefined references with TeX Live 2022/2023.
 
 ## Use of AI tools
 
-The argument, computations and text were developed with extensive assistance from large language models (Claude, Anthropic), under the author's direction. See the statement at the end of the paper.
+The argument, computations and text were developed with extensive assistance from large language models (principally Claude, Anthropic, and GPT-6.1 Sol, OpenAI; also Google Gemini for literature review and the arbitrary-rank extension), under the author's direction. See the statement at the end of the paper.
