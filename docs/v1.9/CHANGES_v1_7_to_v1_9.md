@@ -79,3 +79,18 @@ as in the paper's acknowledgement. Section and theorem numbers refer to v1.9.
 The v1.7 verification script is in `supplementary/tools/verify_extension.py`, and the v1.8
 septic companion note v1.1 is in `supplementary/septic_companion/` (original bundle in
 `releases/`). Both were rerun when they were deposited; see `RERUN_LOG_2026-11-21.md`.
+
+## v1.9.1 (23 November 2026): plain-language summary only
+
+The mathematics, numbering and page count (45) are unchanged from v1.9. The plain-language
+summary now:
+
+- says that the choice of positive integer in the lower parameter makes no difference,
+  because an explicit differential operator reduces every case to the case of $1$;
+- notes that the rank-three case (non-resonant ${}_3F_2$ with nonintegral or positive
+  integral lower parameters) is completely settled (Corollary C);
+- states that the proof is non-constructive, and that no explicit rational function is known
+  for either Christol's series or $S_7$;
+- replaces an ambiguous "It does not prove…" with "The paper does not prove…".
+
+The title-page date reads "23 November 2026 (version 1.9.1)".

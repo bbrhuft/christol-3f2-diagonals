@@ -2,9 +2,9 @@
 
 David Jordan, Maynooth University Social Sciences Institute (MUSSI), Maynooth University.
 
-**Paper:** [`paper/christol_w1_v1_9_standalone.pdf`](paper/christol_w1_v1_9_standalone.pdf) (version 1.9, 21 November 2026, 45 pages). Source: [`paper/christol_w1_v1_9_standalone.tex`](paper/christol_w1_v1_9_standalone.tex) (bibliography embedded; compiles with `pdflatex` alone).
+**Paper:** [`paper/christol_w1_v1_9_1_standalone.pdf`](paper/christol_w1_v1_9_1_standalone.pdf) (version 1.9.1, 23 November 2026, 45 pages). Source: [`paper/christol_w1_v1_9_1_standalone.tex`](paper/christol_w1_v1_9_1_standalone.tex) (bibliography embedded; compiles with `pdflatex` alone).
 
-What changed since v1.6: [`docs/v1.9/CHANGES_v1_7_to_v1_9.md`](docs/v1.9/CHANGES_v1_7_to_v1_9.md).
+What changed since v1.6: [`docs/v1.9/CHANGES_v1_7_to_v1_9.md`](docs/v1.9/CHANGES_v1_7_to_v1_9.md). Version 1.9.1 revises only the plain-language summary (see the end of that file); the mathematics is unchanged from 1.9.
 
 ## Summary
 
@@ -34,13 +34,14 @@ Proposition D observes that some neighbouring series, including the two treated 
 | **A computable curve for** $`S_7`$ **(companion v1.1, summarized in v1.9)** | A classical integral formula represented $`S_7`$ using a family of surfaces. It did not supply the genus-three curve and integration cycle used in the companion. | The companion reconstructs a curve, a differential, and a cycle whose integral gives $`S_7`$ near $`x=\infty`$, where a smooth limiting curve makes the calculation possible. The diagonal proof uses $`x=0`$, where cycles shrink. The reconstruction is proved to all orders and checked computationally to finite order. An explicit global curve equation remains to be found. |
 | **Earlier explicit examples and their place in the paper** | Abdelaziz, Koutschan and Maillard gave explicit diagonals for two close relatives of $`H`$ and a one-parameter family. Bostan and Yurkevich had already shown how to express these as Hadamard products of two algebraic series. | Proposition D gives alternative explicit formulas and a uniform factorization covering infinitely many neighbours. The advance for Christol’s original $`H`$ comes from the general height-two theorem. Whether $`H`$ itself is a Hadamard product of two algebraic hypergeometric series remains open. |
 
-**Status:** preprint, not refereed. Versions 1.4–1.9 were revised after AI-assisted manuscript reviews and AI-assisted development (not journal peer review); see [`docs/`](docs/) and the acknowledgement at the end of the paper. The proof has not been checked by an independent specialist. Corrections are welcome; please open an issue.
+**Status:** preprint, not refereed. Versions 1.4–1.9.1 were revised after AI-assisted manuscript reviews and AI-assisted development (not journal peer review); see [`docs/`](docs/) and the acknowledgement at the end of the paper. The proof has not been checked by an independent specialist. Corrections are welcome; please open an issue.
 
 ## Contents
 
 | Path | Contents |
 |---|---|
-| `paper/christol_w1_v1_9_standalone.tex`, `.pdf` | **current version (1.9)**: standalone source with embedded bibliography, and PDF |
+| `paper/christol_w1_v1_9_1_standalone.tex`, `.pdf` | **current version (1.9.1)**: standalone source with embedded bibliography, and PDF |
+| `paper/christol_w1_v1_9_standalone.tex`, `.pdf` | v1.9 (21 November 2026; GitHub release `v1.9`, archived on Zenodo) |
 | `paper/christol_w1_v1_6_standalone.tex`, `.pdf` | v1.6 standalone source and PDF (rank three only; archived on Zenodo, DOI [10.5281/zenodo.24355840](https://doi.org/10.5281/zenodo.24355840)) |
 | `paper/christol_w1_v1_5_standalone.tex` | v1.5 standalone source |
 | `paper/christol_w1.tex`, `.bib`, `.bbl`, `.pdf` | legacy multi-file source (v1.5 era); superseded by the standalone files above |
@@ -51,7 +52,7 @@ Proposition D observes that some neighbouring series, including the two treated 
 | `supplementary/tools/verify_extension.py` | v1.7 higher-order checks (contiguity and counting identities in ranks 3–6) |
 | `supplementary/septic_companion/` | v1.8 septic companion note v1.1: PDF, TeX, scripts, audit archive, recorded outputs |
 | `supplementary/run_checks.sh` | runs all checks; nonzero exit status on any failed expectation |
-| `docs/v1.9/` | summary of changes from v1.6 to v1.9 |
+| `docs/v1.9/` | summary of changes from v1.6 to v1.9.1, and the v1.7/v1.8 rerun log |
 | `docs/v1.5/`, `docs/v1.4/` | change logs, responses, verification logs and dependency tables for those versions (unchanged) |
 | `releases/` | complete archives of v1.4 and v1.5, each with `SHA256SUMS` and, for v1.5, the one-command check `verify_all.sh`; the septic companion bundle v1.1 as distributed |
 
@@ -86,6 +87,11 @@ SHA-256 of the archives:
 - v1.5: `ae86b2470d5cc82eec60e47bf88dda51577830f1a8ba6378ff3bf204bc63f8b1`
 - v1.4: `06f5ad9ce69ea592b1c99ae301051af5f7880446a5bcb4d6e7126a0fb3cc74e0`
 
+SHA-256 of the v1.9.1 paper files:
+
+- `christol_w1_v1_9_1_standalone.tex`: `4cea643b721d6e6251849e417ad8d7420afceed090885297f6eb29d9f7fca181`
+- `christol_w1_v1_9_1_standalone.pdf`: `9b9256e19b5699a875ec5f91663790c8f24ff2d29854cf4e04628e929077d8b7`
+
 SHA-256 of the v1.9 paper files:
 
 - `christol_w1_v1_9_standalone.tex`: `9f7083e4fb71f3e57e0436261d51a796f37cba7f7d0e8bda2dbb0f9c95bba4d5`
@@ -108,7 +114,7 @@ The scripts check examples, the search and its bookkeeping. They do not verify t
 
 ```sh
 cd paper
-pdflatex christol_w1_v1_9_standalone.tex   # run three times for references and contents
+pdflatex christol_w1_v1_9_1_standalone.tex   # run three times for references and contents
 ```
 
 The bibliography is embedded, so no BibTeX run is needed. The file compiles without errors or undefined references with TeX Live 2022/2023.
