@@ -45,6 +45,7 @@ Proposition D observes that some neighbouring series, including the two treated 
 | `paper/christol_w1_v1_6_standalone.tex`, `.pdf` | v1.6 standalone source and PDF (rank three only; archived on Zenodo, DOI [10.5281/zenodo.24355840](https://doi.org/10.5281/zenodo.24355840)) |
 | `paper/christol_w1_v1_5_standalone.tex` | v1.5 standalone source |
 | `paper/christol_w1.tex`, `.bib`, `.bbl`, `.pdf` | legacy multi-file source (v1.5 era); superseded by the standalone files above |
+| `graphics/` | explanatory figures: order, height and number of variables; what is and isn't established (see its `README.md`) |
 | `supplementary/scripts/` | exact-arithmetic scripts for §9.1 (Christol's example), Proposition D and Appendices A–C |
 | `supplementary/results/` | stored reference outputs |
 | `supplementary/search/` | search code, results, explicit B2/B3 pools, and tests (Appendix C) |
